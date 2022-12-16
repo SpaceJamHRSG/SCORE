@@ -10,6 +10,7 @@ namespace Music
     public class RhythmLine : MonoBehaviour
     {
         public Action OnTick;
+        public Action OnEnd;
         
         [SerializeField] private AudioClip audio;
         [SerializeField] private TextAsset script;
@@ -25,12 +26,14 @@ namespace Music
         {
             Initialize();
             _parsed = false;
+            OnTick += () => Debug.Log("tick!");
         }
 
         private void Update()
         {
             //DebugParser();
-            CheckInstructions();
+            ParseOnSpacePressed();
+            if(_parsed) CheckInstructions();
         }
         
         public void Play()
@@ -56,18 +59,37 @@ namespace Music
         {
             float currentTime = _audioSource.time;
             float timeOfLastInstruction = _instructions[_ptr].Time;
-            float timeOfNextInstruction = _instructions[_ptr + 1].Time;
             
-            while (currentTime >= timeOfNextInstruction && _ptr < _instructions.Count - 1) //forward passage of time
-            {
-                _ptr++;
-                timeOfNextInstruction = _instructions[_ptr + 1].Time;
-                OnTick?.Invoke();
-            }
             while (currentTime < timeOfLastInstruction && _ptr > 0) //song was rewound somehow
             {
                 _ptr--;
                 timeOfLastInstruction = _instructions[_ptr].Time;
+            }
+
+            if (_ptr == _instructions.Count - 1) return;
+            
+            RhythmInstruction nextInstruction = _instructions[_ptr + 1];
+            float timeOfNextInstruction = nextInstruction.Time;
+            
+            while (currentTime >= timeOfNextInstruction && _ptr < _instructions.Count - 1) //forward passage of time
+            {
+                switch (nextInstruction.Type)
+                {
+                    case RhythmInstructionType.Tick:
+                        OnTick?.Invoke();
+                        break;
+                    case RhythmInstructionType.End:
+                        OnEnd?.Invoke();
+                        Debug.Log("This line is over.");
+                        break;
+                }
+                
+                _ptr++;
+                if (_ptr < _instructions.Count - 1)
+                {
+                    nextInstruction = _instructions[_ptr + 1];
+                    timeOfNextInstruction = nextInstruction.Time;
+                }
             }
         }
         
@@ -82,5 +104,15 @@ namespace Music
                 }
             }
         }
+        
+        private void ParseOnSpacePressed()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Parse(scriptField);
+                Play();
+            }
+        }
+        
     }
 }

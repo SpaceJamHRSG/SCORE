@@ -5,7 +5,7 @@ namespace Music
 {
     public enum RhythmInstructionType
     {
-        Tick, Wait, BPM, None
+        Tick, Wait, BPM, End, None
     }
     public struct RhythmInstruction
     {
@@ -21,7 +21,8 @@ namespace Music
                 {
                     case RhythmInstructionType.Tick:
                     case RhythmInstructionType.Wait:
-                        Debug.LogWarning("Duration of beat cannot be negative. Defaulting to 0.");
+                        if(time < 0)
+                            Debug.LogWarning("Occurrence of beat cannot be negative time. Defaulting to 0.");
                         return Math.Max(0, time);
                     default:
                         return time;

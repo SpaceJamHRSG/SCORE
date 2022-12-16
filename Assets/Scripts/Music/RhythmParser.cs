@@ -28,6 +28,7 @@ namespace Music
                 if(instruction.Type != RhythmInstructionType.None)
                     instructions.Add(instruction);
             }
+            instructions.Add(new RhythmInstruction(RhythmInstructionType.End, _timeTracker, 0));
 
             return instructions;
         }
