@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7599684439502406150}
   - component: {fileID: 7599684439502406148}
   - component: {fileID: 7599684439502406149}
+  - component: {fileID: -5203215487644483688}
   m_Layer: 0
   m_Name: Grunt_1
   m_TagString: Untagged
@@ -133,3 +134,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-5203215487644483688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7599684439502406146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c483c057062a24bbfa8372d4dc734c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
