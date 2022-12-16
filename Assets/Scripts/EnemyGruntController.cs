@@ -6,6 +6,7 @@ public class EnemyGruntController : MonoBehaviour {
 
     private PlayerManager playerReference;
 
+    private float health = 10;
     private float movementSpeed = 0.01f;
 
     // Start is called before the first frame update

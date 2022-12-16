@@ -8,7 +8,6 @@ public class EnemyDirector : MonoBehaviour {
     public GameObject[] bossPrefabs;
 
     private int maxBaseEnemies = 100;
-    private int enemyBaseMaxHealth = 100;
 
     private float spawnRate = 1; // per second
 
@@ -50,8 +49,4 @@ public class EnemyDirector : MonoBehaviour {
 
     }
 
-    // Update is called once per frame
-    void Update() {
-
-    }
 }

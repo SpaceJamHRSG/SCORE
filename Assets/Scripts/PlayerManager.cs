@@ -19,6 +19,7 @@ public class PlayerManager : MonoBehaviour {
 
     // Player inventory
     // TODO: weapons, upgrades
+    private List<Weapon> weapons = new List<Weapon>();
 
     // Derived stats
     // TODO: add up the bonuses
@@ -28,6 +29,9 @@ public class PlayerManager : MonoBehaviour {
     private BoxCollider2D _collider;
 
     void Start() {
+        StarterWeapon st = this.gameObject.AddComponent<StarterWeapon>();
+        weapons.Add(st);
+
         // Get the Rigidbody and Box Collider references
         rigidbody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<BoxCollider2D>();
