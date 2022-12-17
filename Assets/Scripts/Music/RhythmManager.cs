@@ -23,6 +23,9 @@ namespace Music
         public void StartMainAudio()
         {
             mainAudio.InitAllLines();
+            restAudio.InitAllLines();
+            _targetVolume[mainAudio] = 1;
+            mainAudio.PlayAllLines();
         }
 
         private void Update()

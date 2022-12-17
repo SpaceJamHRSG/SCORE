@@ -25,6 +25,8 @@ namespace Projectiles
 
         private int damage;
         private Allegiance _allegiance;
+
+        private float _startingRotation;
         public Allegiance Allegiance { get; set; }
 
         private void Awake()
@@ -36,6 +38,7 @@ namespace Projectiles
         private void OnEnable()
         {
             _timeSpawned = Time.time;
+            _startingRotation = transform.rotation.eulerAngles.z;
         }
 
         private void Update()
@@ -43,13 +46,13 @@ namespace Projectiles
             if (SpeedFunction == null)
             {
                 _speed += _acceleration * Time.deltaTime;
-                transform.Translate(Vector2.up * _speed * Time.deltaTime
-                                    + Vector2.up * _acceleration * Time.deltaTime * Time.deltaTime);
             }
             else
             {
                 _speed = SpeedFunction(Time.time - _timeSpawned);
             }
+            transform.Translate(Vector2.up * _speed * Time.deltaTime
+                                + Vector2.up * _acceleration * Time.deltaTime * Time.deltaTime);
 
             if (AngularFunction == null)
             {
@@ -59,9 +62,9 @@ namespace Projectiles
             }
             else
             {
-                _angularVelocity = AngularFunction(Time.time - _timeSpawned);
+                transform.rotation = Quaternion.Euler(0,0,_startingRotation + AngularFunction(Time.time - _timeSpawned));
             }
-
+            
             if (Time.time > _timeSpawned + _maxLifeTime)
             {
                 if(_pooledObject.GetPool() == null) Destroy(gameObject);
@@ -75,6 +78,11 @@ namespace Projectiles
             _acceleration = acceleration;
             _angularVelocity = angular;
             _angularAcceleration = angularAcceleration;
+        }
+
+        public void SetStartingRotation(float sr)
+        {
+            _startingRotation = sr;
         }
 
         private void OnTriggerEnter2D(Collider2D col)
