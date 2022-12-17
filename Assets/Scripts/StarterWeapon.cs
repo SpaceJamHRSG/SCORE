@@ -16,7 +16,7 @@ public class StarterWeapon : Weapon {
         while (true) {
             yield return new WaitForSeconds(1 / baseAttackRate);
 
-            print("Projectile fired | TODO: Instantiate projectile here!");
+            //print("Projectile fired | TODO: Instantiate projectile here!");
             //TODO: Instantiate Projectile
             //Instantiate();
 

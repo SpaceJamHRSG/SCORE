@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-
     public GameObject playerPrefab;
     private GameObject playerReference;
 
