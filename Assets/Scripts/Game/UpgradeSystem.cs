@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using UI;
 using UnityEngine;
 using Random = System.Random;
 
@@ -14,6 +15,7 @@ namespace Game
         private Dictionary<StatType, Stat> _getStatInfo;
         private PlayerManager _activePlayer;
         public Dictionary<StatType, Stat> GetStatInfo => _getStatInfo;
+        public UpgradeUI UI;
         public PlayerManager ActivePlayer
         {
             get { return _activePlayer; }
@@ -52,6 +54,20 @@ namespace Game
         {
             upgrade.Apply(player);
             _appliedUpgrades.Push(upgrade);
+        }
+
+        public void OpenUpgradeScreen(int choices)
+        {
+            UI.enabled = true;
+            UI.gameObject.SetActive(true);
+            List<IUpgrade> upgrades = new List<IUpgrade>();
+            for (int i = 0; i < choices; i++)
+            {
+                IUpgrade upgrade = GetRandomUpgrade(ActivePlayer);
+                upgrades.Add(upgrade);
+            }
+            UI.SetUpgrades(upgrades);
+            UI.Refresh();
         }
     }
 }

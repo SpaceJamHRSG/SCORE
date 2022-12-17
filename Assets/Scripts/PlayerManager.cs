@@ -17,6 +17,8 @@ public class PlayerManager : MonoBehaviour {
 
     // Player base stats
     private int level = 1;
+
+    public int Level => level;
     //private int baseAttack = 10;
     private int baseMaxHealth = 100;
     //private int baseCriticalChance = 10; // %

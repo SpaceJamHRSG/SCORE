@@ -30,8 +30,14 @@ namespace UI
 
         public void UpdateGraphics()
         {
+            if (Upgrade == null)
+            {
+                gameObject.SetActive(false);
+                return;
+            }
             mainText.text = _upgrade.GetUpgradeName();
             flavourText.text = _upgrade.GetFlavourText();
+            image.sprite = _upgrade.GetImage();
         }
     }
 }
