@@ -1,4 +1,5 @@
 using Game;
+using Music;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour {
 
     public GameObject playerPrefab;
     public UpgradeSystem upgradeSystem;
+    public RhythmManager rhythmManager;
     private GameObject playerReference;
     private void Awake() {
         instance = this;
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour {
     private void Start() {
         playerReference = Instantiate(playerPrefab, new Vector3(0,0,0), Quaternion.identity);
         upgradeSystem.ActivePlayer = playerReference.GetComponent<PlayerManager>();
+        rhythmManager.StartMainAudio();
     }
 
 

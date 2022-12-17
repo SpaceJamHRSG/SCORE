@@ -57,14 +57,14 @@ namespace Music
             _responders.Remove(res);
         }
 
-        private void InitAllLines()
+        public void InitAllLines()
         {
             foreach (var line in _rhythmLines)
             {
                 line.Parse();
             }
         }
-        private void StartAllLines()
+        public void PlayAllLines()
         {
             foreach (var line in _rhythmLines)
             {
@@ -72,7 +72,7 @@ namespace Music
             }
         }
         
-        private void StopAllLines()
+        public void StopAllLines()
         {
             foreach (var line in _rhythmLines)
             {
@@ -80,12 +80,25 @@ namespace Music
             }
         }
         
-        private void PauseAllLines()
+        public void PauseAllLines()
         {
             foreach (var line in _rhythmLines)
             {
                 line.Pause();
             }
+        }
+
+        public void SetVolume(float v)
+        {
+            foreach (var line in _rhythmLines)
+            {
+                line.SetVolume(v);
+            }
+        }
+
+        public float GetVolume()
+        {
+            return _rhythmLines[0].GetVolume();
         }
     }
 }

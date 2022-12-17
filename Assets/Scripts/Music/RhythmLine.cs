@@ -132,6 +132,16 @@ namespace Music
                 Play();
             }
         }
+
+        public void SetVolume(float f)
+        {
+            _audioSource.volume = f;
+        }
+        
+        public float GetVolume()
+        {
+            return _audioSource.volume;
+        }
         
     }
 }
