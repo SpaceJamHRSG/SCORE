@@ -7,7 +7,7 @@ public class EnemyDirector : MonoBehaviour {
     public GameObject[] gruntPrefabs;
     public GameObject[] bossPrefabs;
 
-    private int maxBaseEnemies = 30;
+    private int baseMaxEnemies = 100;
 
     private int maxEnemies;
     private int maxEnemiesIncrementInterval = 5; // seconds
@@ -18,7 +18,7 @@ public class EnemyDirector : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        maxEnemies = maxBaseEnemies;
+        maxEnemies = baseMaxEnemies;
         playerReference = FindObjectOfType<PlayerManager>();
 
         Debug.Assert(playerReference);
