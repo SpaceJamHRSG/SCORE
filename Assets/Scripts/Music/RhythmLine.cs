@@ -9,8 +9,8 @@ namespace Music
     [RequireComponent(typeof(AudioSource))]
     public class RhythmLine : MonoBehaviour
     {
-        public Action OnTick;
-        public Action OnEnd;
+        public Action<RhythmLine> OnTick;
+        public Action<RhythmLine> OnEnd;
         
         [SerializeField] private AudioClip audio;
         [SerializeField] private TextAsset script;
@@ -26,7 +26,7 @@ namespace Music
         {
             Initialize();
             _parsed = false;
-            OnTick += () => Debug.Log("tick!");
+            OnTick += (_) => Debug.Log("tick!");
         }
 
         private void Update()
@@ -41,6 +41,16 @@ namespace Music
             _audioSource.Play();
         }
 
+        public void Stop()
+        {
+            _audioSource.Stop();
+        }
+        
+        public void Pause()
+        {
+            _audioSource.Pause();
+        }
+
         private void Initialize()
         {
             _parser = new RhythmParser();
@@ -48,6 +58,12 @@ namespace Music
             _ptr = 0;
         }
         
+        public void Parse()
+        {
+            Initialize();
+            _instructions = _parser.ParseTextToInstructions(script.ToString());
+            _parsed = true;
+        }
         public void Parse(string text)
         {
             Initialize();
@@ -76,10 +92,10 @@ namespace Music
                 switch (nextInstruction.Type)
                 {
                     case RhythmInstructionType.Tick:
-                        OnTick?.Invoke();
+                        OnTick?.Invoke(this);
                         break;
                     case RhythmInstructionType.End:
-                        OnEnd?.Invoke();
+                        OnEnd?.Invoke(this);
                         Debug.Log("This line is over.");
                         break;
                 }
