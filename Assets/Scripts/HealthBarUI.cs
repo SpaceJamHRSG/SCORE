@@ -14,8 +14,8 @@ public class HealthBarUI : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        int currHealth = healthEntity.GetHealth();
-        int maxHealth = healthEntity.GetMaxHealth();
+        float currHealth = healthEntity.GetHealth();
+        float maxHealth = healthEntity.GetMaxHealth();
         if (currHealth == maxHealth) spriteRenderer.enabled = false;
         else {
             spriteRenderer.enabled = true;
