@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Entity;
@@ -5,7 +6,12 @@ using Game;
 using UnityEngine;
 using Entity;
 
-public class PlayerManager : MonoBehaviour {
+public class PlayerManager : MonoBehaviour
+{
+
+    private Collider2D[] _collidersArray;
+    private Pickup[] _pickupsArray;
+    
     public string playerName = "default"; // TODO: choose name at start of play(?), for leaderboard
 
     [SerializeField] private PlayerStats originalStats;
@@ -73,8 +79,11 @@ public class PlayerManager : MonoBehaviour {
         }
     }
 
-    void Start() {
-
+    void Start()
+    {
+        _collidersArray = new Collider2D[512];
+        _pickupsArray = new Pickup[512];
+        
         ResetStats();
         random = new System.Random();
         weapons.Clear();
@@ -105,7 +114,14 @@ public class PlayerManager : MonoBehaviour {
 
         // Move the character based on the input
         rigidbody.velocity = new Vector2(horizontalInput * baseMovementSpeed, verticalInput * baseMovementSpeed);
-
+        
+        Physics2D.OverlapCircleNonAlloc(transform.position, pickupRadius, _collidersArray);
+        foreach (var col in _collidersArray)
+        {
+            Pickup pk = col.gameObject.GetComponent<Pickup>();
+            if (pk == null) continue;
+            pk.AttractTo(transform);
+        }
     }
 
     public bool IsWeaponEnabled(WeaponDefinition wep)

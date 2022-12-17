@@ -51,6 +51,9 @@ namespace Entity
         private void OnTriggerEnter2D(Collider2D col)
         {
             Pooling.Instance.Despawn(_pooledObject);
+            ExpLevelEntity expLevelEntity = col.gameObject.GetComponent<ExpLevelEntity>();
+            if (expLevelEntity == null) return;
+            expLevelEntity.GainExperience(expValue);
         }
     }
 }
