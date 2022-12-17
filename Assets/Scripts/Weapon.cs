@@ -14,6 +14,9 @@ public class Weapon : MonoBehaviour {
     private int _currentLevel;
 
     public bool IsStartingWeapon;
+    private bool _weaponEnabled;
+
+    public bool HasThisWeapon => _weaponEnabled;
     
     public void GrantWeaponLevel(int level)
     {
@@ -27,8 +30,23 @@ public class Weapon : MonoBehaviour {
 
         if(_activeShooter != null)
             Destroy(_activeShooter.gameObject);
+        _weaponEnabled = true;
         _activeShooter = Instantiate(newWeapon, transform);
+        _currentLevel = level;
         newWeapon.transform.position = Vector3.zero;
         newWeapon.transform.rotation = Quaternion.identity;
+    }
+
+    public void LevelUpWeapon(int by = 1)
+    {
+        GrantWeaponLevel(_currentLevel + by);
+    }
+
+    public void RemoveWeapon()
+    {
+        Destroy(_activeShooter);
+        _currentLevel = 0;
+        _activeShooter = null;
+        _weaponEnabled = false;
     }
 }

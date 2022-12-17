@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Game;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour {
@@ -18,7 +19,26 @@ public class PlayerManager : MonoBehaviour {
     //private int baseCriticalDamageBonus = 50; // %
     private float baseMovementSpeed = 5f;
     private float pickupRadius = 3f;
+    private float damageMultiplier = 1;
+
+    public int BaseMaxHealth
+    {
+        get => baseMaxHealth;
+        set => baseMaxHealth = value;
+    }
     
+    public float BaseMoveSpeed
+    {
+        get => baseMovementSpeed;
+        set => baseMovementSpeed = value;
+    }
+    
+    public float BaseDamage
+    {
+        get => damageMultiplier;
+        set => damageMultiplier = value;
+    }
+
 
     // Player inventory
     [SerializeField] private List<Weapon> weapons = new List<Weapon>();
@@ -62,6 +82,60 @@ public class PlayerManager : MonoBehaviour {
         // Move the character based on the input
         rigidbody.velocity = new Vector2(horizontalInput * baseMovementSpeed, verticalInput * baseMovementSpeed);
 
+    }
+
+    public bool IsWeaponEnabled(WeaponDefinition wep)
+    {
+        foreach (var weapon in weapons)
+        {
+            if (weapon.weaponDefinition == wep)
+            {
+                return weapon.HasThisWeapon;
+            }
+        }
+
+        return false;
+    }
+
+    public void GrantWeaponLevel(WeaponDefinition wep, int lvl)
+    {
+        foreach (var weapon in weapons)
+        {
+            if (weapon.weaponDefinition == wep)
+            {
+                weapon.GrantWeaponLevel(lvl);
+                return;
+            }
+        }
+
+        Debug.LogError($"No such weapon of {wep.name} found on player.");
+    }
+    
+    public void LevelUpWeapon(WeaponDefinition wep, int lvl)
+    {
+        foreach (var weapon in weapons)
+        {
+            if (weapon.weaponDefinition == wep)
+            {
+                weapon.LevelUpWeapon(lvl);
+                return;
+            }
+        }
+        
+        Debug.LogError($"No such weapon of {wep.name} found on player.");
+    }
+    
+    public void RemoveWeapon(WeaponDefinition wep)
+    {
+        foreach (var weapon in weapons)
+        {
+            if (weapon.weaponDefinition == wep)
+            {
+                weapon.RemoveWeapon();
+            }
+        }
+        
+        Debug.LogError($"No such weapon of {wep.name} found on player.");
     }
 
 }
