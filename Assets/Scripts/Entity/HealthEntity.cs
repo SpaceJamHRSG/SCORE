@@ -5,9 +5,9 @@ namespace Entity
 {
     public class HealthEntity : MonoBehaviour
     {
-        public Action<int> OnTakeHit;
-        public Action<int> OnDeath;
-        public Action<int> OnHeal;
+        public static Action<int, HealthEntity> OnTakeHit;
+        public static Action<int, HealthEntity> OnDeath;
+        public static Action<int, HealthEntity> OnHeal;
 
         [SerializeField] private int maxHealth;
         private int _health;
@@ -23,17 +23,17 @@ namespace Entity
         public void TakeDamage(int damage)
         {
             _health -= damage;
-            OnTakeHit?.Invoke(damage);
+            OnTakeHit?.Invoke(damage, this);
             if (_health <= 0)
             {
-                OnDeath?.Invoke(damage);
+                OnDeath?.Invoke(damage, this);
             }
         }
 
         public void Heal(int h)
         {
             _health += h;
-            OnHeal?.Invoke(h);
+            OnHeal?.Invoke(h, this);
         }
     }
 }
