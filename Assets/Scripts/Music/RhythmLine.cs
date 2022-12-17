@@ -11,10 +11,12 @@ namespace Music
     {
         public Action<RhythmLine> OnTick;
         public Action<RhythmLine> OnEnd;
-        
+
+        [SerializeField] private string lineTag;
         [SerializeField] private AudioClip audio;
         [SerializeField] private TextAsset script;
         [SerializeField] private string scriptField;
+        
         private AudioSource _audioSource;
         private List<RhythmInstruction> _instructions;
         private RhythmParser _parser;
@@ -22,11 +24,12 @@ namespace Music
         private bool _parsed;
         private int _ptr;
 
+        public string LineTag => lineTag;
+
         private void Start()
         {
             Initialize();
             _parsed = false;
-            OnTick += (_) => Debug.Log("tick!");
         }
 
         private void Update()

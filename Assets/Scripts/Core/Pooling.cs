@@ -23,14 +23,21 @@ namespace Core
             }
         }
 
-        public void Spawn(PooledObject prefab, Vector3 pos, Quaternion rot)
+        public T Spawn<T>(GameObject go, Vector3 pos, Quaternion rot)
         {
             ObjectPool pool;
+            PooledObject prefab = go.GetComponent<PooledObject>();
+            if (prefab == null)
+            {
+                Debug.LogError($"Attempting to spawn non-poolable object \"{go.name}\" in pool.");
+                return prefab.GetComponent<T>();
+            }
             if (!_prefab2Pool.ContainsKey(prefab))
             {
                 GameObject poolObject = Instantiate(new GameObject(), transform);
+                poolObject.name = "Pool";
                 pool = poolObject.AddComponent<ObjectPool>();
-                pool.Init(prefab, 50);
+                pool.Init(prefab, 1);
                 _prefab2Pool.Add(prefab, pool);
             }
             else
@@ -40,6 +47,8 @@ namespace Core
             
             PooledObject obj = pool.SpawnOne(pos, rot);
             obj.SetPool(pool);
+
+            return obj.GetComponent<T>();
         }
 
         public void Despawn(PooledObject obj)

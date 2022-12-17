@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using Projectiles;
 using UnityEngine;
 
 namespace Music
@@ -11,6 +12,8 @@ namespace Music
         public static Action<RhythmLine> OnTick;
         public static Action<RhythmLine> OnEnd;
         [SerializeField] private List<RhythmLine> _rhythmLines;
+
+        private static List<RhythmResponder> _responders;
 
         private void OnEnable()
         {
@@ -33,6 +36,24 @@ namespace Music
         public void Tick(RhythmLine fromLine)
         {
             OnTick?.Invoke(fromLine);
+            foreach (var r in _responders)
+            {
+                if (r.Line.Equals(fromLine.LineTag))
+                {
+                    r.Act();
+                }
+            }
+        }
+
+        public static void AddResponder(RhythmResponder res)
+        {
+            if (_responders == null) _responders = new List<RhythmResponder>();
+            _responders.Add(res);
+        }
+
+        public static void RemoveResponder(RhythmResponder res)
+        {
+            _responders.Remove(res);
         }
 
         private void InitAllLines()
