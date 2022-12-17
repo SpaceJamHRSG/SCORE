@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using Game;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     private static GameManager instance;
@@ -23,6 +22,12 @@ public class GameManager : MonoBehaviour {
         playerReference = Instantiate(playerPrefab, new Vector3(0,0,0), Quaternion.identity);
     }
 
+
+    public void EndGame() {
+        // Game over
+        Time.timeScale = 0.1f;
+        SceneManager.LoadSceneAsync("GameOverUI", LoadSceneMode.Additive);
+    }
 
 
 }
