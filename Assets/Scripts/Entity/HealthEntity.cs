@@ -35,5 +35,13 @@ namespace Entity
             _health += h;
             OnHeal?.Invoke(h, this);
         }
+
+        public int GetHealth() {
+            return _health;
+        }
+
+        public int GetMaxHealth() {
+            return maxHealth;
+        }
     }
 }

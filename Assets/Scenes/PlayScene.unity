@@ -1104,7 +1104,6 @@ GameObject:
   - component: {fileID: 1006923639}
   - component: {fileID: 1006923637}
   - component: {fileID: 1006923640}
-  - component: {fileID: 1006923641}
   m_Layer: 0
   m_Name: Systems
   m_TagString: Untagged
@@ -1159,6 +1158,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 7599684439502406146, guid: 0b32ae4a02eef6c4287bed9d09392d2a, type: 3}
+  playerStats:
+    _maxHealth: 0
+    _level: 0
+    _xp: 0
 --- !u!114 &1006923640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1172,20 +1175,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreTMP: {fileID: 0}
---- !u!114 &1006923641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1006923636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44275e059a488994fb25fb0d895709bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rhythmLines:
-  - {fileID: 2033284367}
 --- !u!1 &1488328046
 GameObject:
   m_ObjectHideFlags: 0
