@@ -113,6 +113,10 @@ MonoBehaviour:
   angularVelocity: 0
   acceleration: 0
   angularAcceleration: 0
+  enablePendulumMotion: 1
+  magnitude: 60
+  swingSpeed: 1
+  phase: -0.5
 --- !u!1 &7415499349965849973
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,3 +180,7 @@ MonoBehaviour:
   angularVelocity: 0
   acceleration: 0
   angularAcceleration: 0
+  enablePendulumMotion: 0
+  magnitude: 60
+  swingSpeed: 1
+  phase: 0.5

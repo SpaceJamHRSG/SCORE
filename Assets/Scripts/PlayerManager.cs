@@ -77,6 +77,7 @@ public class PlayerManager : MonoBehaviour {
 
         ResetStats();
         random = new System.Random();
+        weapons.Clear();
         foreach (Transform t in transform)
         {
             Weapon w = t.GetComponent<Weapon>();
@@ -84,7 +85,7 @@ public class PlayerManager : MonoBehaviour {
         }
         foreach (var weapon in weapons)
         {
-            if(weapon.IsStartingWeapon) weapon.GrantWeaponLevel(2);
+            if(weapon.IsStartingWeapon) weapon.GrantWeaponLevel(1);
         }
 
         currentHealth = baseMaxHealth;

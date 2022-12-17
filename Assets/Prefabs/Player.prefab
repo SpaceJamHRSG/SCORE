@@ -112,7 +112,6 @@ GameObject:
   - component: {fileID: 7599684439502406148}
   - component: {fileID: 7599684439502406149}
   - component: {fileID: 6610159333140096527}
-  - component: {fileID: 3407339046652502117}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -202,7 +201,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: default
-  weapons: []
+  originalStats: {fileID: 11400000, guid: 4f127a7b7c19e5c4b9faffd0c0bbe795, type: 2}
+  weapons:
+  - {fileID: 1184464789463270085}
 --- !u!50 &7599684439502406148
 Rigidbody2D:
   serializedVersion: 4
@@ -264,23 +265,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   allegiance: 0
---- !u!114 &3407339046652502117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7599684439502406146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2315e14ee9efff459fe12cac97e19d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageMultiplier: 1
-  weaponDefinition: {fileID: 0}
-  IsStartingWeapon: 0
-  enemyDirector: {fileID: 0}
-  particlePrefab: {fileID: 1273012637791388700, guid: 65a5724307584734fa62c2ff88358d6e, type: 3}
 --- !u!1 &8912623122034432462
 GameObject:
   m_ObjectHideFlags: 0

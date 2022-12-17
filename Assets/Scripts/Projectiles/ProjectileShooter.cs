@@ -4,6 +4,7 @@ using Entity;
 using Music;
 using Unity.VisualScripting;
 using UnityEngine;
+using Utility;
 
 namespace Projectiles
 {
@@ -15,6 +16,11 @@ namespace Projectiles
         [SerializeField] private float angularVelocity;
         [SerializeField] private float acceleration;
         [SerializeField] private float angularAcceleration;
+        [Space] [SerializeField] private bool enablePendulumMotion;
+        [SerializeField] private float magnitude;
+        [SerializeField] private float swingSpeed;
+        [SerializeField] private float phase;
+        
         private RhythmResponder _responder;
         public Allegiance Allegiance { get; set; }
 
@@ -32,6 +38,10 @@ namespace Projectiles
         {
             Projectile proj = Pooling.Instance.Spawn<Projectile>(projectilePrefab.gameObject, transform.position, transform.rotation);
             proj.SetParams(speed, acceleration, angularVelocity, angularAcceleration);
+            if (enablePendulumMotion)
+            {
+                proj.SetAngularOverTime(t => MotionUtil.Pendulum(t, magnitude, swingSpeed, phase));
+            }
             proj.Allegiance = Allegiance;
         }
     }
