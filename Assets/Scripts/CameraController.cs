@@ -16,6 +16,7 @@ public class CameraController : MonoBehaviour {
     private Vector3 velocity = Vector3.zero;
 
     void LateUpdate() {
+        target = FindObjectOfType<PlayerManager>().transform;
         Vector3 cameraPosition = transform.position;
 
         // Calculate the new position of the camera based on the target's position
