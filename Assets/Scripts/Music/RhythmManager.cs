@@ -29,7 +29,7 @@ namespace Music
         {
             foreach (var kvp in _targetVolume)
             {
-                kvp.Key.SetVolume(Mathf.Lerp(kvp.Key.GetVolume(), kvp.Value, crossFadeSpeed));
+                kvp.Key.SetVolume(Mathf.Lerp(kvp.Key.GetVolume(), kvp.Value, crossFadeSpeed * Time.deltaTime));
             }
         }
 

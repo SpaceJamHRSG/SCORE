@@ -64,7 +64,10 @@ namespace Music
         public void Parse()
         {
             Initialize();
-            _instructions = _parser.ParseTextToInstructions(script.ToString());
+            if(script != null)
+                _instructions = _parser.ParseTextToInstructions(script.ToString());
+            else
+                _instructions = _parser.ParseTextToInstructions(scriptField.ToString());
             _parsed = true;
         }
         public void Parse(string text)
