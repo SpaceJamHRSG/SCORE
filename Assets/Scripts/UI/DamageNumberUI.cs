@@ -8,7 +8,7 @@ namespace UI
     [RequireComponent(typeof(PooledObject))]
     public class DamageNumberUI : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI textField;
+        [SerializeField] private TextMeshPro textField;
         [Space]
         [SerializeField] private int leftBound;
         [SerializeField] private int rightBound;

@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd28042ca0046d6b524cc54c365fc8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageNumberPrefab: {fileID: 0}
+  damageNumberPrefab: {fileID: 5517702002248767121, guid: 6f840114b73defb4cba2441e7ce63fc0, type: 3}
 --- !u!1 &240513221
 GameObject:
   m_ObjectHideFlags: 0
