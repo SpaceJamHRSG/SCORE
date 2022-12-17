@@ -71,6 +71,11 @@ namespace Projectiles
             _angularAcceleration = angularAcceleration;
         }
 
+        private void OnTriggerEnter2D(Collider2D col)
+        {
+            
+        }
+
         public void SetSpeedOverTime(Func<float, float> speedFunction)
         {
             SpeedFunction = speedFunction;
