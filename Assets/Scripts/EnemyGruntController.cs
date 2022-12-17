@@ -32,7 +32,7 @@ public class EnemyGruntController : MonoBehaviour {
         attackCooldown = 0;
 
         // Damage player
-        if (collision.gameObject.Equals(FindObjectOfType<PlayerManager>().gameObject)) {
+        if (collision.gameObject.Equals(playerReference.gameObject)) {
             playerReference.GetComponent<Entity.HealthEntity>().TakeDamage(2); // TODO: adjust
         }
 
