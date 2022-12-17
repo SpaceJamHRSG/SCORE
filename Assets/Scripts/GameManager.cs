@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Game;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
@@ -15,6 +16,8 @@ public class GameManager : MonoBehaviour {
 
     public GameObject playerPrefab;
     private GameObject playerReference;
+    
+    public PlayerStats playerStats;
 
     private void Awake() {
         instance = this;
