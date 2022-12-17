@@ -23,14 +23,23 @@ namespace Core
             }
         }
 
-        public void Spawn(PooledObject prefab)
+        public void Spawn(PooledObject prefab, Vector3 pos, Quaternion rot)
         {
+            ObjectPool pool;
             if (!_prefab2Pool.ContainsKey(prefab))
             {
                 GameObject poolObject = Instantiate(new GameObject(), transform);
-                ObjectPool pool = poolObject.AddComponent<ObjectPool>();
+                pool = poolObject.AddComponent<ObjectPool>();
                 pool.Init(prefab, 50);
+                _prefab2Pool.Add(prefab, pool);
             }
+            else
+            {
+                pool = _prefab2Pool[prefab];
+            }
+            
+            PooledObject obj = pool.SpawnOne(pos, rot);
+            obj.SetPool(pool);
         }
 
         public void Despawn(PooledObject obj)
@@ -62,20 +71,23 @@ namespace Core
             }
         }
 
-        public void SpawnOne(Vector3 position, Quaternion rotation)
+        public PooledObject SpawnOne(Vector3 position, Quaternion rotation)
         {
-            if (_inactiveQueue.TryDequeue(out PooledObject obj))
+            PooledObject toSpawn;
+            if (_inactiveQueue.TryDequeue(out toSpawn))
             {
-                obj.gameObject.SetActive(true);
-                Transform t = obj.transform;
+                toSpawn.gameObject.SetActive(true);
+                Transform t = toSpawn.transform;
                 t.position = position;
                 t.rotation = rotation;
             }
             else
             {
                 AddToPool(20);
-                PooledObject initObject = Instantiate(_prefab, position, rotation);
+                toSpawn = Instantiate(_prefab, position, rotation);
             }
+
+            return toSpawn;
         }
 
         public void Despawn(PooledObject obj)
