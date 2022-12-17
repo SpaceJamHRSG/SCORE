@@ -56,7 +56,7 @@ namespace Projectiles
 
             if (AngularFunction == null)
             {
-                _angularVelocity += _angularVelocity * Time.deltaTime;
+                _angularVelocity += _angularAcceleration * Time.deltaTime;
                 transform.Rotate(Vector3.forward, _angularVelocity * Time.deltaTime
                                                   + _angularAcceleration * Time.deltaTime * Time.deltaTime);
             }

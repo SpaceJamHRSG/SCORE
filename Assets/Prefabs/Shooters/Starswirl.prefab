@@ -59,10 +59,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 20
-  angularVelocity: 90
+  speed: 30
+  angularVelocity: 180
   acceleration: 0
-  angularAcceleration: 0
+  angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
   swingSpeed: 0
@@ -126,10 +126,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 20
-  angularVelocity: 90
+  speed: 30
+  angularVelocity: 180
   acceleration: 0
-  angularAcceleration: 0
+  angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
   swingSpeed: 0
@@ -249,10 +249,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 20
-  angularVelocity: 90
+  speed: 30
+  angularVelocity: 180
   acceleration: 0
-  angularAcceleration: 0
+  angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
   swingSpeed: 0
@@ -316,10 +316,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 20
-  angularVelocity: 90
+  speed: 30
+  angularVelocity: 180
   acceleration: 0
-  angularAcceleration: 0
+  angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
   swingSpeed: 0
@@ -383,10 +383,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 20
-  angularVelocity: 90
+  speed: 30
+  angularVelocity: 180
   acceleration: 0
-  angularAcceleration: 0
+  angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
   swingSpeed: 0
@@ -450,10 +450,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 20
-  angularVelocity: 90
+  speed: 30
+  angularVelocity: 180
   acceleration: 0
-  angularAcceleration: 0
+  angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
   swingSpeed: 0
@@ -517,10 +517,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 20
-  angularVelocity: 90
+  speed: 30
+  angularVelocity: 180
   acceleration: 0
-  angularAcceleration: 0
+  angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
   swingSpeed: 0
@@ -584,10 +584,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 20
-  angularVelocity: 90
+  speed: 30
+  angularVelocity: 180
   acceleration: 0
-  angularAcceleration: 0
+  angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
   swingSpeed: 0
