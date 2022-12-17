@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7599684439502406148}
   - component: {fileID: 7599684439502406149}
   - component: {fileID: -1440402699107284944}
+  - component: {fileID: -8912686312687752776}
   m_Layer: 0
   m_Name: Grunt_1
   m_TagString: Untagged
@@ -161,3 +162,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   allegiance: 1
+--- !u!114 &-8912686312687752776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7599684439502406146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c962c38fa0024645934512032794be40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropTable:
+  - Weight: 1
+    Drops:
+    - {fileID: 8609282943972605956, guid: 1c8d9d8faee5a8f4facd1ec46735491e, type: 3}
+  - Weight: 2
+    Drops:
+    - {fileID: 8609282943972605956, guid: 1c8d9d8faee5a8f4facd1ec46735491e, type: 3}
+    - {fileID: 8609282943972605956, guid: 1c8d9d8faee5a8f4facd1ec46735491e, type: 3}
+  - Weight: 1
+    Drops:
+    - {fileID: 8609282943972605956, guid: 1c8d9d8faee5a8f4facd1ec46735491e, type: 3}
+    - {fileID: 8609282943972605956, guid: 1c8d9d8faee5a8f4facd1ec46735491e, type: 3}
+    - {fileID: 8609282943972605956, guid: 1c8d9d8faee5a8f4facd1ec46735491e, type: 3}
+  - Weight: 1
+    Drops:
+    - {fileID: 8609282943972605956, guid: 1c8d9d8faee5a8f4facd1ec46735491e, type: 3}
+    - {fileID: 8609282943972605956, guid: 1c8d9d8faee5a8f4facd1ec46735491e, type: 3}
+    - {fileID: 8609282943972605956, guid: 1c8d9d8faee5a8f4facd1ec46735491e, type: 3}
+    - {fileID: 8609282943972605956, guid: 1c8d9d8faee5a8f4facd1ec46735491e, type: 3}
+  dropVariance: 1
