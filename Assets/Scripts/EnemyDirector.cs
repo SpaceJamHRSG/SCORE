@@ -31,6 +31,7 @@ public class EnemyDirector : MonoBehaviour {
 
     IEnumerator GruntSpawner() {
         while(true) {
+            if (playerReference == null) playerReference = FindObjectOfType<PlayerManager>();
 
             yield return new WaitForSeconds(1 / spawnRate);
 
