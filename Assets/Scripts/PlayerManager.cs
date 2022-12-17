@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Entity;
 using Game;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour {
     public string playerName = "default"; // TODO: choose name at start of play(?), for leaderboard
+
+    [SerializeField] private PlayerStats originalStats;
 
     // Progress statistics
     private float survivalTime = 0; // Time spent alive, in seconds
@@ -20,6 +23,8 @@ public class PlayerManager : MonoBehaviour {
     private float baseMovementSpeed = 5f;
     private float pickupRadius = 3f;
     private float damageMultiplier = 1;
+
+    private System.Random random;
 
     public int BaseMaxHealth
     {
@@ -53,7 +58,10 @@ public class PlayerManager : MonoBehaviour {
     private Rigidbody2D rigidbody;
     private BoxCollider2D _collider;
 
-    void Start() {
+    void Start()
+    {
+        ResetStats();
+        random = new System.Random();
         foreach (Transform t in transform)
         {
             Weapon w = t.GetComponent<Weapon>();
@@ -136,6 +144,37 @@ public class PlayerManager : MonoBehaviour {
         }
         
         Debug.LogError($"No such weapon of {wep.name} found on player.");
+    }
+
+    public WeaponDefinition GetRandomWeapon()
+    {
+        return weapons[weapons.Count].weaponDefinition;
+    }
+    
+    public WeaponDefinition GetWeaponIndex(int i)
+    {
+        return weapons[i].weaponDefinition;
+    }
+
+    public int GetWeaponLevel(WeaponDefinition wep)
+    {
+        foreach (var weapon in weapons)
+        {
+            if (weapon.weaponDefinition == wep)
+            {
+                return weapon.CurrentLevel;
+            }
+        }
+        
+        Debug.LogError($"No such weapon of {wep.name} found on player.");
+        return 0;
+    }
+
+    public void ResetStats()
+    {
+        BaseMaxHealth = originalStats.MaxHealth;
+        BaseDamage = originalStats.BaseDamage;
+        BaseMoveSpeed = originalStats.BaseSpeed;
     }
 
 }

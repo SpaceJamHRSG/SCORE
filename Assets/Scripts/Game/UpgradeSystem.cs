@@ -1,12 +1,57 @@
-﻿namespace Game
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using UnityEngine;
+using Random = System.Random;
+
+namespace Game
 {
-    public class UpgradeSystem
+    public class UpgradeSystem : MonoBehaviour
     {
-
-
-        public IUpgrade GetRandomUpgrade(PlayerManager player)
+        private Random _random;
+        private Stack<IUpgrade> _appliedUpgrades;
+        [SerializeField] private List<Stat> _stats;
+        private Dictionary<StatType, Stat> _getStatInfo;
+        private PlayerManager _activePlayer;
+        public Dictionary<StatType, Stat> GetStatInfo => _getStatInfo;
+        public PlayerManager ActivePlayer
         {
-            
+            get { return _activePlayer; }
+            set { _activePlayer = value; }
+        }
+
+        private void Awake()
+        {
+            _random = new Random();
+            _appliedUpgrades = new Stack<IUpgrade>();
+        }
+
+        private void Start()
+        {
+            _getStatInfo = new Dictionary<StatType, Stat>();
+            foreach (var s in _stats)
+            {
+                _getStatInfo[s.Type] = s;
+            }
+        }
+
+        public IUpgrade GetRandomUpgrade(PlayerManager player) // 1/4 chance of stat upgrade; 3/4 chance of weapon upgrade
+        {
+            int upgradeTypeID = _random.Next(0, 4);
+            if (upgradeTypeID == 0)
+            {
+                int statTypeID = _random.Next(0, _stats.Count);
+                Stat stat = _stats[statTypeID];
+                return new StatUpgrade(stat, stat.BaseUpgradeUnit);
+            }
+
+            WeaponDefinition wepToUpgrade = player.GetRandomWeapon();
+            return new WeaponUpgrade(wepToUpgrade, player.GetWeaponLevel(wepToUpgrade) + 1);
+        }
+        public void ApplyUpgrade(IUpgrade upgrade, PlayerManager player)
+        {
+            upgrade.Apply(player);
+            _appliedUpgrades.Push(upgrade);
         }
     }
 }

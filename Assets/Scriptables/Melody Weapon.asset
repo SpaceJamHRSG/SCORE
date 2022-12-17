@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponLevels:
   - level: 1
-    weapon: {fileID: 5094349859902338873, guid: 2d85dc80e287b0c459c28da83a3bbdc0, type: 3}
+    shooter: {fileID: 5094349859902338873, guid: 2d85dc80e287b0c459c28da83a3bbdc0, type: 3}
   - level: 2
-    weapon: {fileID: 5094349859902338873, guid: ca96fef98cb586b42b6a4516ace253cb, type: 3}
+    shooter: {fileID: 5094349859902338873, guid: ca96fef98cb586b42b6a4516ace253cb, type: 3}

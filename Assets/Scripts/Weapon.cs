@@ -17,6 +17,7 @@ public class Weapon : MonoBehaviour {
     private bool _weaponEnabled;
 
     public bool HasThisWeapon => _weaponEnabled;
+    public int CurrentLevel => _currentLevel;
     
     public void GrantWeaponLevel(int level)
     {

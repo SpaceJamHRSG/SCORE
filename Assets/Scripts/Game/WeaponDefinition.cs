@@ -11,9 +11,15 @@ namespace Game
     {
         [SerializeField] private int level;
         [SerializeField] private ProjectileMultiShooter shooter;
+        [SerializeField] private string upgradeName;
+        [SerializeField] private string upgradeDescription;
+        [SerializeField] private Sprite image;
 
         public int Level => level;
         public ProjectileMultiShooter Shooter => shooter;
+        public string UpgradeName => upgradeName;
+        public string UpgradeDescription => upgradeDescription;
+        public Sprite Image => image;
     }
     
     [Serializable]
@@ -43,6 +49,11 @@ namespace Game
             {
                 _getWeaponOfLevel.Add(w.Level, w);
             }
+        }
+
+        public LevelDefPair GetWeaponInfoLevel(int i)
+        {
+            return _getWeaponOfLevel[i];
         }
     }
 }
