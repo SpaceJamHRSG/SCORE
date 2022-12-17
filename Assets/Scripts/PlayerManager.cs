@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Entity;
 using Game;
 using UnityEngine;
+using Entity;
 
 public class PlayerManager : MonoBehaviour {
     public string playerName = "default"; // TODO: choose name at start of play(?), for leaderboard
@@ -58,8 +59,20 @@ public class PlayerManager : MonoBehaviour {
     private Rigidbody2D rigidbody;
     private BoxCollider2D _collider;
 
-    void Start()
-    {
+
+    private void OnEnable() {
+        HealthEntity.OnDeath += OnDeath;
+    }
+
+    private void OnDeath(int dmg, HealthEntity entity) {
+        if (entity.gameObject.Equals(this.gameObject)) {
+            rigidbody.simulated = false;
+            GameManager.Instance.EndGame();
+        }
+    }
+
+    void Start() {
+
         ResetStats();
         random = new System.Random();
         foreach (Transform t in transform)

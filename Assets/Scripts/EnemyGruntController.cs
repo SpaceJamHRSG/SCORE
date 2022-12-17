@@ -33,7 +33,7 @@ public class EnemyGruntController : MonoBehaviour {
 
         // Damage player
         if (collision.gameObject.Equals(FindObjectOfType<PlayerManager>().gameObject)) {
-            playerReference.GetComponent<Entity.HealthEntity>().TakeDamage(5); // TODO: adjust
+            playerReference.GetComponent<Entity.HealthEntity>().TakeDamage(2); // TODO: adjust
         }
 
     }
