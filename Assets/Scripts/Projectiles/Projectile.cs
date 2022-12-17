@@ -64,7 +64,8 @@ namespace Projectiles
 
             if (Time.time > _timeSpawned + _maxLifeTime)
             {
-                Pooling.Instance.Despawn(_pooledObject);
+                if(_pooledObject.GetPool() == null) Destroy(gameObject);
+                else Pooling.Instance.Despawn(_pooledObject);
             }
         }
 

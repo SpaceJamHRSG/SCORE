@@ -5,7 +5,7 @@ using UnityEngine;
 public class StarterWeapon : Weapon {
 
     void Start() {
-        baseAttackRate = 1;
+       // baseAttackRate = 1;
         damageMultiplier = 1;
 
         StartCoroutine("WeaponAutoFire");
@@ -14,7 +14,7 @@ public class StarterWeapon : Weapon {
     IEnumerator WeaponAutoFire() {
 
         while (true) {
-            yield return new WaitForSeconds(1 / baseAttackRate);
+        //    yield return new WaitForSeconds(1 / baseAttackRate);
 
             //print("Projectile fired | TODO: Instantiate projectile here!");
             //TODO: Instantiate Projectile

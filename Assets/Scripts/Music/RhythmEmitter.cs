@@ -35,7 +35,7 @@ namespace Music
 
         public void Tick(RhythmLine fromLine)
         {
-            OnTick?.Invoke(fromLine);
+            if (_responders == null) _responders = new List<RhythmResponder>();
             foreach (var r in _responders)
             {
                 if (r.Line.Equals(fromLine.LineTag))
@@ -43,6 +43,7 @@ namespace Music
                     r.Act();
                 }
             }
+            OnTick?.Invoke(fromLine);
         }
 
         public static void AddResponder(RhythmResponder res)

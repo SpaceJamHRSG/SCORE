@@ -34,7 +34,5 @@ namespace Projectiles
             proj.SetParams(speed, acceleration, angularVelocity, angularAcceleration);
             proj.Allegiance = Allegiance;
         }
-        
-        
     }
 }

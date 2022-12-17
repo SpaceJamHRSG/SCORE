@@ -5,13 +5,12 @@ using UnityEngine;
 
 namespace Game
 {
-    [Serializable]
-    public struct PlayerStats
+    public class PlayerStatsManager : MonoBehaviour
     {
         [SerializeField] private float _maxHealth;
         [SerializeField] private int _level;
         [SerializeField] private int _xp;
-        [SerializeField] private List<WeaponDefinition> _weapons;
+        [SerializeField] private List<Weapon> _weapons;
         
         public float MaxHealth
         {
@@ -31,7 +30,7 @@ namespace Game
             set => _xp = value;
         }
 
-        public List<WeaponDefinition> WeaponLevels
+        public List<Weapon> Weapons
         {
             get => _weapons;
             set => _weapons = value;

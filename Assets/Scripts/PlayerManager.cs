@@ -21,8 +21,7 @@ public class PlayerManager : MonoBehaviour {
     
 
     // Player inventory
-    // TODO: weapons, upgrades
-    private List<Weapon> weapons = new List<Weapon>();
+    [SerializeField] private List<Weapon> weapons = new List<Weapon>();
 
     // Derived stats
     // TODO: add up the bonuses
@@ -35,8 +34,15 @@ public class PlayerManager : MonoBehaviour {
     private BoxCollider2D _collider;
 
     void Start() {
-        StarterWeapon st = this.gameObject.AddComponent<StarterWeapon>();
-        weapons.Add(st);
+        foreach (Transform t in transform)
+        {
+            Weapon w = t.GetComponent<Weapon>();
+            if(w != null) weapons.Add(w);
+        }
+        foreach (var weapon in weapons)
+        {
+            if(weapon.IsStartingWeapon) weapon.GrantWeaponLevel(2);
+        }
 
         currentHealth = baseMaxHealth;
 
