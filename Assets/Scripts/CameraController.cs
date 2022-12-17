@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour {
+
     // The target to follow
     public Transform target;
 
@@ -10,7 +11,7 @@ public class CameraController : MonoBehaviour {
     public Vector2 minBounds;
     public Vector2 maxBounds;
 
-    public float smoothTime = 0.3f;
+    public float smoothTime = 0.25f;
 
     private Vector3 velocity = Vector3.zero;
 
@@ -22,7 +23,7 @@ public class CameraController : MonoBehaviour {
 
         cameraPosition.x = Mathf.Clamp(cameraPosition.x, minBounds.x, maxBounds.x);
         cameraPosition.y = Mathf.Clamp(cameraPosition.y, minBounds.y, maxBounds.y);
-        cameraPosition.z = -10;
+        cameraPosition.z = -10; // offset above the target
 
         // Update the camera's position with the clamped values
         transform.position = cameraPosition;

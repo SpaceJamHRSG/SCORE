@@ -7,8 +7,10 @@ public class EnemyDirector : MonoBehaviour {
     public GameObject[] gruntPrefabs;
     public GameObject[] bossPrefabs;
 
-    private int maxBaseEnemies = 100;
+    private int maxBaseEnemies = 30;
 
+    private int maxEnemies;
+    private int maxEnemiesIncrementInterval = 5; // seconds
     private float spawnRate = 1; // per second
 
     private PlayerManager playerReference;
@@ -16,6 +18,7 @@ public class EnemyDirector : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
+        maxEnemies = maxBaseEnemies;
         playerReference = FindObjectOfType<PlayerManager>();
 
         Debug.Assert(playerReference);
@@ -23,15 +26,15 @@ public class EnemyDirector : MonoBehaviour {
         Debug.Assert(bossPrefabs.Length != 0); 
 
         StartCoroutine("GruntSpawner");
+        StartCoroutine("EnemyLimitIncreaseTimer");
     }
 
     IEnumerator GruntSpawner() {
-        
         while(true) {
 
             yield return new WaitForSeconds(1 / spawnRate);
 
-            if (spawnedEnemies.Count < maxBaseEnemies) {
+            if (spawnedEnemies.Count < maxEnemies) {
 
                 Vector2 randomPoint = Random.insideUnitCircle * 20;
                 Vector2 playerPoint = new Vector2(playerReference.transform.position.x, playerReference.transform.position.y);
@@ -48,5 +51,14 @@ public class EnemyDirector : MonoBehaviour {
         }
 
     }
+
+    IEnumerator EnemyLimitIncreaseTimer() {
+        while (true) {
+            yield return new WaitForSeconds(maxEnemiesIncrementInterval);
+            maxEnemies++;
+        }
+    }
+
+
 
 }
