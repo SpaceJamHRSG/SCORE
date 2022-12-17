@@ -1339,9 +1339,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineTag: main
-  audio: {fileID: 8300000, guid: 2eb2c179b69a56b4facd055343c7882d, type: 3}
+  audio: {fileID: 8300000, guid: 60f8ae1f7111bc440ad131bc57e128cc, type: 3}
   script: {fileID: 0}
-  scriptField: BPM120 W0.01 1 1 1 1 1 1 1 1 1 1
+  scriptField: BPM90 W2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 --- !u!82 &2033284368
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1352,7 +1352,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2eb2c179b69a56b4facd055343c7882d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 60f8ae1f7111bc440ad131bc57e128cc, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
