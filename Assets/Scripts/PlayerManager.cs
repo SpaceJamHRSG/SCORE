@@ -11,11 +11,14 @@ public class PlayerManager : MonoBehaviour {
     //private float bossesDefeated = 0;
 
     // Player base stats
+    private int level = 1;
     //private int baseAttack = 10;
-    //private int baseHealth = 100;
+    private int baseMaxHealth = 100;
     //private int baseCriticalChance = 10; // %
     //private int baseCriticalDamageBonus = 50; // %
     private float baseMovementSpeed = 5f;
+    private float pickupRadius = 3f;
+    
 
     // Player inventory
     // TODO: weapons, upgrades
@@ -24,6 +27,9 @@ public class PlayerManager : MonoBehaviour {
     // Derived stats
     // TODO: add up the bonuses
     // private int totalAttack;
+    private int currentHealth;
+    private int currentExperience;
+
 
     private Rigidbody2D rigidbody;
     private BoxCollider2D _collider;
@@ -31,6 +37,8 @@ public class PlayerManager : MonoBehaviour {
     void Start() {
         StarterWeapon st = this.gameObject.AddComponent<StarterWeapon>();
         weapons.Add(st);
+
+        currentHealth = baseMaxHealth;
 
         // Get the Rigidbody and Box Collider references
         rigidbody = GetComponent<Rigidbody2D>();
