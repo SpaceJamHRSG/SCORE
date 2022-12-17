@@ -12,6 +12,9 @@ namespace Entity
         [SerializeField] private int maxHealth;
         private int _health;
 
+        [SerializeField] private Allegiance allegiance;
+        public Allegiance Allegiance => allegiance;
+
         private void OnEnable()
         {
             _health = maxHealth;

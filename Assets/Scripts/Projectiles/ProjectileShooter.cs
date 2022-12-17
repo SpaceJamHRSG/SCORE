@@ -1,5 +1,6 @@
 ﻿using System;
 using Core;
+using Entity;
 using Music;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace Projectiles
         [SerializeField] private float acceleration;
         [SerializeField] private float angularAcceleration;
         private RhythmResponder _responder;
+        public Allegiance Allegiance { get; set; }
 
         private void Awake()
         {
@@ -30,6 +32,9 @@ namespace Projectiles
         {
             Projectile proj = Pooling.Instance.Spawn<Projectile>(projectilePrefab.gameObject, transform.position, transform.rotation);
             proj.SetParams(speed, acceleration, angularVelocity, angularAcceleration);
+            proj.Allegiance = Allegiance;
         }
+        
+        
     }
 }

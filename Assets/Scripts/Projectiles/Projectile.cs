@@ -1,5 +1,6 @@
 ﻿using System;
 using Core;
+using Entity;
 using UnityEngine;
 
 namespace Projectiles
@@ -21,6 +22,10 @@ namespace Projectiles
 
         private float _maxLifeTime;
         private float _timeSpawned;
+
+        private int damage;
+        private Allegiance _allegiance;
+        public Allegiance Allegiance { get; set; }
 
         private void Awake()
         {
@@ -73,7 +78,15 @@ namespace Projectiles
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            
+            HealthEntity other = col.GetComponent<HealthEntity>();
+            if (other == null)
+            {
+                Pooling.Instance.Despawn(_pooledObject);
+                return;
+            }
+            if (other.Allegiance == this.Allegiance) return;
+            other.TakeDamage(Math.Max(damage, 1));
+            Pooling.Instance.Despawn(_pooledObject);
         }
 
         public void SetSpeedOverTime(Func<float, float> speedFunction)
@@ -86,5 +99,9 @@ namespace Projectiles
             AngularFunction = angularFunction;
         }
 
+        public void SetDamage(int d)
+        {
+            damage = d;
+        }
     }
 }
