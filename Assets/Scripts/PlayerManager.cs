@@ -135,8 +135,6 @@ public class PlayerManager : MonoBehaviour
             return;
         }
 
-        survivalTime += Time.deltaTime;
-
         // Get input
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Entity;
 
-public class EnemyGruntController : Enemy {
+public class EnemyBossController : Enemy {
 
     void Start() {
 
@@ -12,8 +12,8 @@ public class EnemyGruntController : Enemy {
         _rigidbody = GetComponent<Rigidbody2D>();
 
         movementSpeed = 0.03f;
-        damage = 1;
-        attackRate = 0.5f;
+        damage = 2;
+        attackRate = 0.2f;
         attackCooldown = 0f;
     }
 
@@ -24,12 +24,19 @@ public class EnemyGruntController : Enemy {
         HealthEntity.OnDeath += (dmg, entity) => {
             if (entity == null || this == null) return;
             if (entity.gameObject.Equals(this.gameObject)) {
-                GameManager.Instance.GruntsDefeated += 1;
+                GameManager.Instance.BossesDefeated += 1;
                 enemyDirector.RemoveEnemy(this.gameObject);
                 GetComponent<Collider2D>().enabled = false;
                 healthBar.gameObject.SetActive(false);
             }
         };
 
+    }
+
+    // TODO: boss logic
+    void FixedUpdate() {
+        attackCooldown += Time.deltaTime;
+        if (!IsActive) return;
+        _rigidbody.MovePosition(Vector2.MoveTowards(this.transform.position, playerReference.transform.position, movementSpeed));
     }
 }
