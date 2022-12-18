@@ -95,7 +95,7 @@ public class PlayerManager : MonoBehaviour
         HealthEntity.OnTakeHit -= OnTakeHit;
     }
     
-    private void OnTakeHit(int dmg, bool crit, HealthEntity entity, Sprite impactParticles)
+    private void OnTakeHit(int dmg, bool crit, HealthEntity entity, GameObject impactParticles)
     {
         if (entity.gameObject.Equals(this.gameObject))
         {
@@ -106,10 +106,15 @@ public class PlayerManager : MonoBehaviour
                 LoseRandomWeapon();
                 OnLoseWeapon?.Invoke(this);
             }
+            else
+            {
+                LoseRandomWeapon();
+                _healthEntity.SetHealth(0);
+            }
         }
     }
 
-    private void OnDeath(int dmg, HealthEntity entity, Sprite impactParticles) {
+    private void OnDeath(int dmg, HealthEntity entity, GameObject impactParticles) {
         if (entity.gameObject.Equals(this.gameObject)) {
             rigidbody.simulated = false;
             GameManager.Instance.EndGame();

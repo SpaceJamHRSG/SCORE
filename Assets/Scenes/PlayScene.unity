@@ -2293,6 +2293,7 @@ MonoBehaviour:
   mainAudio: {fileID: 84278084}
   restAudio: {fileID: 955878562}
   crossFadeSpeed: 1
+  debug: 0
 --- !u!1 &1133821197
 GameObject:
   m_ObjectHideFlags: 0
@@ -2571,6 +2572,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: EXP HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 5500637850609927200, guid: bd30c42b7a5cca646b37e29bc047866f, type: 3}
+      propertyPath: availableWeaponSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7bb9e338c7b99384c8316f241bd172ec, type: 3}
+    - target: {fileID: 5500637850609927200, guid: bd30c42b7a5cca646b37e29bc047866f, type: 3}
+      propertyPath: availableWeaponSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: ad0f255e3003799479097320b8b194c1, type: 3}
+    - target: {fileID: 5500637850609927200, guid: bd30c42b7a5cca646b37e29bc047866f, type: 3}
+      propertyPath: availableWeaponSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 685f9389376f7f24ca4db0be8e1424cd, type: 3}
+    - target: {fileID: 5500637850609927200, guid: bd30c42b7a5cca646b37e29bc047866f, type: 3}
+      propertyPath: unavailableWeaponSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 832649572e351a448b908eff43691d74, type: 3}
+    - target: {fileID: 5500637850609927200, guid: bd30c42b7a5cca646b37e29bc047866f, type: 3}
+      propertyPath: unavailableWeaponSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 394222943a2b9034fa406bae72f2e1af, type: 3}
+    - target: {fileID: 5500637850609927200, guid: bd30c42b7a5cca646b37e29bc047866f, type: 3}
+      propertyPath: unavailableWeaponSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9a176ed94e7729945a98351813023fc0, type: 3}
     - target: {fileID: 5713279066267793954, guid: bd30c42b7a5cca646b37e29bc047866f, type: 3}
       propertyPath: m_Name
       value: HUD

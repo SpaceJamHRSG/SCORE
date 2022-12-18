@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 7599684439502406149}
   - component: {fileID: -4780028898567870559}
   - component: {fileID: 8449070697340768488}
+  - component: {fileID: -3341372661796139107}
   m_Layer: 0
   m_Name: Boss_1
   m_TagString: Untagged
@@ -196,6 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 250000
+  god: 0
   allegiance: 1
   damageNumberUI: {fileID: 0}
 --- !u!114 &8449070697340768488
@@ -239,6 +241,19 @@ MonoBehaviour:
     - {fileID: 8609282943972605956, guid: 06d763db9afc7da45a0f4e523a20998d, type: 3}
     - {fileID: 8609282943972605956, guid: 06d763db9afc7da45a0f4e523a20998d, type: 3}
   dropVariance: 0
+--- !u!114 &-3341372661796139107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7599684439502406146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2852aad7c114f799a6b3b79bd3280fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hitPrefabDefault: {fileID: 0}
 --- !u!1 &8767450634701996306
 GameObject:
   m_ObjectHideFlags: 0

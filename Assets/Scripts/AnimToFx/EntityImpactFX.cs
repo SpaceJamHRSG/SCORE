@@ -25,7 +25,7 @@ namespace AnimToFx
             _health.OnThisHit -= RespondToHit;
         }
 
-        private void RespondToHit(int dmg, bool crit, Sprite impactParticles)
+        private void RespondToHit(int dmg, bool crit, GameObject impactParticles)
         {
             if (impactParticles != null)
             {

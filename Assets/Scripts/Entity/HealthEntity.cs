@@ -9,14 +9,17 @@ namespace Entity
 {
     public class HealthEntity : MonoBehaviour
     {
-        public static event Action<int, bool, HealthEntity, Sprite> OnTakeHit;
-        public static event Action<int, HealthEntity, Sprite> OnDeath;
+        public static event Action<int, bool, HealthEntity, GameObject> OnTakeHit;
+        public static event Action<int, HealthEntity, GameObject> OnDeath;
         public static event Action<int, HealthEntity> OnHeal;
 
         public event Action<int> OnThisDeath;
-        public event Action<int, bool, Sprite> OnThisHit;
+        public event Action<int, bool, GameObject> OnThisHit;
 
         [SerializeField] private int maxHealth;
+        [SerializeField] private bool god;
+        
+        public bool Invulnerable { get; set; }
         private int _health;
 
         [SerializeField] private Allegiance allegiance;
@@ -27,16 +30,17 @@ namespace Entity
 
         private void OnEnable()
         {
+            Invulnerable = false;
             _isDead = false;
             _health = maxHealth;
         }
-        public void TakeDamage(int damage, bool critical = false, Sprite impactParticles = null)
+        public void TakeDamage(int damage, bool critical = false, GameObject impactParticles = null)
         {
-            if (_isDead) return;
+            if (_isDead || Invulnerable) return;
             _health -= damage;
             OnTakeHit?.Invoke(damage, critical, this, impactParticles);
             OnThisHit?.Invoke(damage, critical, impactParticles);
-            if (_health <= 0)
+            if (_health <= 0 && !god)
             {
                 _isDead = true;
                 BeginDeathSequence();
@@ -63,6 +67,13 @@ namespace Entity
         public void SetHealth(int h)
         {
             _health = h;
+            if (_health <= 0)
+            {
+                _isDead = true;
+                BeginDeathSequence();
+                OnDeath?.Invoke(0, this, null);
+                OnThisDeath?.Invoke(0);
+            }
         }
 
         public void BeginDeathSequence()

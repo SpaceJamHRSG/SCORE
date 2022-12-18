@@ -31,7 +31,7 @@ namespace Projectiles
         public bool IsCritical { get; set; }
 
         public bool Penetrate;
-        [SerializeField] private Sprite impactParticles;
+        [SerializeField] private GameObject impactParticles;
 
         private void Awake()
         {

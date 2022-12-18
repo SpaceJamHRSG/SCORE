@@ -20,7 +20,7 @@ namespace UI
             HealthEntity.OnTakeHit -= RespondToHit;
         }
 
-        private void RespondToHit(int dmg, bool isCritical, HealthEntity entity, Sprite impactParticles)
+        private void RespondToHit(int dmg, bool isCritical, HealthEntity entity, GameObject impactParticles)
         {
             DamageNumberUI specialUI = entity.DamageNumberUI;
             if (specialUI != null)
