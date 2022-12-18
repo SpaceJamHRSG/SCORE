@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDirector : MonoBehaviour
-{
+public class EnemyDirector : MonoBehaviour {
 
     public static bool IsActive;
     
@@ -50,8 +49,11 @@ public class EnemyDirector : MonoBehaviour
 
             if (spawnedEnemies.Count < maxEnemies) {
 
-                Vector2 randomPoint = Random.insideUnitCircle * 20;
+                Vector2 randomPoint = Random.insideUnitCircle * 25;
                 Vector2 playerPoint = new Vector2(playerReference.transform.position.x, playerReference.transform.position.y);
+                while (Vector2.Distance(randomPoint,playerPoint) < 15) {
+                    randomPoint = Random.insideUnitCircle * 25;
+                }
                 Vector2 spawnPoint = new Vector2(playerPoint.x + randomPoint.x, playerPoint.y + randomPoint.y);
 
                 GameObject newEnemy = Instantiate(gruntPrefabs[Random.Range(0, gruntPrefabs.Length)], spawnPoint, Quaternion.identity);
