@@ -17,7 +17,7 @@ namespace Game
         
         public void Apply(PlayerManager player)
         {
-            //gain _val points
+            GameManager.Instance.PointUpgrades += 1;
         }
 
         public string GetUpgradeName()
