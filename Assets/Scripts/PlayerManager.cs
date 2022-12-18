@@ -23,6 +23,7 @@ public class PlayerManager : MonoBehaviour
     public string playerName = "default"; // TODO: choose name at start of play(?), for leaderboard
 
     [SerializeField] private PlayerStats originalStats;
+    [SerializeField] private GameObject weaponDestroyFX;
 
     // Progress statistics
     //private int baseCriticalChance = 10; // %
@@ -202,7 +203,7 @@ public class PlayerManager : MonoBehaviour
             recurse++;
         }
 
-        Debug.Log($"Lost weapon {toLose.LineName}");
+        Instantiate(weaponDestroyFX, transform.position, transform.rotation);
         toLose.RemoveWeapon();
     }
 
