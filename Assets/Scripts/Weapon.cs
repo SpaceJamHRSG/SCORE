@@ -19,12 +19,10 @@ public class Weapon : MonoBehaviour {
     public bool HasThisWeapon => _weaponEnabled;
     public int CurrentLevel => _currentLevel;
     
-    public void GrantWeaponLevel(int level)
+    public void GrantWeaponLevel(int level, PlayerManager player)
     {
         if (level == _currentLevel) return;
         ProjectileMultiShooter newWeapon = weaponDefinition.GetShooter(level);
-        newWeapon.SetPart(weaponDefinition.LineName);
-        newWeapon.SetProjectile(weaponDefinition.GetWeaponInfoLevel(level).Projectile);
         if (newWeapon == null)
         {
             Debug.LogWarning($"No weapon of level {level} exists");
@@ -36,13 +34,16 @@ public class Weapon : MonoBehaviour {
         _weaponEnabled = true;
         _activeShooter = Instantiate(newWeapon, transform);
         _currentLevel = level;
+        _activeShooter.SetPart(weaponDefinition.LineName);
+        _activeShooter.SetProjectile(weaponDefinition.GetWeaponInfoLevel(level).Projectile);
+        _activeShooter.AssignDamageStats(player.Damage, 1, 0, 1);
         newWeapon.transform.position = Vector3.zero;
         newWeapon.transform.rotation = Quaternion.identity;
     }
 
-    public void LevelUpWeapon(int by = 1)
+    public void LevelUpWeapon(int by = 1, PlayerManager player = null)
     {
-        GrantWeaponLevel(_currentLevel + by);
+        GrantWeaponLevel(_currentLevel + by, player);
     }
 
     public void RemoveWeapon()

@@ -43,7 +43,7 @@ namespace Entity
             _experience += exp;
             if (_level >= _maxLevel) return;
             int expToNext = _expRequiredToLevel[_level + 1];
-            while (exp > expToNext && _level < _maxLevel)
+            while (_experience >= expToNext && _level < _maxLevel)
             {
                 _experience -= expToNext;
                 LevelUp(1);

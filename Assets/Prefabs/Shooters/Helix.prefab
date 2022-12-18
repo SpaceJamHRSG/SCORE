@@ -118,10 +118,10 @@ MonoBehaviour:
   magnitude: 80
   swingSpeed: 15
   phase: 0.5
-  maxBaseDamage: 0
-  baseDamageVariance: 0
-  baseCritChance: 0
-  baseCritStrength: 0
+  maxBaseDamage: 50
+  baseDamageVariance: 0.6
+  baseCritChance: 0.1
+  baseCritStrength: 1.2
 --- !u!1 &7415499349965849973
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +189,7 @@ MonoBehaviour:
   magnitude: 80
   swingSpeed: 15
   phase: -0.5
-  maxBaseDamage: 0
-  baseDamageVariance: 0
-  baseCritChance: 0
-  baseCritStrength: 0
+  maxBaseDamage: 50
+  baseDamageVariance: 0.6
+  baseCritChance: 0.1
+  baseCritStrength: 1.2

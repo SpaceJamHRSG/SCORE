@@ -116,7 +116,7 @@ MonoBehaviour:
   magnitude: 0
   swingSpeed: 0
   phase: 0
-  maxBaseDamage: 0
-  baseDamageVariance: 0
-  baseCritChance: 0
-  baseCritStrength: 0
+  maxBaseDamage: 90
+  baseDamageVariance: 0.4
+  baseCritChance: 0.2
+  baseCritStrength: 1

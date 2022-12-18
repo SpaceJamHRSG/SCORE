@@ -18,7 +18,7 @@ namespace UI
         public void DisplayAt(float t)
         {
             t = Mathf.Clamp01(t);
-            _rt.localScale = new Vector3(_originalScale.x, _originalScale.y * t, _originalScale.z);
+            _rt.localScale = new Vector3(_originalScale.x * t, _originalScale.y, _originalScale.z);
         }
     }
 }

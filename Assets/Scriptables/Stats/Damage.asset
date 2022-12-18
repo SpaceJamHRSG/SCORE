@@ -16,4 +16,4 @@ MonoBehaviour:
   MainText: Power up!!
   FlavourText: Increases the damage of your bullets.
   Image: {fileID: 21300000, guid: 0ccc508108fa6ed4fa11b4a467d7f609, type: 3}
-  BaseUpgradeUnit: 0.3
+  BaseUpgradeUnit: 0.2

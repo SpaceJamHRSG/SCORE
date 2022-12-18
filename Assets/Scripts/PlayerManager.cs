@@ -5,6 +5,7 @@ using Entity;
 using Game;
 using UnityEngine;
 using Entity;
+using Random = System.Random;
 
 [RequireComponent(typeof(ExpLevelEntity), typeof(HealthEntity))]
 public class PlayerManager : MonoBehaviour
@@ -116,7 +117,7 @@ public class PlayerManager : MonoBehaviour
         }
         foreach (var weapon in weapons)
         {
-            if(weapon.IsStartingWeapon) weapon.GrantWeaponLevel(1);
+            if(weapon.IsStartingWeapon) weapon.GrantWeaponLevel(1, this);
         }
 
         // Get the Rigidbody and Box Collider references
@@ -163,7 +164,7 @@ public class PlayerManager : MonoBehaviour
         {
             if (weapon.weaponDefinition == wep)
             {
-                weapon.GrantWeaponLevel(lvl);
+                weapon.GrantWeaponLevel(lvl, this);
                 return;
             }
         }
@@ -200,7 +201,8 @@ public class PlayerManager : MonoBehaviour
 
     public WeaponDefinition GetRandomWeapon()
     {
-        return weapons[weapons.Count].weaponDefinition;
+        Random random = new Random();
+        return weapons[random.Next(weapons.Count)].weaponDefinition;
     }
     
     public WeaponDefinition GetWeaponIndex(int i)

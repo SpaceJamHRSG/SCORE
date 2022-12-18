@@ -50,7 +50,7 @@ namespace Projectiles
         public void AssignDamageStats(float dmg, float variance, float crit, float critPow)
         {
             _damage = maxBaseDamage * dmg;
-            _damageVariance = _damageVariance * variance;
+            _damageVariance = baseDamageVariance * variance;
             _critChance = 1 - (1 - crit) * (1 - baseCritChance);
             _critStrength = baseCritStrength * critPow;
         }
@@ -64,7 +64,8 @@ namespace Projectiles
                 proj.SetAngularOverTime(t => MotionUtil.Pendulum(t, magnitude, swingSpeed, phase));
             }
             proj.Allegiance = Allegiance;
-            int dmg = (int) (_damage * 1 - _damageVariance * (float) random.NextDouble());
+            double randomDmg = random.NextDouble();
+            int dmg = (int) (_damage * (1 - (float)(_damageVariance * randomDmg)));
             if (random.NextDouble() < _critChance)
             {
                 dmg *= (int)(1 + _critStrength);

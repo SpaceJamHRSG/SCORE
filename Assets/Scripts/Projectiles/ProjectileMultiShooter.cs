@@ -44,5 +44,13 @@ namespace Projectiles
                 s.SetProjectile(p);
             }
         }
+        
+        public void AssignDamageStats(float dmg, float variance, float crit, float critPow)
+        {
+            foreach (var s in shooters)
+            {
+                s.AssignDamageStats(dmg, variance, crit, critPow);
+            }
+        }
     }
 }

@@ -33,6 +33,7 @@ namespace Game
         private Dictionary<int, LevelDefPair> _getWeaponOfLevel = new Dictionary<int, LevelDefPair>();
 
         public string LineName => lineName;
+        public int MaxLevel => weaponLevels.Count;
 
         private void OnValidate()
         {

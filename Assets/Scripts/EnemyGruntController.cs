@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Entity;
 
-public class EnemyGruntController : MonoBehaviour {
+public class EnemyGruntController : MonoBehaviour
+{
 
+    public static bool IsActive;
+    
     private PlayerManager playerReference;
 
     private float movementSpeed = 0.01f;
@@ -25,14 +28,17 @@ public class EnemyGruntController : MonoBehaviour {
     }
 
     private void OnDeath(int dmg, HealthEntity entity) {
-        if (entity == null || this == null) return;  // TODO: fix null?!
+        if (entity == null || this == null) return;  
         if (entity.gameObject.Equals(this.gameObject)) {
             GameManager.Instance.IncrementGruntsDefeated();
+            GetComponent<Collider2D>().enabled = false;
         }
     }
 
     // Update is called once per frame
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
+        if (!IsActive) return;
         _rigidbody.MovePosition(Vector2.MoveTowards(this.transform.position, playerReference.transform.position, movementSpeed));
 
         attackCooldown += Time.deltaTime;

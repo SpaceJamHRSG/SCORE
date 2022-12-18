@@ -38,6 +38,7 @@ namespace UI
         {
             gameObject.SetActive(false);
             enabled = false;
+            upgradeSystem.InvokeClose();
         }
 
         public void Refresh()

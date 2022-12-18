@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 800924440381593169}
   - component: {fileID: 5517702002248767121}
   m_Layer: 0
-  m_Name: DamageNumbers
+  m_Name: CriticalNumbers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,10 +201,10 @@ MonoBehaviour:
   textField: {fileID: 7816859540444998333}
   leftBound: 0
   rightBound: 100000
-  leftColor: {r: 0.8113208, g: 0.6073737, b: 0.5174084, a: 0}
-  rightColor: {r: 0.6698113, g: 0.07330014, b: 0.12008518, a: 0}
-  leftScale: 12
-  rightScale: 18
-  leftDuration: 1.2
-  rightDuration: 2
-  rise: 3
+  leftColor: {r: 0.5216417, g: 0.06899254, b: 0.5377358, a: 0}
+  rightColor: {r: 0.7569462, g: 0.12217878, b: 0.8301887, a: 0}
+  leftScale: 16
+  rightScale: 26
+  leftDuration: 2
+  rightDuration: 4
+  rise: 4

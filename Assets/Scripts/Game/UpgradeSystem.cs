@@ -9,6 +9,8 @@ namespace Game
 {
     public class UpgradeSystem : MonoBehaviour
     {
+        public static event Action OnClose;
+        
         private Random _random;
         private Stack<IUpgrade> _appliedUpgrades;
         [SerializeField] private List<Stat> _stats;
@@ -37,17 +39,27 @@ namespace Game
             }
         }
 
-        public IUpgrade GetRandomUpgrade(PlayerManager player) // 1/4 chance of stat upgrade; 3/4 chance of weapon upgrade
+        public IUpgrade GetRandomUpgrade(PlayerManager player) // 1/2 chance of stat upgrade; 1/2 chance of weapon upgrade
         {
             int upgradeTypeID = _random.Next(0, 4);
-            if (upgradeTypeID == 0)
+
+            StatUpgrade GiveStatUpgrade()
             {
                 int statTypeID = _random.Next(0, _stats.Count);
                 Stat stat = _stats[statTypeID];
-                return new StatUpgrade(stat, stat.BaseUpgradeUnit);
+                return new StatUpgrade(stat, stat.BaseUpgradeUnit + 0.1f * ((float)_random.NextDouble() * 2 - 1));
+            }
+            
+            if (upgradeTypeID < 2)
+            {
+                return GiveStatUpgrade();
             }
 
             WeaponDefinition wepToUpgrade = player.GetRandomWeapon();
+            if (player.GetWeaponLevel(wepToUpgrade) == wepToUpgrade.MaxLevel)
+            {
+                return GiveStatUpgrade();
+            }
             return new WeaponUpgrade(wepToUpgrade, player.GetWeaponLevel(wepToUpgrade) + 1);
         }
         public void ApplyUpgrade(IUpgrade upgrade, PlayerManager player)
@@ -68,6 +80,11 @@ namespace Game
             }
             UI.SetUpgrades(upgrades);
             UI.Refresh();
+        }
+
+        public void InvokeClose()
+        {
+            OnClose?.Invoke();
         }
     }
 }

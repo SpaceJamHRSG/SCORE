@@ -21,13 +21,13 @@ namespace Game
             switch (_type.Type)
             {
                 case StatType.Speed:
-                    player.MoveSpeed = _val;
+                    player.MoveSpeed *= 1 + _val;
                     break;
                 case StatType.BaseDamage:
-                    player.Damage = _val;
+                    player.Damage *= 1 + _val;
                     break;
                 case StatType.HP:
-                    player.MaxHealth = (int)_val;
+                    player.MaxHealth *= 1 + (int)_val;
                     break;
                 default:
                     throw new ArgumentException();
@@ -41,7 +41,18 @@ namespace Game
 
         public string GetFlavourText()
         {
-            return _type.FlavourText;
+            switch (_type.Type)
+            {
+                case StatType.Speed:
+                    return $"Increases your speed by {Math.Round(_val * 100)}%";
+                case StatType.BaseDamage:
+                    return $"Increases your damage by {Math.Round(_val * 100)}%";
+                case StatType.HP:
+                    return $"Increases your HP by {Math.Round(_val * 100)}%";
+                    break;
+                default:
+                    throw new ArgumentException();
+            }
         }
 
         public Sprite GetImage()

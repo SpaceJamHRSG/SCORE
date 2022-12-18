@@ -16,10 +16,10 @@ public class HealthBarUI : MonoBehaviour {
     void Update() {
         float currHealth = healthEntity.GetHealth();
         float maxHealth = healthEntity.GetMaxHealth();
-        if (currHealth == maxHealth) spriteRenderer.enabled = false;
+        if ( Mathf.Abs(currHealth - maxHealth) < float.Epsilon) spriteRenderer.enabled = false;
         else {
             spriteRenderer.enabled = true;
-            this.transform.localScale = new Vector3(currHealth / maxHealth, 0.1f, 1f);
+            this.transform.localScale = new Vector3(currHealth / maxHealth, 0.15f, 1f);
         }
     }
 }
