@@ -6,8 +6,9 @@ using Game;
 using Projectiles;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour {
-    public float damageMultiplier;
+public class Weapon : MonoBehaviour
+{
+    public bool aimWithMouse;
     public WeaponDefinition weaponDefinition;
 
     private ProjectileMultiShooter _activeShooter;
@@ -18,7 +19,24 @@ public class Weapon : MonoBehaviour {
 
     public bool HasThisWeapon => _weaponEnabled;
     public int CurrentLevel => _currentLevel;
-    
+
+    private Camera mainCamera;
+
+    private void Start()
+    {
+        mainCamera = Camera.main;
+    }
+
+    private void Update()
+    {
+        if (aimWithMouse)
+        {
+            Vector3 mousePos = Input.mousePosition;
+            Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(mousePos);
+            transform.rotation = Quaternion.LookRotation(mouseWorldPos, Vector3.forward);
+        }
+    }
+
     public void GrantWeaponLevel(int level, PlayerManager player)
     {
         if (level == _currentLevel) return;

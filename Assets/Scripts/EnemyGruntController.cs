@@ -11,6 +11,7 @@ public class EnemyGruntController : MonoBehaviour
     private PlayerManager playerReference;
 
     [SerializeField] private float movementSpeed = 0.03f;
+    [SerializeField] private HealthBarUI healthBar;
     public float MovementSpeed {
         get { return movementSpeed; }
         set { movementSpeed = value; }
@@ -40,6 +41,7 @@ public class EnemyGruntController : MonoBehaviour
         if (entity.gameObject.Equals(this.gameObject)) {
             GameManager.Instance.IncrementGruntsDefeated();
             GetComponent<Collider2D>().enabled = false;
+            healthBar.gameObject.SetActive(false);
         }
     }
 

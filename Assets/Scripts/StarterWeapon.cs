@@ -9,7 +9,6 @@ public class StarterWeapon : Weapon {
 
     void Start() {
         attackRate = 1.2f;
-        damageMultiplier = 1;
 
         StartCoroutine("WeaponAutofire");
     }

@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0.1
+  healthBar: {fileID: 4589006514994542988}
 --- !u!50 &7599684439502406148
 Rigidbody2D:
   serializedVersion: 4

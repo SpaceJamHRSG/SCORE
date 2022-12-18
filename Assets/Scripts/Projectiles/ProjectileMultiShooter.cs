@@ -7,7 +7,6 @@ using UnityEngine;
 
 namespace Projectiles
 {
-    [ExecuteInEditMode]
     public class ProjectileMultiShooter : MonoBehaviour
     {
         [SerializeField] private float rotationSpeed;
