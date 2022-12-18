@@ -16,17 +16,34 @@ public class ProjectileStarter : MonoBehaviour {
     void Start() {
         enemyDirector = FindObjectOfType<EnemyDirector>();
         rigidbody = GetComponent<Rigidbody2D>();
-        StartCoroutine("Logic"); 
+        StartCoroutine("Logic");
+        //StartCoroutine("DestroyAfterSeconds", 8);
 
     }
 
     IEnumerator Logic() {
+        int i = 0;
+
         while (!target) {
             target = enemyDirector.FindClosestEnemy(this.transform.position);
             yield return null;
         }
-        this.transform.LookAt(target.transform);
-        rigidbody.AddForce(Vector3.forward * 0.001f);
+        while (target) {
+            Vector3 dir = target.transform.position - transform.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            switch (i) {
+                case 0:
+                    rigidbody.AddForce(Vector2.left * 1f);
+                    i++;
+                    break;
+                case 1:
+                    rigidbody.AddForce(Vector2.right * 1f);
+                    i--;
+                    break;
+            } 
+            yield return null;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
