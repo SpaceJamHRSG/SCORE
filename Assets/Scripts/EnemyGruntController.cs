@@ -46,7 +46,7 @@ public class EnemyGruntController : MonoBehaviour
     private void OnDeath(int dmg, HealthEntity entity) {
         if (entity == null || this == null) return;  
         if (entity.gameObject.Equals(this.gameObject)) {
-            GameManager.Instance.IncrementGruntsDefeated();
+            GameManager.Instance.GruntsDefeated += 1;
             enemyDirector.RemoveEnemy(this.gameObject);
             GetComponent<Collider2D>().enabled = false;
             healthBar.gameObject.SetActive(false);

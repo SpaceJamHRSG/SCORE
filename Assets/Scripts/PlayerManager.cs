@@ -23,9 +23,6 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private PlayerStats originalStats;
 
     // Progress statistics
-    private float survivalTime = 0; // Time spent alive, in seconds
-    //private float gruntsDefeated = 0; // Enemies killed
-    //private float bossesDefeated = 0;
     //private int baseCriticalChance = 10; // %
     //private int baseCriticalDamageBonus = 50; // %
     private float baseMovementSpeed = 5f;
