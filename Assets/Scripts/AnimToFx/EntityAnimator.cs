@@ -12,7 +12,11 @@ namespace AnimToFx
         private Rigidbody2D _rb;
         [SerializeField] private SpriteRenderer _sprite;
         [SerializeField] private List<Sprite> _spriteSheetMovement;
-        private int _movePtr;
+        [SerializeField] private List<Sprite> _spriteSheetIdle;
+        [SerializeField] private float _animationSpeedSeconds; // sync to the goddamn bpm
+        private float _moveTimer;
+        private bool _moveState;
+        private int _ptr;
 
         private void Awake()
         {
@@ -21,12 +25,18 @@ namespace AnimToFx
 
         private void Update()
         {
-            if (_rb.velocity.sqrMagnitude > NON_ZERO_SPEED)
+            _moveTimer += Time.deltaTime / _animationSpeedSeconds;
+            _moveState = _rb.velocity.sqrMagnitude > NON_ZERO_SPEED;
+            
+            if (_moveTimer > 1)
             {
-                _movePtr++;
+                _ptr++;
+                _moveTimer = 0;
             }
 
-            _sprite.sprite = _spriteSheetMovement[_movePtr % _spriteSheetMovement.Count];
+            _sprite.sprite = _moveState ? 
+                _spriteSheetMovement[_ptr % _spriteSheetMovement.Count] : 
+                _spriteSheetIdle[_ptr % _spriteSheetMovement.Count];
         }
     }
 }

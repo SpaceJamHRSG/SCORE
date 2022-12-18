@@ -12,6 +12,8 @@ namespace Music
 
         private Dictionary<RhythmEmitter, float> _targetVolume;
 
+        public RhythmEmitter MainAudio => mainAudio;
+
         private void Awake()
         {
             _targetVolume = new Dictionary<RhythmEmitter, float>()

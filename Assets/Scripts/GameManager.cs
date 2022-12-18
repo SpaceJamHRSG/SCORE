@@ -83,6 +83,19 @@ public class GameManager : MonoBehaviour {
         survivalTime += Time.deltaTime;
         HUD.DisplayStats(activePlayer);
         totalScore = (int) survivalTime * 10 + gruntsDefeated * 5 + pointUpgrades * 500;
+
+        foreach (var w in activePlayer.Weapons)
+        {
+            if (w.HasThisWeapon)
+            {
+                rhythmManager.MainAudio.UnmuteLine(w.LineName);
+            }
+            else
+            {
+                rhythmManager.MainAudio.MuteLine(w.LineName);
+            }
+        }
+        
     }
 
     public void EndGame() {

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using Game;
 using Projectiles;
-using Unity.Mathematics;
 using UnityEngine;
 using Random = System.Random;
 
@@ -30,6 +29,8 @@ public class Weapon : MonoBehaviour
 
     private Quaternion _targetRotation;
     private Quaternion _actualRotation;
+
+    public string LineName => weaponDefinition.LineName;
     
     private void Start()
     {

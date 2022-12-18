@@ -92,13 +92,35 @@ namespace Music
         {
             foreach (var line in _rhythmLines)
             {
-                line.SetVolume(v);
+                line.GlobalVolume = v;
             }
         }
 
         public float GetVolume()
         {
             return _rhythmLines[0].GetVolume();
+        }
+
+        public void UnmuteLine(string n)
+        {
+            foreach (var line in _rhythmLines)
+            {
+                if (line.LineTag.Equals(n))
+                {
+                    line.LocalVolume = 1;
+                }
+            }
+        }
+        
+        public void MuteLine(string n)
+        {
+            foreach (var line in _rhythmLines)
+            {
+                if (line.LineTag.Equals(n))
+                {
+                    line.LocalVolume = 0;
+                }
+            }
         }
     }
 }

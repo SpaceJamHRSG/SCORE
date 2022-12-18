@@ -33,6 +33,8 @@ public class PlayerManager : MonoBehaviour
 
     private System.Random random;
 
+    public List<Weapon> Weapons => weapons;
+
     public int MaxHealth
     {
         get => _healthEntity.GetMaxHealth();
@@ -191,7 +193,8 @@ public class PlayerManager : MonoBehaviour
             toLose = weapons[oneToThree];
             recurse++;
         }
-        
+
+        Debug.Log($"Lost weapon {toLose.LineName}");
         toLose.RemoveWeapon();
     }
 

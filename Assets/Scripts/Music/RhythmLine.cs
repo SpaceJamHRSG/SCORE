@@ -25,6 +25,10 @@ namespace Music
         private bool _parsed;
         private int _ptr;
 
+        public float LocalVolume { get; set; }
+        
+        public float GlobalVolume { get; set; }
+
         public string LineTag => lineTag;
 
         private void Start()
@@ -32,6 +36,7 @@ namespace Music
             Initialize();
             _audioSource.clip = audio;
             _parsed = false;
+            LocalVolume = 1;
         }
 
         private void Update()
@@ -42,6 +47,8 @@ namespace Music
             {
                 CheckInstructions();
             }
+
+            _audioSource.volume = LocalVolume * GlobalVolume;
         }
         
         public void Play()
@@ -143,12 +150,12 @@ namespace Music
 
         public void SetVolume(float f)
         {
-            _audioSource.volume = f;
+            LocalVolume = f;
         }
         
         public float GetVolume()
         {
-            return _audioSource.volume;
+            return LocalVolume;
         }
         
     }
