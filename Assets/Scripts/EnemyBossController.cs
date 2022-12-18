@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Entity;
 
-public class EnemyGruntController : Enemy {
+public class EnemyBossController : Enemy {
 
     void Start() {
 
@@ -12,9 +12,10 @@ public class EnemyGruntController : Enemy {
         _rigidbody = GetComponent<Rigidbody2D>();
 
         movementSpeed = 0.03f;
-        damage = 1;
-        attackRate = 0.5f;
+        damage = 2;
+        attackRate = 0.2f;
         attackCooldown = 0f;
+
     }
 
     private void OnEnable() {
@@ -25,7 +26,7 @@ public class EnemyGruntController : Enemy {
             if (entity == null || this == null) return;
             if (entity.gameObject.Equals(this.gameObject)) {
 
-                GameManager.Instance.GruntsDefeated += 1;
+                GameManager.Instance.BossesDefeated += 1;
 
                 enemyDirector.RemoveEnemy(this.gameObject);
                 GetComponent<Collider2D>().enabled = false;
@@ -33,5 +34,11 @@ public class EnemyGruntController : Enemy {
             }
         };
 
+    }
+
+    private new void FixedUpdate() {
+        base.FixedUpdate();
+
+        // TODO: boss special
     }
 }

@@ -15,7 +15,8 @@ public class MainMenuController : MonoBehaviour
     void Update()
     {
         if (Input.anyKeyDown) {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
+            SceneManager.LoadScene("PlayScene", LoadSceneMode.Single);
+
         }
     }
 }

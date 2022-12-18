@@ -23,7 +23,8 @@ public class EnemyDirector : MonoBehaviour {
 
     [SerializeField] private int maxEnemies;
     [SerializeField] private int maxEnemiesIncrementInterval = 2; // seconds
-    [SerializeField] private float spawnRate = 1; // per second
+    [SerializeField] private float gruntSpawnRate = 1; // per second
+    [SerializeField] private float bossSpawnInterval = 30; // seconds
 
     [SerializeField] private float enemyMovementSpeed = 0.03f;
     [SerializeField] private int enemyMoveSpeedIncreaseInterval = 60; // seconds
@@ -48,6 +49,7 @@ public class EnemyDirector : MonoBehaviour {
         Debug.Assert(bossPrefabs.Length != 0); 
 
         StartCoroutine("GruntSpawner");
+        StartCoroutine("BossSpawner");
         StartCoroutine("EnemyLimitIncreaseTimer");
         StartCoroutine("EnemyMoveSpeedIncreaseTimer");
     }
@@ -61,7 +63,7 @@ public class EnemyDirector : MonoBehaviour {
                 continue;
             }
             
-            yield return new WaitForSeconds(1 / spawnRate);
+            yield return new WaitForSeconds(1 / gruntSpawnRate);
 
             if (spawnedEnemies.Count < maxEnemies) {
 
@@ -77,10 +79,38 @@ public class EnemyDirector : MonoBehaviour {
                 controller.MovementSpeed = enemyMovementSpeed;
                 controller.SetDirector(this);
                 spawnedEnemies.Add(newEnemy);
-                spawnRate += 0.02f; // Gradual spawn rate increase
+                gruntSpawnRate += 0.02f; // Gradual spawn rate increase
             }
         }
+    }
 
+    IEnumerator BossSpawner() {
+        while (true) {
+            if (playerReference == null) playerReference = FindObjectOfType<PlayerManager>();
+            if (!IsActive) {
+                yield return null;
+                continue;
+            }
+
+            yield return new WaitForSeconds(bossSpawnInterval);
+
+            if (spawnedEnemies.Count < maxEnemies) {
+
+                Vector2 randomPoint = Random.insideUnitCircle * 25;
+                Vector2 playerPoint = new Vector2(playerReference.transform.position.x, playerReference.transform.position.y);
+                while (Vector2.Distance(randomPoint, playerPoint) < 15) {
+                    randomPoint = Random.insideUnitCircle * 25;
+                }
+                Vector2 spawnPoint = new Vector2(playerPoint.x + randomPoint.x, playerPoint.y + randomPoint.y);
+
+                GameObject newEnemy = Instantiate(bossPrefabs[Random.Range(0, gruntPrefabs.Length)], spawnPoint, Quaternion.identity);
+                EnemyBossController controller = newEnemy.GetComponent<EnemyBossController>();
+                controller.MovementSpeed = enemyMovementSpeed / 3;
+                controller.SetDirector(this);
+                spawnedEnemies.Add(newEnemy);
+            }
+
+        }
     }
 
     IEnumerator EnemyLimitIncreaseTimer() {
