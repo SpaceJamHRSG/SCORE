@@ -59,5 +59,10 @@ namespace Game
         {
             return _type.Image;
         }
+
+        public string GetTypeID()
+        {
+            return _type.ToString();
+        }
     }
 }

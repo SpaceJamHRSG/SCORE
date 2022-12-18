@@ -76,6 +76,17 @@ namespace Game
             for (int i = 0; i < choices; i++)
             {
                 IUpgrade upgrade = GetRandomUpgrade(ActivePlayer);
+                bool sameUpgradeExists = false;
+                foreach (var u in upgrades)
+                {
+                    if (u.GetTypeID().Equals(upgrade.GetTypeID()))
+                    {
+                        i--;
+                        sameUpgradeExists = true;
+                    }
+                }
+
+                if (sameUpgradeExists) continue;
                 upgrades.Add(upgrade);
             }
             UI.SetUpgrades(upgrades);

@@ -34,5 +34,10 @@ namespace Game
         {
             return _type.Image;
         }
+
+        public string GetTypeID()
+        {
+            return "HP";
+        }
     }
 }

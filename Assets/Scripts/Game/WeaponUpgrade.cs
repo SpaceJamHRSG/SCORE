@@ -35,6 +35,11 @@ namespace Game
         {
             return _weapon.GetWeaponInfoLevel(_levelUpTo).Image;
         }
+
+        public string GetTypeID()
+        {
+            return _weapon.LineName;
+        }
     }
 
     

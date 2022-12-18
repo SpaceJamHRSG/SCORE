@@ -37,8 +37,11 @@ namespace Music
         private void Update()
         {
             //DebugParser();
-            ParseOnSpacePressed();
-            if(_parsed) CheckInstructions();
+            //ParseOnSpacePressed();
+            if (_parsed)
+            {
+                CheckInstructions();
+            }
         }
         
         public void Play()

@@ -8,5 +8,6 @@ namespace Game
         public string GetUpgradeName();
         public string GetFlavourText();
         public Sprite GetImage();
+        public string GetTypeID();
     }
 }

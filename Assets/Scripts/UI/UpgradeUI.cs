@@ -53,7 +53,7 @@ namespace UI
             {
                 s.UpdateGraphics();
             }
-
+            healthRestoreSlot.UpdateGraphics();
             levelTextField.text = upgradeSystem.ActivePlayer.Level.ToString();
         }
 
