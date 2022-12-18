@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDirector : MonoBehaviour {
+public class EnemyDirector : MonoBehaviour
+{
 
+    public static bool IsActive;
+    
     public GameObject[] gruntPrefabs;
     public GameObject[] bossPrefabs;
 
-    private int baseMaxEnemies = 100;
+    [SerializeField] private int baseMaxEnemies = 100;
 
     private int maxEnemies;
-    private int maxEnemiesIncrementInterval = 5; // seconds
-    private float spawnRate = 1; // per second
+    [SerializeField]  private int maxEnemiesIncrementInterval = 5; // seconds
+    [SerializeField] private float spawnRate = 1; // per second
 
     private PlayerManager playerReference;
     private List<GameObject> spawnedEnemies = new List<GameObject>();
@@ -32,7 +35,12 @@ public class EnemyDirector : MonoBehaviour {
     IEnumerator GruntSpawner() {
         while(true) {
             if (playerReference == null) playerReference = FindObjectOfType<PlayerManager>();
-
+            if (!IsActive)
+            {
+                yield return null;
+                continue;
+            }
+            
             yield return new WaitForSeconds(1 / spawnRate);
 
             if (spawnedEnemies.Count < maxEnemies) {

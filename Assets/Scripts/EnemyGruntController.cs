@@ -23,7 +23,9 @@ public class EnemyGruntController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
+        attackCooldown = 1 / attackRate;
         HealthEntity.OnDeath += OnDeath;
     }
 
@@ -38,19 +40,18 @@ public class EnemyGruntController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        attackCooldown += Time.deltaTime;
         if (!IsActive) return;
         _rigidbody.MovePosition(Vector2.MoveTowards(this.transform.position, playerReference.transform.position, movementSpeed));
-
-        attackCooldown += Time.deltaTime;
     }
 
     void OnCollisionStay2D(Collision2D collision) {
-        if (attackCooldown < (1 / attackRate)) return;
-        attackCooldown = 0;
-
+        if (attackCooldown < (1 / attackRate) || !IsActive) return;
+        
         // Damage player
         if (collision.gameObject.Equals(playerReference.gameObject)) {
-            playerReference.GetComponent<Entity.HealthEntity>().TakeDamage(2); // TODO: adjust
+            playerReference.GetComponent<Entity.HealthEntity>().TakeDamage(1); // TODO: adjust
+            attackCooldown = 0;
         }
 
     }

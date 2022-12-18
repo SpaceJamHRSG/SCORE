@@ -10,7 +10,8 @@ using Random = System.Random;
 [RequireComponent(typeof(ExpLevelEntity), typeof(HealthEntity))]
 public class PlayerManager : MonoBehaviour
 {
-
+    public bool IsActive;
+    
     private ExpLevelEntity _expLevelEntity;
     private HealthEntity _healthEntity;
     
@@ -61,6 +62,11 @@ public class PlayerManager : MonoBehaviour
     {
         get => _healthEntity.GetHealth();
         set => _healthEntity.SetHealth(value);
+    }
+
+    public void Heal(int h)
+    {
+        _healthEntity.Heal(h);
     }
 
     public int ExpToNext => _expLevelEntity.ExpRequiredToNext();
@@ -124,7 +130,13 @@ public class PlayerManager : MonoBehaviour
         
     }
 
-    void Update() {
+    void Update()
+    {
+        if (!IsActive)
+        {
+            rigidbody.velocity = Vector2.zero;
+            return;
+        }
 
         survivalTime += Time.deltaTime;
 
@@ -232,6 +244,16 @@ public class PlayerManager : MonoBehaviour
         Health = MaxHealth;
         Exp = 0;
         Level = 1;
+    }
+
+    public int GetWeaponLevelOf(string s)
+    {
+        foreach(Weapon w in weapons)
+        {
+            if (w.weaponDefinition.LineName.Equals(s)) return w.CurrentLevel;
+        }
+        Debug.LogWarning($"No weapon corresponding to line {s} found!");
+        return 0;
     }
 
 }
