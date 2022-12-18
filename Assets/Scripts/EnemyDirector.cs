@@ -57,7 +57,9 @@ public class EnemyDirector : MonoBehaviour {
                 Vector2 spawnPoint = new Vector2(playerPoint.x + randomPoint.x, playerPoint.y + randomPoint.y);
 
                 GameObject newEnemy = Instantiate(gruntPrefabs[Random.Range(0, gruntPrefabs.Length)], spawnPoint, Quaternion.identity);
-                newEnemy.GetComponent<EnemyGruntController>().MovementSpeed = enemyMovementSpeed;
+                EnemyGruntController controller = newEnemy.GetComponent<EnemyGruntController>();
+                controller.MovementSpeed = enemyMovementSpeed;
+                controller.SetDirector(this);
                 spawnedEnemies.Add(newEnemy);
                 spawnRate += 0.02f; // Gradual spawn rate increase
             }
@@ -76,6 +78,10 @@ public class EnemyDirector : MonoBehaviour {
             yield return new WaitForSeconds(enemyMoveSpeedIncreaseInterval);
             enemyMovementSpeed += 0.01f;
         }
+    }
+
+    public void RemoveEnemy(GameObject go) {
+        spawnedEnemies.Remove(go);
     }
 
     public GameObject FindClosestEnemy(Vector3 position) {
