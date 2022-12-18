@@ -9,6 +9,7 @@ namespace Game
     [Serializable]
     public class LevelDefPair
     {
+        [SerializeField] private Projectile projectile;
         [SerializeField] private int level;
         [SerializeField] private ProjectileMultiShooter shooter;
         [SerializeField] private string upgradeName;
@@ -20,14 +21,18 @@ namespace Game
         public string UpgradeName => upgradeName;
         public string UpgradeDescription => upgradeDescription;
         public Sprite Image => image;
+        public Projectile Projectile => projectile;
     }
     
     [Serializable]
     [CreateAssetMenu(fileName = "New Weapon", menuName = "Weapon")]
     public class WeaponDefinition : ScriptableObject
     {
+        [SerializeField] private string lineName;
         [SerializeField] private List<LevelDefPair> weaponLevels;
         private Dictionary<int, LevelDefPair> _getWeaponOfLevel = new Dictionary<int, LevelDefPair>();
+
+        public string LineName => lineName;
 
         private void OnValidate()
         {

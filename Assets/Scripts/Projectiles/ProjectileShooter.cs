@@ -72,5 +72,10 @@ namespace Projectiles
             }
             proj.SetDamage(dmg);
         }
+
+        public void SetProjectile(Projectile p)
+        {
+            projectilePrefab = p;
+        }
     }
 }

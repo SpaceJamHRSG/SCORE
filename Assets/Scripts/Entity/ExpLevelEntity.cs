@@ -6,6 +6,8 @@ namespace Entity
 {
     public class ExpLevelEntity : MonoBehaviour
     {
+        public static event Action<int, ExpLevelEntity> OnLevelUp;
+        
         [SerializeField] private int _maxLevel;
         [SerializeField] private int _experience;
         [SerializeField] private int _level;
@@ -52,6 +54,7 @@ namespace Entity
         public void LevelUp(int by)
         {
             _level += by;
+            OnLevelUp?.Invoke(_level, this);
         }
 
         public int ExpRequiredToNext()

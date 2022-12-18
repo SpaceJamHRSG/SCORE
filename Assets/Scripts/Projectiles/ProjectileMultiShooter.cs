@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Entity;
+using Music;
 using UnityEditor;
 using UnityEngine;
 
@@ -25,6 +26,22 @@ namespace Projectiles
             foreach (var s in shooters)
             {
                 s.transform.Rotate(0,0,rotationSpeed * Time.deltaTime);
+            }
+        }
+
+        public void SetPart(string part)
+        {
+            foreach (var s in shooters)
+            {
+                s.GetComponent<RhythmResponder>().Line = part;
+            }
+        }
+
+        public void SetProjectile(Projectile p)
+        {
+            foreach (var s in shooters)
+            {
+                s.SetProjectile(p);
             }
         }
     }

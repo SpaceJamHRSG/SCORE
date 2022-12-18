@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b03ef7d25a4f4da1e8f5a3572c62ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 0
   shooters:
   - {fileID: 3794297237662051462}
   - {fileID: 6818991663127437571}
@@ -95,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b6cb857fd34469bf5c93b27e3e19e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: main
+  line: rhythm
 --- !u!114 &6818991663127437571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,9 +115,13 @@ MonoBehaviour:
   acceleration: 0
   angularAcceleration: 0
   enablePendulumMotion: 1
-  magnitude: 50
+  magnitude: 80
   swingSpeed: 15
   phase: 0.5
+  maxBaseDamage: 0
+  baseDamageVariance: 0
+  baseCritChance: 0
+  baseCritStrength: 0
 --- !u!1 &7415499349965849973
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b6cb857fd34469bf5c93b27e3e19e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: main
+  line: rhythm
 --- !u!114 &3794297237662051462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,6 +186,10 @@ MonoBehaviour:
   acceleration: 0
   angularAcceleration: 0
   enablePendulumMotion: 1
-  magnitude: 50
+  magnitude: 80
   swingSpeed: 15
   phase: -0.5
+  maxBaseDamage: 0
+  baseDamageVariance: 0
+  baseCritChance: 0
+  baseCritStrength: 0

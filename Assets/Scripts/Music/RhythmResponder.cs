@@ -9,7 +9,12 @@ namespace Music
         [SerializeField] private string line;
         private Action TickResponse;
 
-        public string Line => line;
+        public string Line
+        {
+            get { return line; }
+            set => line = value;
+        }
+
         private void OnEnable()
         {
             RhythmEmitter.AddResponder(this);

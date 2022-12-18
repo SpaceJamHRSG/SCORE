@@ -30,6 +30,7 @@ namespace Music
         private void Start()
         {
             Initialize();
+            _audioSource.clip = audio;
             _parsed = false;
         }
 

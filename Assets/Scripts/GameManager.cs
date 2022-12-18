@@ -1,3 +1,5 @@
+using System.Collections;
+using Entity;
 using Game;
 using Music;
 using UI;
@@ -35,7 +37,9 @@ public class GameManager : MonoBehaviour {
         playerReference = Instantiate(playerPrefab, new Vector3(0,0,0), Quaternion.identity);
         activePlayer = playerReference.GetComponent<PlayerManager>();
         upgradeSystem.ActivePlayer = activePlayer;
-        rhythmManager.StartMainAudio();
+        StartCoroutine(StartAfter(0.5f));
+
+        ExpLevelEntity.OnLevelUp += (i, e) => upgradeSystem.OpenUpgradeScreen(2);
     }
 
     private void Update() {
@@ -54,6 +58,12 @@ public class GameManager : MonoBehaviour {
 
     public void IncrementGruntsDefeated() {
         gruntsDefeated++;
+    }
+
+    IEnumerator StartAfter(float t)
+    {
+        yield return new WaitForSeconds(t);
+        rhythmManager.StartMainAudio();
     }
 
 }

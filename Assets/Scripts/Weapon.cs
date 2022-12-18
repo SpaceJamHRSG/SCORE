@@ -23,6 +23,8 @@ public class Weapon : MonoBehaviour {
     {
         if (level == _currentLevel) return;
         ProjectileMultiShooter newWeapon = weaponDefinition.GetShooter(level);
+        newWeapon.SetPart(weaponDefinition.LineName);
+        newWeapon.SetProjectile(weaponDefinition.GetWeaponInfoLevel(level).Projectile);
         if (newWeapon == null)
         {
             Debug.LogWarning($"No weapon of level {level} exists");
