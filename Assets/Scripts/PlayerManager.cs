@@ -10,7 +10,8 @@ using Random = System.Random;
 [RequireComponent(typeof(ExpLevelEntity), typeof(HealthEntity))]
 public class PlayerManager : MonoBehaviour
 {
-
+    public bool IsActive;
+    
     private ExpLevelEntity _expLevelEntity;
     private HealthEntity _healthEntity;
     
@@ -124,7 +125,13 @@ public class PlayerManager : MonoBehaviour
         
     }
 
-    void Update() {
+    void Update()
+    {
+        if (!IsActive)
+        {
+            rigidbody.velocity = Vector2.zero;
+            return;
+        }
 
         survivalTime += Time.deltaTime;
 

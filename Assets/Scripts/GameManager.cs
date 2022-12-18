@@ -39,17 +39,25 @@ public class GameManager : MonoBehaviour {
         upgradeSystem.ActivePlayer = activePlayer;
         StartCoroutine(StartAfter(0.5f));
 
+        EnemyDirector.IsActive = true;
+        EnemyGruntController.IsActive = true;
+        activePlayer.IsActive = true;
+
         ExpLevelEntity.OnLevelUp += (i, e) =>
         {
             upgradeSystem.OpenUpgradeScreen(2);
             rhythmManager.FadeToRestAudio();
             EnemyGruntController.IsActive = false;
+            activePlayer.IsActive = false;
+            EnemyDirector.IsActive = false;
         };
 
         UpgradeSystem.OnClose += () =>
         {
             rhythmManager.FadeToMainAudio();
             EnemyGruntController.IsActive = true;
+            activePlayer.IsActive = true;
+            EnemyDirector.IsActive = true;
         };
     }
 

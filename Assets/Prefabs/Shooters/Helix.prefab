@@ -119,7 +119,7 @@ MonoBehaviour:
   swingSpeed: 15
   phase: 0.5
   maxBaseDamage: 50
-  baseDamageVariance: 0.6
+  baseDamageVariance: 0.3
   baseCritChance: 0.1
   baseCritStrength: 1.2
 --- !u!1 &7415499349965849973
@@ -190,6 +190,6 @@ MonoBehaviour:
   swingSpeed: 15
   phase: -0.5
   maxBaseDamage: 50
-  baseDamageVariance: 0.6
+  baseDamageVariance: 0.3
   baseCritChance: 0.1
   baseCritStrength: 1.2
