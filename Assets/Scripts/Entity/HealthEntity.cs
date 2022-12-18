@@ -10,11 +10,12 @@ namespace Entity
 {
     public class HealthEntity : MonoBehaviour
     {
-        public static event Action<int, bool, HealthEntity> OnTakeHit;
-        public static event Action<int, HealthEntity> OnDeath;
+        public static event Action<int, bool, HealthEntity, Sprite> OnTakeHit;
+        public static event Action<int, HealthEntity, Sprite> OnDeath;
         public static event Action<int, HealthEntity> OnHeal;
 
         public event Action<int> OnThisDeath;
+        public event Action<int, bool, Sprite> OnThisHit;
 
         [SerializeField] private int maxHealth;
         private int _health;
@@ -30,16 +31,17 @@ namespace Entity
             _isDead = false;
             _health = maxHealth;
         }
-        public void TakeDamage(int damage, bool critical = false)
+        public void TakeDamage(int damage, bool critical = false, Sprite impactParticles = null)
         {
             if (_isDead) return;
             _health -= damage;
-            OnTakeHit?.Invoke(damage, critical, this);
+            OnTakeHit?.Invoke(damage, critical, this, impactParticles);
+            OnThisHit?.Invoke(damage, critical, impactParticles);
             if (_health <= 0)
             {
                 _isDead = true;
                 BeginDeathSequence();
-                OnDeath?.Invoke(damage, this);
+                OnDeath?.Invoke(damage, this, impactParticles);
                 OnThisDeath?.Invoke(damage);
             }
         }

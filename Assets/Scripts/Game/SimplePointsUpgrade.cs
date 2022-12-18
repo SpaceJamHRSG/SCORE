@@ -32,7 +32,7 @@ namespace Game
 
         public Sprite GetImage()
         {
-            return _type.Image;
+            return null;
         }
 
         public string GetTypeID()

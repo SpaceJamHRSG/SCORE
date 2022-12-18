@@ -43,7 +43,7 @@ public class EnemyGruntController : MonoBehaviour
         HealthEntity.OnDeath += OnDeath;
     }
 
-    private void OnDeath(int dmg, HealthEntity entity) {
+    private void OnDeath(int dmg, HealthEntity entity, Sprite impactParticles) {
         if (entity == null || this == null) return;  
         if (entity.gameObject.Equals(this.gameObject)) {
             GameManager.Instance.IncrementGruntsDefeated();

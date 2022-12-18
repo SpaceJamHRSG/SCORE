@@ -110,18 +110,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 30
+  speed: 50
   angularVelocity: 0
   acceleration: 0
   angularAcceleration: 0
   enablePendulumMotion: 1
-  magnitude: 80
-  swingSpeed: 15
+  magnitude: 25
+  swingSpeed: 18
   phase: 0.5
   maxBaseDamage: 50
   baseDamageVariance: 0.3
   baseCritChance: 0.1
   baseCritStrength: 1.2
+  autoTarget: 0
+  autoTargetRank: 0
 --- !u!1 &7415499349965849973
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,15 +183,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 30
+  speed: 50
   angularVelocity: 0
   acceleration: 0
   angularAcceleration: 0
   enablePendulumMotion: 1
-  magnitude: 80
-  swingSpeed: 15
+  magnitude: 25
+  swingSpeed: 18
   phase: -0.5
   maxBaseDamage: 50
   baseDamageVariance: 0.3
   baseCritChance: 0.1
   baseCritStrength: 1.2
+  autoTarget: 0
+  autoTargetRank: 0

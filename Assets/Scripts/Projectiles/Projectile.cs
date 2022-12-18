@@ -30,6 +30,8 @@ namespace Projectiles
         public Allegiance Allegiance { get; set; }
         public bool IsCritical { get; set; }
 
+        [SerializeField] private Sprite impactParticles;
+
         private void Awake()
         {
             _pooledObject = GetComponent<PooledObject>();
@@ -39,7 +41,6 @@ namespace Projectiles
         private void OnEnable()
         {
             _timeSpawned = Time.time;
-            _startingRotation = transform.rotation.eulerAngles.z;
         }
 
         private void Update()
@@ -63,7 +64,7 @@ namespace Projectiles
             }
             else
             {
-                transform.rotation = Quaternion.Euler(0,0,_startingRotation + AngularFunction(Time.time - _timeSpawned));
+                transform.localRotation = Quaternion.Euler(0,0,_startingRotation + AngularFunction(Time.time - _timeSpawned));
             }
             
             if (Time.time > _timeSpawned + _maxLifeTime)
@@ -94,7 +95,7 @@ namespace Projectiles
                 return;
             }
             if (other.Allegiance == this.Allegiance) return;
-            other.TakeDamage(Math.Max(damage, 1), IsCritical);
+            other.TakeDamage(Math.Max(damage, 1), IsCritical, impactParticles);
             Pooling.Instance.Despawn(_pooledObject);
         }
 

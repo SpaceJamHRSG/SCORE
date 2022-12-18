@@ -44,9 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0154fcd0b0ab2a44a42ce88a6229455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageMultiplier: 1
+  aimWithMouse: 0
+  _aimSmoothing: 0
+  autoTargetEnemy: 0
   weaponDefinition: {fileID: 11400000, guid: 8d7166e17fa475340ad99d8a26cdd6eb, type: 2}
-  IsStartingWeapon: 1
+  IsStartingWeapon: 0
 --- !u!1 &5163514275403917279
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +93,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0154fcd0b0ab2a44a42ce88a6229455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageMultiplier: 1
+  aimWithMouse: 1
+  _aimSmoothing: 20
+  autoTargetEnemy: 0
   weaponDefinition: {fileID: 11400000, guid: c2f2347434237f147b6c04b0e81fd052, type: 2}
   IsStartingWeapon: 1
 --- !u!1 &7599684439502406146
@@ -393,6 +397,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0154fcd0b0ab2a44a42ce88a6229455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageMultiplier: 1
+  aimWithMouse: 0
+  _aimSmoothing: 0
+  autoTargetEnemy: 1
   weaponDefinition: {fileID: 11400000, guid: bcabf4772c6cc5245b5896eb47bcbcb2, type: 2}
-  IsStartingWeapon: 1
+  IsStartingWeapon: 0

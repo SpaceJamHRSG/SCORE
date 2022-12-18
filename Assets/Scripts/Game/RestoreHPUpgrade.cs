@@ -7,7 +7,6 @@ namespace Game
     [Serializable]
     public class RestoreHPUpgrade : IUpgrade
     {
-        private Stat _type;
         private float _val;
 
         public RestoreHPUpgrade(int quantity)
@@ -32,7 +31,7 @@ namespace Game
 
         public Sprite GetImage()
         {
-            return _type.Image;
+            return null;
         }
 
         public string GetTypeID()

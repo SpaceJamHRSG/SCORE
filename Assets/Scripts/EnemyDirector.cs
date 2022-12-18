@@ -1,8 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyDirector : MonoBehaviour {
+    
+    private static EnemyDirector instance;
+    public static EnemyDirector Instance {
+        get {
+            if (instance == null) Debug.LogError("GameManager missing.");
+            return instance;
+        }
+    }
 
     public static bool IsActive;
     
@@ -20,6 +30,12 @@ public class EnemyDirector : MonoBehaviour {
 
     private PlayerManager playerReference;
     private List<GameObject> spawnedEnemies = new List<GameObject>();
+    public List<GameObject> SpawnedEnemies => spawnedEnemies;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start() {

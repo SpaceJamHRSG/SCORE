@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using Game;
 using Projectiles;
+using Unity.Mathematics;
 using UnityEngine;
+using Random = System.Random;
 
 public class Weapon : MonoBehaviour
 {
     public bool aimWithMouse;
+    public float _aimSmoothing;
+    public bool autoTargetEnemy;
     public WeaponDefinition weaponDefinition;
 
     private ProjectileMultiShooter _activeShooter;
@@ -17,11 +21,16 @@ public class Weapon : MonoBehaviour
     public bool IsStartingWeapon;
     private bool _weaponEnabled;
 
+    
     public bool HasThisWeapon => _weaponEnabled;
     public int CurrentLevel => _currentLevel;
 
     private Camera mainCamera;
+    private Transform _target;
 
+    private Quaternion _targetRotation;
+    private Quaternion _actualRotation;
+    
     private void Start()
     {
         mainCamera = Camera.main;
@@ -29,11 +38,21 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
+        if(_activeShooter != null)
+            _activeShooter.AutoTarget = autoTargetEnemy;
         if (aimWithMouse)
         {
-            Vector3 mousePos = Input.mousePosition;
-            Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(mousePos);
-            transform.rotation = Quaternion.LookRotation(mouseWorldPos, Vector3.forward);
+            Vector2 mousePos = Input.mousePosition;
+            Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(mousePos);
+            _targetRotation
+                = Quaternion.Euler(0,0,180 / Mathf.PI * Mathf.Atan2(-mouseWorldPos.x + transform.position.x, mouseWorldPos.y - transform.position.y));
+            _actualRotation = Quaternion.Slerp(_actualRotation, _targetRotation, _aimSmoothing * Time.deltaTime);
+            transform.rotation = _actualRotation;
+        }
+
+        if (autoTargetEnemy)
+        {
+            transform.rotation = Quaternion.identity; // outsourced to children (shit solution but oh well game jam)
         }
     }
 

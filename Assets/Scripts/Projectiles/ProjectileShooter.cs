@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Core;
 using Entity;
 using Music;
@@ -27,6 +28,8 @@ namespace Projectiles
         [SerializeField] [Range(0, 1)] private float baseDamageVariance;
         [SerializeField] [Range(0, 1)] private float baseCritChance;
         [SerializeField] private float baseCritStrength;
+        [Space] [SerializeField] private bool autoTarget;
+        [SerializeField] private int autoTargetRank;
 
         private float _damage;
         private float _damageVariance;
@@ -34,7 +37,14 @@ namespace Projectiles
         private float _critStrength;
         
         private RhythmResponder _responder;
+        private Transform _target;
         public Allegiance Allegiance { get; set; }
+
+        public bool AutoTarget
+        {
+            get => autoTarget;
+            set { autoTarget = value; }
+        }
 
         private void Awake()
         {
@@ -57,7 +67,51 @@ namespace Projectiles
 
         private void Shoot()
         {
+            if (autoTarget)
+            {
+                EnemyDirector director = EnemyDirector.Instance;
+                List<GameObject> spawnedEnemies = director.SpawnedEnemies;
+                Transform[] closestFiveEnemies = new Transform[5];
+                float[] closestFiveDistances = new float[5];
+                for (int i = 0; i < 5; i++)
+                {
+                    closestFiveDistances[i] = float.PositiveInfinity;
+                }
+
+                foreach (var e in spawnedEnemies)
+                {
+                    float distance = (e.transform.position - transform.position).sqrMagnitude;
+                    for (int i = 0; i < 5; i++)
+                    {
+                        if (distance < closestFiveDistances[i])
+                        {
+                            if (i != 4)
+                            {
+                                closestFiveDistances[i + 1] = closestFiveDistances[i];
+                                closestFiveEnemies[i + 1] = closestFiveEnemies[i];
+                            }
+
+                            closestFiveDistances[i] = distance;
+                            closestFiveEnemies[i] = e.transform;
+                            break;
+                        }
+                    }
+                }
+
+                _target = closestFiveEnemies[autoTargetRank];
+                if (_target == null)
+                {
+                    transform.rotation = Quaternion.LookRotation(UnityEngine.Random.insideUnitCircle, Vector3.forward);
+                }
+                else
+                {
+                    Vector2 diff = _target.transform.position - transform.position;
+                    transform.rotation = Quaternion.Euler(0, 0, -180 / Mathf.PI * Mathf.Atan2(diff.x, diff.y));
+                }
+            }
+
             Projectile proj = Pooling.Instance.Spawn<Projectile>(projectilePrefab.gameObject, transform.position, transform.rotation);
+            proj.SetStartingRotation(transform.rotation.eulerAngles.z);
             proj.SetParams(speed, acceleration, angularVelocity, angularAcceleration);
             if (enablePendulumMotion)
             {

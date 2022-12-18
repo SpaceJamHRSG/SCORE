@@ -81,18 +81,27 @@ public class PlayerManager : MonoBehaviour
     // Player inventory
     [SerializeField] private List<Weapon> weapons = new List<Weapon>();
 
-
-
-
     private Rigidbody2D rigidbody;
     private BoxCollider2D _collider;
 
 
     private void OnEnable() {
         HealthEntity.OnDeath += OnDeath;
+        HealthEntity.OnTakeHit += OnTakeHit;
+    }
+    private void OnDisable() {
+        HealthEntity.OnDeath -= OnDeath;
+        HealthEntity.OnTakeHit -= OnTakeHit;
+    }
+    
+    private void OnTakeHit(int dmg, bool crit, HealthEntity entity, Sprite impactParticles) {
+        if (entity.gameObject.Equals(this.gameObject)) {
+            rigidbody.simulated = false;
+            GameManager.Instance.EndGame();
+        }
     }
 
-    private void OnDeath(int dmg, HealthEntity entity) {
+    private void OnDeath(int dmg, HealthEntity entity, Sprite impactParticles) {
         if (entity.gameObject.Equals(this.gameObject)) {
             rigidbody.simulated = false;
             GameManager.Instance.EndGame();
@@ -140,11 +149,9 @@ public class PlayerManager : MonoBehaviour
 
         survivalTime += Time.deltaTime;
 
-        // Get input
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        // Move the character based on the input
         rigidbody.velocity = new Vector2(horizontalInput * baseMovementSpeed, verticalInput * baseMovementSpeed);
         
         Physics2D.OverlapCircleNonAlloc(transform.position, pickupRadius, _collidersArray);

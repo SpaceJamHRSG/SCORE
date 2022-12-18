@@ -12,6 +12,8 @@ namespace Projectiles
         [SerializeField] private float rotationSpeed;
         [SerializeField] private List<ProjectileShooter> shooters;
         [SerializeField] private Allegiance allegiance;
+        
+        public bool AutoTarget { get; set; }
         private void Start()
         {
             foreach (ProjectileShooter shooter in shooters)
@@ -25,6 +27,7 @@ namespace Projectiles
             foreach (var s in shooters)
             {
                 s.transform.Rotate(0,0,rotationSpeed * Time.deltaTime);
+                s.AutoTarget = AutoTarget;
             }
         }
 
