@@ -2,25 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDirector : MonoBehaviour
-{
+public class EnemyDirector : MonoBehaviour {
 
     public static bool IsActive;
     
     public GameObject[] gruntPrefabs;
     public GameObject[] bossPrefabs;
 
-    [SerializeField] private int baseMaxEnemies = 100;
+    private int baseMaxEnemies = 200;
 
-    private int maxEnemies;
-    [SerializeField]  private int maxEnemiesIncrementInterval = 5; // seconds
+    [SerializeField] private int maxEnemies;
+    [SerializeField] private int maxEnemiesIncrementInterval = 2; // seconds
     [SerializeField] private float spawnRate = 1; // per second
+
+    [SerializeField] private float enemyMovementSpeed = 0.03f;
+    [SerializeField] private int enemyMoveSpeedIncreaseInterval = 60; // seconds
 
     private PlayerManager playerReference;
     private List<GameObject> spawnedEnemies = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start() {
+
         maxEnemies = baseMaxEnemies;
         playerReference = FindObjectOfType<PlayerManager>();
 
@@ -30,6 +33,7 @@ public class EnemyDirector : MonoBehaviour
 
         StartCoroutine("GruntSpawner");
         StartCoroutine("EnemyLimitIncreaseTimer");
+        StartCoroutine("EnemyMoveSpeedIncreaseTimer");
     }
 
     IEnumerator GruntSpawner() {
@@ -45,17 +49,17 @@ public class EnemyDirector : MonoBehaviour
 
             if (spawnedEnemies.Count < maxEnemies) {
 
-                Vector2 randomPoint = Random.insideUnitCircle * 20;
+                Vector2 randomPoint = Random.insideUnitCircle * 25;
                 Vector2 playerPoint = new Vector2(playerReference.transform.position.x, playerReference.transform.position.y);
+                while (Vector2.Distance(randomPoint,playerPoint) < 15) {
+                    randomPoint = Random.insideUnitCircle * 25;
+                }
                 Vector2 spawnPoint = new Vector2(playerPoint.x + randomPoint.x, playerPoint.y + randomPoint.y);
 
-                spawnedEnemies.Add(
-                    Instantiate(
-                        gruntPrefabs[Random.Range(0, gruntPrefabs.Length)], 
-                        spawnPoint, 
-                        Quaternion.identity)
-                    );
-                spawnRate += 0.01f; // Gradual spawn rate increase
+                GameObject newEnemy = Instantiate(gruntPrefabs[Random.Range(0, gruntPrefabs.Length)], spawnPoint, Quaternion.identity);
+                newEnemy.GetComponent<EnemyGruntController>().MovementSpeed = enemyMovementSpeed;
+                spawnedEnemies.Add(newEnemy);
+                spawnRate += 0.02f; // Gradual spawn rate increase
             }
         }
 
@@ -65,6 +69,12 @@ public class EnemyDirector : MonoBehaviour
         while (true) {
             yield return new WaitForSeconds(maxEnemiesIncrementInterval);
             maxEnemies++;
+        }
+    }
+    IEnumerator EnemyMoveSpeedIncreaseTimer() {
+        while (true) {
+            yield return new WaitForSeconds(enemyMoveSpeedIncreaseInterval);
+            enemyMovementSpeed += 0.01f;
         }
     }
 

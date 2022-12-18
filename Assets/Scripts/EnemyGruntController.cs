@@ -10,8 +10,14 @@ public class EnemyGruntController : MonoBehaviour
     
     private PlayerManager playerReference;
 
-    private float movementSpeed = 0.01f;
+    [SerializeField] private float movementSpeed = 0.03f;
+    public float MovementSpeed {
+        get { return movementSpeed; }
+        set { movementSpeed = value; }
+    }
 
+
+    private float damage = 1;
     private float attackRate = 0.5f;
     private float attackCooldown = 0f;
 
@@ -50,7 +56,7 @@ public class EnemyGruntController : MonoBehaviour
         
         // Damage player
         if (collision.gameObject.Equals(playerReference.gameObject)) {
-            playerReference.GetComponent<Entity.HealthEntity>().TakeDamage(1); // TODO: adjust
+            playerReference.GetComponent<Entity.HealthEntity>().TakeDamage((int)damage);
             attackCooldown = 0;
         }
 
