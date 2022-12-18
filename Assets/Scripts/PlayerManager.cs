@@ -97,12 +97,15 @@ public class PlayerManager : MonoBehaviour
     
     private void OnTakeHit(int dmg, bool crit, HealthEntity entity, Sprite impactParticles)
     {
-        if (dmg <= 0) return;
-
-        if (WeaponCount() > 0)
+        if (entity.gameObject.Equals(this.gameObject))
         {
-            LoseRandomWeapon();
-            OnLoseWeapon?.Invoke(this);
+            if (dmg <= 0) return;
+
+            if (WeaponCount() > 1)
+            {
+                LoseRandomWeapon();
+                OnLoseWeapon?.Invoke(this);
+            }
         }
     }
 

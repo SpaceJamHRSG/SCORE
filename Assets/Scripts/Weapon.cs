@@ -86,7 +86,7 @@ public class Weapon : MonoBehaviour
 
     public void RemoveWeapon()
     {
-        Destroy(_activeShooter);
+        Destroy(_activeShooter.gameObject);
         _currentLevel = 0;
         _activeShooter = null;
         _weaponEnabled = false;

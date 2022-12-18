@@ -17,10 +17,15 @@ namespace AnimToFx
         private float _moveTimer;
         private bool _moveState;
         private int _ptr;
-
+        private Camera _camera;
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+        }
+
+        private void Start()
+        {
+            _camera = Camera.main;
         }
 
         private void Update()
@@ -37,6 +42,16 @@ namespace AnimToFx
             _sprite.sprite = _moveState ? 
                 _spriteSheetMovement[_ptr % _spriteSheetMovement.Count] : 
                 _spriteSheetIdle[_ptr % _spriteSheetMovement.Count];
+
+            if (_moveState)
+            {
+                transform.localScale = new Vector3(_rb.velocity.x > 1 ? -1 : 1, 1, 1);
+            }
+            else
+            {
+                float mouseTransDiff = _camera.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
+                transform.localScale = new Vector3(mouseTransDiff > 0 ? -1:1,1, 1);
+            }
         }
     }
 }
