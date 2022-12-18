@@ -2103,11 +2103,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gruntPrefabs:
   - {fileID: 7599684439502406146, guid: 6b8eba5cb0729264a94f93b36964f552, type: 3}
+  - {fileID: 7599684439502406146, guid: 7d6856578ed742a49a00d3dd450d8b76, type: 3}
   bossPrefabs:
   - {fileID: 7599684439502406146, guid: 4f681243bdcd48d41979732e83e6d09c, type: 3}
   maxEnemies: 200
   maxEnemiesIncrementInterval: 2
-  spawnRate: 2
+  gruntSpawnRate: 1
+  bossSpawnInterval: 30
   enemyMovementSpeed: 0.03
   enemyMoveSpeedIncreaseInterval: 60
 --- !u!4 &1006923638
