@@ -15,6 +15,7 @@ public class EnemyBossController : Enemy {
         damage = 2;
         attackRate = 0.2f;
         attackCooldown = 0f;
+
     }
 
     private void OnEnable() {
@@ -24,7 +25,9 @@ public class EnemyBossController : Enemy {
         HealthEntity.OnDeath += (dmg, entity) => {
             if (entity == null || this == null) return;
             if (entity.gameObject.Equals(this.gameObject)) {
+
                 GameManager.Instance.BossesDefeated += 1;
+
                 enemyDirector.RemoveEnemy(this.gameObject);
                 GetComponent<Collider2D>().enabled = false;
                 healthBar.gameObject.SetActive(false);
@@ -33,10 +36,9 @@ public class EnemyBossController : Enemy {
 
     }
 
-    // TODO: boss logic
-    void FixedUpdate() {
-        attackCooldown += Time.deltaTime;
-        if (!IsActive) return;
-        _rigidbody.MovePosition(Vector2.MoveTowards(this.transform.position, playerReference.transform.position, movementSpeed));
+    private new void FixedUpdate() {
+        base.FixedUpdate();
+
+        // TODO: boss special
     }
 }

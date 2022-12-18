@@ -24,7 +24,9 @@ public class EnemyGruntController : Enemy {
         HealthEntity.OnDeath += (dmg, entity) => {
             if (entity == null || this == null) return;
             if (entity.gameObject.Equals(this.gameObject)) {
+
                 GameManager.Instance.GruntsDefeated += 1;
+
                 enemyDirector.RemoveEnemy(this.gameObject);
                 GetComponent<Collider2D>().enabled = false;
                 healthBar.gameObject.SetActive(false);
