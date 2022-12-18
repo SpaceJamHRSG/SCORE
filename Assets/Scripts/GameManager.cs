@@ -1,5 +1,6 @@
 using Game;
 using Music;
+using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,8 +22,10 @@ public class GameManager : MonoBehaviour {
     public UpgradeSystem upgradeSystem;
     public RhythmManager rhythmManager;
     public GameObject gameOverScreen;
+    public OverworldHUD HUD;
 
     private GameObject playerReference;
+    private PlayerManager activePlayer;
 
     private void Awake() {
         instance = this;
@@ -30,13 +33,14 @@ public class GameManager : MonoBehaviour {
 
     private void Start() {
         playerReference = Instantiate(playerPrefab, new Vector3(0,0,0), Quaternion.identity);
-        upgradeSystem.ActivePlayer = playerReference.GetComponent<PlayerManager>();
+        activePlayer = playerReference.GetComponent<PlayerManager>();
+        upgradeSystem.ActivePlayer = activePlayer;
         rhythmManager.StartMainAudio();
-
     }
 
     private void Update() {
         survivalTime += Time.deltaTime;
+        HUD.DisplayStats(activePlayer);
     }
 
     public void EndGame() {

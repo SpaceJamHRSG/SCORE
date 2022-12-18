@@ -162,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   allegiance: 1
+  damageNumberUI: {fileID: 0}
 --- !u!114 &-8912686312687752776
 MonoBehaviour:
   m_ObjectHideFlags: 0

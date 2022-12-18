@@ -15,6 +15,7 @@ namespace Music
         [SerializeField] private string lineTag;
         [SerializeField] private AudioClip audio;
         [SerializeField] private TextAsset script;
+        [TextArea(10, 20)]
         [SerializeField] private string scriptField;
         
         private AudioSource _audioSource;

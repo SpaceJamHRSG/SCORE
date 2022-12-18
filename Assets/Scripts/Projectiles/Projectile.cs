@@ -28,6 +28,7 @@ namespace Projectiles
 
         private float _startingRotation;
         public Allegiance Allegiance { get; set; }
+        public bool IsCritical { get; set; }
 
         private void Awake()
         {
@@ -90,11 +91,10 @@ namespace Projectiles
             HealthEntity other = col.GetComponent<HealthEntity>();
             if (other == null)
             {
-                Pooling.Instance.Despawn(_pooledObject);
                 return;
             }
             if (other.Allegiance == this.Allegiance) return;
-            other.TakeDamage(Math.Max(damage, 1));
+            other.TakeDamage(Math.Max(damage, 1), IsCritical);
             Pooling.Instance.Despawn(_pooledObject);
         }
 

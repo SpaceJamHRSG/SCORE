@@ -27,7 +27,7 @@ public class PlayerManager : MonoBehaviour
     //private int baseCriticalChance = 10; // %
     //private int baseCriticalDamageBonus = 50; // %
     private float baseMovementSpeed = 5f;
-    private float pickupRadius = 3f;
+    public float pickupRadius = 3f;
     private float damageMultiplier = 1;
 
     private System.Random random;
@@ -92,6 +92,15 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        rigidbody = GetComponent<Rigidbody2D>();
+        _collider = GetComponent<BoxCollider2D>();
+
+        _expLevelEntity = GetComponent<ExpLevelEntity>();
+        _healthEntity = GetComponent<HealthEntity>();
+    }
+
     void Start()
     {
         _collidersArray = new Collider2D[512];
@@ -111,11 +120,7 @@ public class PlayerManager : MonoBehaviour
         }
 
         // Get the Rigidbody and Box Collider references
-        rigidbody = GetComponent<Rigidbody2D>();
-        _collider = GetComponent<BoxCollider2D>();
-
-        _expLevelEntity = GetComponent<ExpLevelEntity>();
-        _healthEntity = GetComponent<HealthEntity>();
+        
     }
 
     void Update() {
@@ -222,6 +227,7 @@ public class PlayerManager : MonoBehaviour
         MaxHealth = originalStats.MaxHealth;
         Damage = originalStats.BaseDamage;
         MoveSpeed = originalStats.BaseSpeed;
+        Health = MaxHealth;
         Exp = 0;
         Level = 1;
     }

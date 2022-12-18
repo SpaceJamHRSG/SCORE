@@ -28,7 +28,6 @@ public class EnemyGruntController : MonoBehaviour {
         if (entity == null || this == null) return;  // TODO: fix null?!
         if (entity.gameObject.Equals(this.gameObject)) {
             GameManager.Instance.IncrementGruntsDefeated();
-            Destroy(this.gameObject);
         }
     }
 

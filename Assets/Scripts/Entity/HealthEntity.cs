@@ -10,7 +10,7 @@ namespace Entity
 {
     public class HealthEntity : MonoBehaviour
     {
-        public static event Action<int, HealthEntity> OnTakeHit;
+        public static event Action<int, bool, HealthEntity> OnTakeHit;
         public static event Action<int, HealthEntity> OnDeath;
         public static event Action<int, HealthEntity> OnHeal;
 
@@ -30,12 +30,11 @@ namespace Entity
             _isDead = false;
             _health = maxHealth;
         }
-
-        public void TakeDamage(int damage)
+        public void TakeDamage(int damage, bool critical = false)
         {
             if (_isDead) return;
             _health -= damage;
-            OnTakeHit?.Invoke(damage, this);
+            OnTakeHit?.Invoke(damage, critical, this);
             if (_health <= 0)
             {
                 _isDead = true;

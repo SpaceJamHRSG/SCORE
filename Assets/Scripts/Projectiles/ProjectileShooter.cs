@@ -5,12 +5,15 @@ using Music;
 using Unity.VisualScripting;
 using UnityEngine;
 using Utility;
+using Random = System.Random;
 
 namespace Projectiles
 {
     [RequireComponent(typeof(RhythmResponder))]
     public class ProjectileShooter : MonoBehaviour
     {
+        private Random random;
+        
         [SerializeField] private Projectile projectilePrefab;
         [SerializeField] private float speed;
         [SerializeField] private float angularVelocity;
@@ -20,6 +23,15 @@ namespace Projectiles
         [SerializeField] private float magnitude;
         [SerializeField] private float swingSpeed;
         [SerializeField] private float phase;
+        [SerializeField] private float maxBaseDamage;
+        [SerializeField] [Range(0, 1)] private float baseDamageVariance;
+        [SerializeField] [Range(0, 1)] private float baseCritChance;
+        [SerializeField] private float baseCritStrength;
+
+        private float _damage;
+        private float _damageVariance;
+        private float _critChance;
+        private float _critStrength;
         
         private RhythmResponder _responder;
         public Allegiance Allegiance { get; set; }
@@ -27,11 +39,20 @@ namespace Projectiles
         private void Awake()
         {
             _responder = GetComponent<RhythmResponder>();
+            random = new Random();
         }
 
         private void Start()
         {
             _responder.SetTickResponse(Shoot, _responder.Line);
+        }
+
+        public void AssignDamageStats(float dmg, float variance, float crit, float critPow)
+        {
+            _damage = maxBaseDamage * dmg;
+            _damageVariance = _damageVariance * variance;
+            _critChance = 1 - (1 - crit) * (1 - baseCritChance);
+            _critStrength = baseCritStrength * critPow;
         }
 
         private void Shoot()
@@ -43,6 +64,13 @@ namespace Projectiles
                 proj.SetAngularOverTime(t => MotionUtil.Pendulum(t, magnitude, swingSpeed, phase));
             }
             proj.Allegiance = Allegiance;
+            int dmg = (int) (_damage * 1 - _damageVariance * (float) random.NextDouble());
+            if (random.NextDouble() < _critChance)
+            {
+                dmg *= (int)(1 + _critStrength);
+                proj.IsCritical = true;
+            }
+            proj.SetDamage(dmg);
         }
     }
 }

@@ -8,6 +8,7 @@ namespace UI
     public class DamageNumbersManager : MonoBehaviour
     {
         [SerializeField] private DamageNumberUI damageNumberPrefab;
+        [SerializeField] private DamageNumberUI criticalNumberPrefab;
 
         private void OnEnable()
         {
@@ -19,7 +20,7 @@ namespace UI
             HealthEntity.OnTakeHit -= RespondToHit;
         }
 
-        private void RespondToHit(int dmg, HealthEntity entity)
+        private void RespondToHit(int dmg, bool isCritical, HealthEntity entity)
         {
             DamageNumberUI specialUI = entity.DamageNumberUI;
             if (specialUI != null)
@@ -27,7 +28,8 @@ namespace UI
                 SpawnDamageNumber(specialUI, entity.transform.position, dmg);
                 return;
             }
-            SpawnDamageNumber(damageNumberPrefab, entity.transform.position, dmg);
+
+            SpawnDamageNumber(isCritical ? criticalNumberPrefab : damageNumberPrefab, entity.transform.position, dmg);
         }
         private void SpawnDamageNumber(DamageNumberUI damageNum, Vector3 location, int value)
         {

@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expValue: 1
-  attractTimeSeconds: 1
+  attractTimeSeconds: 0.5
   attractionSpeedCurve:
     serializedVersion: 2
     m_Curve:
@@ -194,3 +194,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  attractionSpeedMax: 60
