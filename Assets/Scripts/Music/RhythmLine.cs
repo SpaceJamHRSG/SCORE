@@ -150,12 +150,12 @@ namespace Music
 
         public void SetVolume(float f)
         {
-            LocalVolume = f;
+            GlobalVolume = f;
         }
         
         public float GetVolume()
         {
-            return LocalVolume;
+            return GlobalVolume;
         }
         
     }
