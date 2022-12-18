@@ -27,7 +27,7 @@ public class PlayerManager : MonoBehaviour
     // Progress statistics
     //private int baseCriticalChance = 10; // %
     //private int baseCriticalDamageBonus = 50; // %
-    private float baseMovementSpeed = 5f;
+    private float baseMovementSpeed = 4f;
     public float pickupRadius = 3f;
     private float damageMultiplier = 1;
 

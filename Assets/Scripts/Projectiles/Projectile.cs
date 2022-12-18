@@ -30,7 +30,6 @@ namespace Projectiles
         public Allegiance Allegiance { get; set; }
         public bool IsCritical { get; set; }
 
-        public bool Penetrate;
         [SerializeField] private Sprite impactParticles;
 
         private void Awake()
@@ -97,8 +96,7 @@ namespace Projectiles
             }
             if (other.Allegiance == this.Allegiance) return;
             other.TakeDamage(Math.Max(damage, 1), IsCritical, impactParticles);
-            if(!Penetrate)
-                Pooling.Instance.Despawn(_pooledObject);
+            Pooling.Instance.Despawn(_pooledObject);
         }
 
         public void SetSpeedOverTime(Func<float, float> speedFunction)

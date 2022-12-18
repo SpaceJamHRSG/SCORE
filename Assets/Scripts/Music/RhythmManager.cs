@@ -9,7 +9,7 @@ namespace Music
         [SerializeField] private RhythmEmitter mainAudio;
         [SerializeField] private RhythmEmitter restAudio;
         [SerializeField] private float crossFadeSpeed;
-        [SerializeField] private bool debug;
+
         private Dictionary<RhythmEmitter, float> _targetVolume;
 
         public RhythmEmitter MainAudio => mainAudio;
@@ -32,13 +32,6 @@ namespace Music
 
         private void Update()
         {
-            if (debug)
-            {
-                if (Input.GetKey(KeyCode.Space))
-                {
-                    StartMainAudio();
-                }
-            }
             foreach (var kvp in _targetVolume)
             {
                 kvp.Key.SetVolume(Mathf.Lerp(kvp.Key.GetVolume(), kvp.Value, crossFadeSpeed * Time.deltaTime));

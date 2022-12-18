@@ -30,7 +30,6 @@ public class EnemyGruntController : Enemy {
                 enemyDirector.RemoveEnemy(this.gameObject);
                 GetComponent<Collider2D>().enabled = false;
                 healthBar.gameObject.SetActive(false);
-                _rigidbody.velocity = Vector3.zero;
             }
         };
 

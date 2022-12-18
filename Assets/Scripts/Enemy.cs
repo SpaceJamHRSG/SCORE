@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Entity;
 
-public abstract class Enemy : MonoBehaviour
-{
-
-    [SerializeField] private float _baseMovementSpeed;
+public abstract class Enemy : MonoBehaviour {
 
     public static bool IsActive;
 
@@ -32,12 +29,10 @@ public abstract class Enemy : MonoBehaviour
         enemyDirector = ed;
     }
 
-    protected void Update() {
-        if (!IsActive) return;
+    protected void FixedUpdate() {
         attackCooldown += Time.deltaTime;
-        _rigidbody.velocity = (playerReference.transform.position - transform.position).normalized * movementSpeed *
-                              _baseMovementSpeed;
-        int a = 1;
+        if (!IsActive) return;
+        _rigidbody.MovePosition(Vector2.MoveTowards(this.transform.position, playerReference.transform.position, movementSpeed));
     }
 
     protected void OnCollisionStay2D(Collision2D collision) {

@@ -14,7 +14,6 @@ namespace AnimToFx
         [SerializeField] private List<Sprite> _spriteSheetMovement;
         [SerializeField] private List<Sprite> _spriteSheetIdle;
         [SerializeField] private float _animationSpeedSeconds; // sync to the goddamn bpm
-        [SerializeField] private bool _mouseFallBack;
         private float _moveTimer;
         private bool _moveState;
         private int _ptr;
@@ -44,7 +43,7 @@ namespace AnimToFx
                 _spriteSheetMovement[_ptr % _spriteSheetMovement.Count] : 
                 _spriteSheetIdle[_ptr % _spriteSheetMovement.Count];
 
-            if (_moveState || !_mouseFallBack)
+            if (_moveState)
             {
                 transform.localScale = new Vector3(_rb.velocity.x > 1 ? -1 : 1, 1, 1);
             }
