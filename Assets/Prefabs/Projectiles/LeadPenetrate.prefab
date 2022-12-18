@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 811689640772730038}
   - component: {fileID: 7637695405800607507}
   m_Layer: 0
-  m_Name: projectile_test 2
+  m_Name: LeadPenetrate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,6 +85,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5113d43f14444f00b5f18ebd51524d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Penetrate: 1
+  impactParticles: {fileID: 0}
 --- !u!1 &8657666224186204285
 GameObject:
   m_ObjectHideFlags: 0

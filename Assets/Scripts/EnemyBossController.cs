@@ -31,13 +31,14 @@ public class EnemyBossController : Enemy {
                 enemyDirector.RemoveEnemy(this.gameObject);
                 GetComponent<Collider2D>().enabled = false;
                 healthBar.gameObject.SetActive(false);
+                _rigidbody.velocity = Vector3.zero;
             }
         };
 
     }
 
-    private new void FixedUpdate() {
-        base.FixedUpdate();
+    private new void Update() {
+        base.Update();
 
         // TODO: boss special
     }

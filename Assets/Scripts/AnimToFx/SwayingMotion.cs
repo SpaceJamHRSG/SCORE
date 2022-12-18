@@ -20,7 +20,7 @@ namespace AnimToFx
         private void Update()
         {
             float t = Time.time - _timeStart;
-            float theta = _center + _swayDegrees/2 * Mathf.Sin((float) (_swaySpeed * t + Math.PI/2));
+            float theta = _center + _swayDegrees/2 * Mathf.Sin((float) (Mathf.PI * t / _swaySpeed + Math.PI/2));
             transform.rotation = Quaternion.Euler(0, 0, theta);
         }
     }
