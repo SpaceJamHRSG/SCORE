@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7599684439502406148}
   - component: {fileID: 7599684439502406149}
   - component: {fileID: -4780028898567870559}
+  - component: {fileID: 8449070697340768488}
   m_Layer: 0
   m_Name: Boss_1
   m_TagString: Untagged
@@ -101,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a90f4cedb1a30140be54e46edaa9154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 5920964371989381470}
 --- !u!50 &7599684439502406148
 Rigidbody2D:
   serializedVersion: 4
@@ -164,6 +165,47 @@ MonoBehaviour:
   maxHealth: 250000
   allegiance: 1
   damageNumberUI: {fileID: 0}
+--- !u!114 &8449070697340768488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7599684439502406146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c962c38fa0024645934512032794be40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropTable:
+  - Weight: 1
+    Drops:
+    - {fileID: 8609282943972605956, guid: ddf4243e61cbb3e40a95878eb9ee3adb, type: 3}
+    - {fileID: 8609282943972605956, guid: ddf4243e61cbb3e40a95878eb9ee3adb, type: 3}
+    - {fileID: 8609282943972605956, guid: 1c8d9d8faee5a8f4facd1ec46735491e, type: 3}
+  - Weight: 2
+    Drops:
+    - {fileID: 8609282943972605956, guid: 1c8d9d8faee5a8f4facd1ec46735491e, type: 3}
+    - {fileID: 8609282943972605956, guid: ddf4243e61cbb3e40a95878eb9ee3adb, type: 3}
+    - {fileID: 8609282943972605956, guid: ddf4243e61cbb3e40a95878eb9ee3adb, type: 3}
+    - {fileID: 8609282943972605956, guid: 06d763db9afc7da45a0f4e523a20998d, type: 3}
+    - {fileID: 8609282943972605956, guid: 06d763db9afc7da45a0f4e523a20998d, type: 3}
+    - {fileID: 8609282943972605956, guid: 06d763db9afc7da45a0f4e523a20998d, type: 3}
+  - Weight: 0.5
+    Drops:
+    - {fileID: 8609282943972605956, guid: 1c8d9d8faee5a8f4facd1ec46735491e, type: 3}
+    - {fileID: 8609282943972605956, guid: 1c8d9d8faee5a8f4facd1ec46735491e, type: 3}
+    - {fileID: 8609282943972605956, guid: 06d763db9afc7da45a0f4e523a20998d, type: 3}
+    - {fileID: 8609282943972605956, guid: 06d763db9afc7da45a0f4e523a20998d, type: 3}
+    - {fileID: 8609282943972605956, guid: 06d763db9afc7da45a0f4e523a20998d, type: 3}
+    - {fileID: 8609282943972605956, guid: ddf4243e61cbb3e40a95878eb9ee3adb, type: 3}
+  - Weight: 1
+    Drops:
+    - {fileID: 8609282943972605956, guid: 1c8d9d8faee5a8f4facd1ec46735491e, type: 3}
+    - {fileID: 8609282943972605956, guid: ddf4243e61cbb3e40a95878eb9ee3adb, type: 3}
+    - {fileID: 8609282943972605956, guid: 06d763db9afc7da45a0f4e523a20998d, type: 3}
+    - {fileID: 8609282943972605956, guid: 06d763db9afc7da45a0f4e523a20998d, type: 3}
+  dropVariance: 0
 --- !u!1 &8767450634701996306
 GameObject:
   m_ObjectHideFlags: 0

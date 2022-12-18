@@ -122,7 +122,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4862825804563332642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.31, z: 0}
+  m_LocalPosition: {x: 0.078, y: -0.539, z: 0}
   m_LocalScale: {x: 1.6001562, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -155,7 +155,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6688671867581839924}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.036, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -203,7 +203,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 236060348, guid: 1ee5f7827694cc5438ae57fd44ed2558, type: 3}
+  m_Sprite: {fileID: -131378087, guid: e89dcba6c3fe7754194ff38084020330, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: -8912686312687752776}
   - component: {fileID: 8240327668157521632}
   m_Layer: 0
-  m_Name: Grunt_1
+  m_Name: Grunt_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -311,7 +311,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.15, y: 1.85}
+  m_Size: {x: 1.15, y: 2.17}
   m_EdgeRadius: 0
 --- !u!114 &-1440402699107284944
 MonoBehaviour:
@@ -371,10 +371,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 1603659049693190960}
   _spriteSheetMovement:
-  - {fileID: 236060348, guid: 1ee5f7827694cc5438ae57fd44ed2558, type: 3}
-  - {fileID: -1087058079, guid: 1ee5f7827694cc5438ae57fd44ed2558, type: 3}
+  - {fileID: -131378087, guid: e89dcba6c3fe7754194ff38084020330, type: 3}
+  - {fileID: 871300531, guid: e89dcba6c3fe7754194ff38084020330, type: 3}
   _spriteSheetIdle:
-  - {fileID: 236060348, guid: 1ee5f7827694cc5438ae57fd44ed2558, type: 3}
-  - {fileID: -1087058079, guid: 1ee5f7827694cc5438ae57fd44ed2558, type: 3}
+  - {fileID: -131378087, guid: e89dcba6c3fe7754194ff38084020330, type: 3}
+  - {fileID: 871300531, guid: e89dcba6c3fe7754194ff38084020330, type: 3}
   _animationSpeedSeconds: 0.3797
   _mouseFallBack: 0

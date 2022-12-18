@@ -406,6 +406,7 @@ MonoBehaviour:
   - {fileID: 963481172, guid: 3d977ef5d35ac724fb0c84b72b113399, type: 3}
   - {fileID: 623830076, guid: 3d977ef5d35ac724fb0c84b72b113399, type: 3}
   _animationSpeedSeconds: 0.3797
+  _mouseFallBack: 1
 --- !u!1 &8912623122034432462
 GameObject:
   m_ObjectHideFlags: 0
