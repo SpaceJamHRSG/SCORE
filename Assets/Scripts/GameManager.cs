@@ -18,7 +18,25 @@ public class GameManager : MonoBehaviour {
     // Progress statistics
     private float survivalTime = 0; // Time spent alive, in seconds
     private int gruntsDefeated = 0; // Enemies killed
-    //private int bossesDefeated = 0;
+    public int GruntsDefeated {
+        get => gruntsDefeated;
+        set => gruntsDefeated = value;
+    }
+    private int bossesDefeated = 0;
+    public int BossesDefeated {
+        get => bossesDefeated;
+        set => bossesDefeated = value;
+    }
+    private int pointUpgrades = 0;
+    public int PointUpgrades {
+        get => pointUpgrades;
+        set => pointUpgrades = value;
+    }
+    private int totalScore = 0;
+    public int TotalScore {
+        get => totalScore;
+        set => totalScore = value;
+    }
 
     public GameObject playerPrefab;
     public UpgradeSystem upgradeSystem;
@@ -64,19 +82,15 @@ public class GameManager : MonoBehaviour {
     private void Update() {
         survivalTime += Time.deltaTime;
         HUD.DisplayStats(activePlayer);
+        totalScore = (int) survivalTime * 10 + gruntsDefeated * 5 + pointUpgrades * 500;
     }
 
     public void EndGame() {
         // Game over
         Time.timeScale = 0.0f;
 
-        int totalScore = (int)survivalTime * 10 + gruntsDefeated * 5;
         // TODO: leaderboard
         gameOverScreen.SetActive(true);
-    }
-
-    public void IncrementGruntsDefeated() {
-        gruntsDefeated++;
     }
 
     IEnumerator StartAfter(float t)
