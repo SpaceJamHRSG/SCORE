@@ -67,8 +67,11 @@ namespace UI
             {
                 upgradeSlots[i].Upgrade = upgrades[i];
             }
-
-            healthRestoreSlot.Upgrade = new RestoreHPUpgrade(1);
+            
+            if(upgradeSystem.ActivePlayer.Health != upgradeSystem.ActivePlayer.MaxHealth)
+                healthRestoreSlot.Upgrade = new RestoreHPUpgrade(1);
+            else
+                healthRestoreSlot.Upgrade = new SimplePointsUpgrade(500);
         }
     }
 }

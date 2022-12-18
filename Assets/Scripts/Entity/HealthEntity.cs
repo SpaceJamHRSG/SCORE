@@ -47,6 +47,7 @@ namespace Entity
         public void Heal(int h)
         {
             _health += h;
+            _health = Math.Min(_health, maxHealth);
             OnHeal?.Invoke(h, this);
         }
 
