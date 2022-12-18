@@ -23,7 +23,9 @@ public class EnemyGruntController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
+        attackCooldown = 1 / attackRate;
         HealthEntity.OnDeath += OnDeath;
     }
 

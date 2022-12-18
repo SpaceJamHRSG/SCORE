@@ -64,6 +64,11 @@ public class PlayerManager : MonoBehaviour
         set => _healthEntity.SetHealth(value);
     }
 
+    public void Heal(int h)
+    {
+        _healthEntity.Heal(h);
+    }
+
     public int ExpToNext => _expLevelEntity.ExpRequiredToNext();
 
     public int Level
@@ -239,6 +244,16 @@ public class PlayerManager : MonoBehaviour
         Health = MaxHealth;
         Exp = 0;
         Level = 1;
+    }
+
+    public int GetWeaponLevelOf(string s)
+    {
+        foreach(Weapon w in weapons)
+        {
+            if (w.weaponDefinition.LineName.Equals(s)) return w.CurrentLevel;
+        }
+        Debug.LogWarning($"No weapon corresponding to line {s} found!");
+        return 0;
     }
 
 }

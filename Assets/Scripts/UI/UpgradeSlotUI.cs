@@ -36,8 +36,8 @@ namespace UI
                 return;
             }
             mainText.text = _upgrade.GetUpgradeName();
-            flavourText.text = _upgrade.GetFlavourText();
-            image.sprite = _upgrade.GetImage();
+            if(flavourText != null) flavourText.text = _upgrade.GetFlavourText();
+            if(image != null) image.sprite = _upgrade.GetImage();
         }
     }
 }

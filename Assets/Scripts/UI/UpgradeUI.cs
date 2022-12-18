@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Game;
 using TMPro;
 using UnityEngine;
+using UnityEngine.XR;
 
 namespace UI
 {
@@ -11,6 +12,7 @@ namespace UI
         [SerializeField] private UpgradeSystem upgradeSystem;
         [SerializeField] private List<UpgradeSlotUI> upgradeSlots;
         [SerializeField] private TextMeshProUGUI levelTextField;
+        [SerializeField] private UpgradeSlotUI healthRestoreSlot;
 
         private void OnEnable()
         {
@@ -18,6 +20,8 @@ namespace UI
             {
                 s.OnPress += HandleSelection;
             }
+
+            healthRestoreSlot.OnPress += HandleSelection;
         }
 
         private void OnDisable()
@@ -26,6 +30,8 @@ namespace UI
             {
                 s.OnPress -= HandleSelection;
             }
+
+            healthRestoreSlot.OnPress -= HandleSelection;
         }
 
         private void HandleSelection(UpgradeSlotUI usui)
@@ -61,6 +67,8 @@ namespace UI
             {
                 upgradeSlots[i].Upgrade = upgrades[i];
             }
+
+            healthRestoreSlot.Upgrade = new RestoreHPUpgrade(1);
         }
     }
 }
