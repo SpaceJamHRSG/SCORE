@@ -21,7 +21,7 @@ public class EnemyGruntController : Enemy {
         attackCooldown = 1 / attackRate;
 
         // Death event
-        HealthEntity.OnDeath += (dmg, entity) => {
+        HealthEntity.OnDeath += (dmg, entity, s) => {
             if (entity == null || this == null) return;
             if (entity.gameObject.Equals(this.gameObject)) {
 
