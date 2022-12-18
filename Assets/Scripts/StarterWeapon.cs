@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class StarterWeapon : Weapon {
 
+    public GameObject particlePrefab;
+    private float attackRate;
+
     void Start() {
-       // baseAttackRate = 1;
+        attackRate = 1.2f;
         damageMultiplier = 1;
 
-        StartCoroutine("WeaponAutoFire");
+        StartCoroutine("WeaponAutofire");
     }
 
-    IEnumerator WeaponAutoFire() {
-
+    IEnumerator WeaponAutofire() {
         while (true) {
-        //    yield return new WaitForSeconds(1 / baseAttackRate);
-
-            //print("Projectile fired | TODO: Instantiate projectile here!");
-            //TODO: Instantiate Projectile
-            //Instantiate();
-
+            yield return new WaitForSeconds(1 / attackRate);
+            Vector2 playerPosition = FindObjectOfType<PlayerManager>().transform.position;
+            Vector2 spawnPosition = new Vector2(playerPosition.x, playerPosition.y + 1f);
+            GameObject projectile = Instantiate(particlePrefab, spawnPosition, Quaternion.identity);
         }
-
     }
+
 }

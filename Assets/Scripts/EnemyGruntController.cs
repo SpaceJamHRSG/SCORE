@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Entity;
 
 public class EnemyGruntController : MonoBehaviour {
 
     private PlayerManager playerReference;
 
-    private float health = 10;
     private float movementSpeed = 0.01f;
 
     private float attackRate = 0.5f;
@@ -18,6 +18,18 @@ public class EnemyGruntController : MonoBehaviour {
     void Start() {
         playerReference = FindObjectOfType<PlayerManager>();
         _rigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    private void OnEnable() {
+        HealthEntity.OnDeath += OnDeath;
+    }
+
+    private void OnDeath(int dmg, HealthEntity entity) {
+        if (entity == null || this == null) return;  // TODO: fix null?!
+        if (entity.gameObject.Equals(this.gameObject)) {
+            GameManager.Instance.IncrementGruntsDefeated();
+            Destroy(this.gameObject);
+        }
     }
 
     // Update is called once per frame

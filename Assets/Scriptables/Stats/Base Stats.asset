@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Base Stats
   m_EditorClassIdentifier: 
   maxHealth: 1000
-  baseDamage: 1
-  baseSpeed: 1
+  baseDamage: 10
+  baseSpeed: 2
