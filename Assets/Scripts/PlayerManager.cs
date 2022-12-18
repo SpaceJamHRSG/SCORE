@@ -10,6 +10,8 @@ using Random = System.Random;
 [RequireComponent(typeof(ExpLevelEntity), typeof(HealthEntity))]
 public class PlayerManager : MonoBehaviour
 {
+    public static event Action<PlayerManager> OnLoseWeapon;
+    
     public bool IsActive;
     
     private ExpLevelEntity _expLevelEntity;
@@ -91,10 +93,14 @@ public class PlayerManager : MonoBehaviour
         HealthEntity.OnTakeHit -= OnTakeHit;
     }
     
-    private void OnTakeHit(int dmg, bool crit, HealthEntity entity, Sprite impactParticles) {
-        if (entity.gameObject.Equals(this.gameObject)) {
-            rigidbody.simulated = false;
-            GameManager.Instance.EndGame();
+    private void OnTakeHit(int dmg, bool crit, HealthEntity entity, Sprite impactParticles)
+    {
+        if (dmg <= 0) return;
+
+        if (WeaponCount() > 0)
+        {
+            LoseRandomWeapon();
+            OnLoseWeapon?.Invoke(this);
         }
     }
 
@@ -171,6 +177,22 @@ public class PlayerManager : MonoBehaviour
         }
 
         return false;
+    }
+
+    private void LoseRandomWeapon()
+    {
+        int recurse = 0;
+        Random random = new Random();
+        int oneToThree = random.Next(3);
+        Weapon toLose = weapons[oneToThree];
+        while (!toLose.HasThisWeapon && recurse < 100)
+        {
+            oneToThree = random.Next(3);
+            toLose = weapons[oneToThree];
+            recurse++;
+        }
+        
+        toLose.RemoveWeapon();
     }
 
     public void GrantWeaponLevel(WeaponDefinition wep, int lvl)
@@ -257,6 +279,17 @@ public class PlayerManager : MonoBehaviour
         }
         Debug.LogWarning($"No weapon corresponding to line {s} found!");
         return 0;
+    }
+
+    public int WeaponCount()
+    {
+        int i = 0;
+        foreach (var weapon in weapons)
+        {
+            if (weapon.HasThisWeapon) i++;
+        }
+
+        return i;
     }
 
 }
