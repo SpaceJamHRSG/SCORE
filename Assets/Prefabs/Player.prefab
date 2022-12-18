@@ -238,6 +238,7 @@ MonoBehaviour:
   IsActive: 0
   playerName: default
   originalStats: {fileID: 11400000, guid: 4f127a7b7c19e5c4b9faffd0c0bbe795, type: 2}
+  weaponDestroyFX: {fileID: 394111855277035034, guid: 6b45e36af796e3b45bbc78276a63c34a, type: 3}
   pickupRadius: 3
   weapons: []
 --- !u!50 &7599684439502406148
@@ -300,6 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  god: 0
   allegiance: 0
   damageNumberUI: {fileID: 0}
 --- !u!114 &4357353951405691304
