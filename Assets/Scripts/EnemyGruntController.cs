@@ -7,6 +7,8 @@ public class EnemyGruntController : MonoBehaviour
 {
 
     public static bool IsActive;
+
+    private EnemyDirector enemyDirector;
     
     private PlayerManager playerReference;
 
@@ -23,8 +25,13 @@ public class EnemyGruntController : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
 
+    public void SetDirector(EnemyDirector ed) {
+        enemyDirector = ed;
+    }
     // Start is called before the first frame update
     void Start() {
+
+        Debug.Assert(enemyDirector);
         playerReference = FindObjectOfType<PlayerManager>();
         _rigidbody = GetComponent<Rigidbody2D>();
     }
@@ -39,6 +46,7 @@ public class EnemyGruntController : MonoBehaviour
         if (entity == null || this == null) return;  
         if (entity.gameObject.Equals(this.gameObject)) {
             GameManager.Instance.IncrementGruntsDefeated();
+            enemyDirector.RemoveEnemy(this.gameObject);
             GetComponent<Collider2D>().enabled = false;
         }
     }

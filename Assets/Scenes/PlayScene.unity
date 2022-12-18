@@ -2104,8 +2104,8 @@ MonoBehaviour:
   - {fileID: 7599684439502406146, guid: 6b8eba5cb0729264a94f93b36964f552, type: 3}
   bossPrefabs:
   - {fileID: 7599684439502406146, guid: 4f681243bdcd48d41979732e83e6d09c, type: 3}
-  maxEnemies: 0
-  maxEnemiesIncrementInterval: 10
+  maxEnemies: 200
+  maxEnemiesIncrementInterval: 2
   spawnRate: 2
   enemyMovementSpeed: 0.03
   enemyMoveSpeedIncreaseInterval: 60
