@@ -21,6 +21,12 @@ namespace UI
 
         private void RespondToHit(int dmg, HealthEntity entity)
         {
+            DamageNumberUI specialUI = entity.DamageNumberUI;
+            if (specialUI != null)
+            {
+                SpawnDamageNumber(specialUI, entity.transform.position, dmg);
+                return;
+            }
             SpawnDamageNumber(damageNumberPrefab, entity.transform.position, dmg);
         }
         private void SpawnDamageNumber(DamageNumberUI damageNum, Vector3 location, int value)

@@ -21,13 +21,13 @@ namespace Game
             switch (_type.Type)
             {
                 case StatType.Speed:
-                    player.BaseMoveSpeed = _val;
+                    player.MoveSpeed = _val;
                     break;
                 case StatType.BaseDamage:
-                    player.BaseDamage = _val;
+                    player.Damage = _val;
                     break;
                 case StatType.HP:
-                    player.BaseMaxHealth = (int)_val;
+                    player.MaxHealth = (int)_val;
                     break;
                 default:
                     throw new ArgumentException();

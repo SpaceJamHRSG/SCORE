@@ -6,9 +6,13 @@ using Game;
 using UnityEngine;
 using Entity;
 
+[RequireComponent(typeof(ExpLevelEntity), typeof(HealthEntity))]
 public class PlayerManager : MonoBehaviour
 {
 
+    private ExpLevelEntity _expLevelEntity;
+    private HealthEntity _healthEntity;
+    
     private Collider2D[] _collidersArray;
     private Pickup[] _pickupsArray;
     
@@ -20,13 +24,6 @@ public class PlayerManager : MonoBehaviour
     private float survivalTime = 0; // Time spent alive, in seconds
     //private float gruntsDefeated = 0; // Enemies killed
     //private float bossesDefeated = 0;
-
-    // Player base stats
-    private int level = 1;
-
-    public int Level => level;
-    //private int baseAttack = 10;
-    private int baseMaxHealth = 100;
     //private int baseCriticalChance = 10; // %
     //private int baseCriticalDamageBonus = 50; // %
     private float baseMovementSpeed = 5f;
@@ -35,33 +32,49 @@ public class PlayerManager : MonoBehaviour
 
     private System.Random random;
 
-    public int BaseMaxHealth
+    public int MaxHealth
     {
-        get => baseMaxHealth;
-        set => baseMaxHealth = value;
+        get => _healthEntity.GetMaxHealth();
+        set => _healthEntity.SetHealth(value);
     }
     
-    public float BaseMoveSpeed
+    public float MoveSpeed
     {
         get => baseMovementSpeed;
         set => baseMovementSpeed = value;
     }
     
-    public float BaseDamage
+    public float Damage
     {
         get => damageMultiplier;
         set => damageMultiplier = value;
+    }
+
+    public int Exp
+    {
+        get => _expLevelEntity.Exp;
+        set => _expLevelEntity.Exp = value;
+    }
+
+    public int Health
+    {
+        get => _healthEntity.GetHealth();
+        set => _healthEntity.SetHealth(value);
+    }
+
+    public int ExpToNext => _expLevelEntity.ExpRequiredToNext();
+
+    public int Level
+    {
+        get => _expLevelEntity.Level;
+        set => _expLevelEntity.Level = 1;
     }
 
 
     // Player inventory
     [SerializeField] private List<Weapon> weapons = new List<Weapon>();
 
-    // Derived stats
-    // TODO: add up the bonuses
-    // private int totalAttack;
-    private int currentHealth;
-    private int currentExperience;
+
 
 
     private Rigidbody2D rigidbody;
@@ -97,11 +110,12 @@ public class PlayerManager : MonoBehaviour
             if(weapon.IsStartingWeapon) weapon.GrantWeaponLevel(1);
         }
 
-        currentHealth = baseMaxHealth;
-
         // Get the Rigidbody and Box Collider references
         rigidbody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<BoxCollider2D>();
+
+        _expLevelEntity = GetComponent<ExpLevelEntity>();
+        _healthEntity = GetComponent<HealthEntity>();
     }
 
     void Update() {
@@ -118,6 +132,7 @@ public class PlayerManager : MonoBehaviour
         Physics2D.OverlapCircleNonAlloc(transform.position, pickupRadius, _collidersArray);
         foreach (var col in _collidersArray)
         {
+            if (col == null) continue;
             Pickup pk = col.gameObject.GetComponent<Pickup>();
             if (pk == null) continue;
             pk.AttractTo(transform);
@@ -204,9 +219,11 @@ public class PlayerManager : MonoBehaviour
 
     public void ResetStats()
     {
-        BaseMaxHealth = originalStats.MaxHealth;
-        BaseDamage = originalStats.BaseDamage;
-        BaseMoveSpeed = originalStats.BaseSpeed;
+        MaxHealth = originalStats.MaxHealth;
+        Damage = originalStats.BaseDamage;
+        MoveSpeed = originalStats.BaseSpeed;
+        Exp = 0;
+        Level = 1;
     }
 
 }

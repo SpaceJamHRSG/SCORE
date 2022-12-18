@@ -12,6 +12,18 @@ namespace Entity
         [SerializeField] private AnimationCurve expCurve;
         private Dictionary<int, int> _expRequiredToLevel;
 
+        public int Level
+        {
+            get => _level;
+            set => _level = value;
+        }
+        
+        public int Exp
+        {
+            get => _experience;
+            set => _experience = value;
+        }
+
         private void Awake()
         {
             _expRequiredToLevel = new Dictionary<int, int>();
@@ -40,6 +52,12 @@ namespace Entity
         public void LevelUp(int by)
         {
             _level += by;
+        }
+
+        public int ExpRequiredToNext()
+        {
+            if (_level == _maxLevel) return 0;
+            return (int)expCurve.Evaluate(_level + 1);
         }
     }
 }
