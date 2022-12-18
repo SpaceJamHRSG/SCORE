@@ -60,6 +60,23 @@ public class EnemyDirector : MonoBehaviour {
         }
     }
 
+    public GameObject FindClosestEnemy(Vector3 position) {
+        
+        GameObject closestEnemy = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (GameObject enemy in spawnedEnemies) {
+            if (enemy == null) continue;
+
+            float distance = Vector3.Distance(position, enemy.transform.position);
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestEnemy = enemy;
+            }
+        }
+
+        return closestEnemy;
+    }
 
 
 }
