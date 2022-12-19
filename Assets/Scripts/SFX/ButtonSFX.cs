@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace SFX
 {
-    public class ButtonSFX : MonoBehaviour, ISelectHandler, IPointerEnterHandler
+    public class ButtonSFX : MonoBehaviour, IPointerEnterHandler
     {
         private AudioSource _audio;
         
@@ -19,7 +19,7 @@ namespace SFX
             else _audio = GameManager.Instance.Audio;
         }
 
-        public void OnSelect(BaseEventData eventData)
+        public void OnSelect()
         {
             _audio.PlayOneShot(_selectAudio);
         }

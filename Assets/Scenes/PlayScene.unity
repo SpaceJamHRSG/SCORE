@@ -175,7 +175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 855418420980766989, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
       propertyPath: m_Colors.m_PressedColor.a
-      value: 0.23529412
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 855418420980766989, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
       propertyPath: m_Colors.m_DisabledColor.a
@@ -201,6 +201,34 @@ PrefabInstance:
       propertyPath: m_Colors.m_HighlightedColor.a
       value: 0.23529412
       objectReference: {fileID: 0}
+    - target: {fileID: 855418420980766989, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 855418420980766989, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 855418420980766989, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1824769718}
+    - target: {fileID: 855418420980766989, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 855418420980766989, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnSelect
+      objectReference: {fileID: 0}
+    - target: {fileID: 855418420980766989, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SFX.ButtonSFX, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 855418420980766989, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 960200591764250981, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -215,7 +243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1208907531123343312, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2485844091029119348, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
       propertyPath: m_Color.a
@@ -267,7 +295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3874651181751506496, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
       propertyPath: m_Colors.m_PressedColor.a
-      value: 0.23529412
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 3874651181751506496, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
       propertyPath: m_Colors.m_DisabledColor.a
@@ -292,6 +320,38 @@ PrefabInstance:
     - target: {fileID: 3874651181751506496, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.a
       value: 0.23529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874651181751506496, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874651181751506496, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874651181751506496, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1824769718}
+    - target: {fileID: 3874651181751506496, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874651181751506496, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnSelect
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874651181751506496, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SFX.ButtonSFX, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874651181751506496, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238413551972643160, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_text
+      value: 'Tip: Leveling up becomes significantly harder after level 15!'
       objectReference: {fileID: 0}
     - target: {fileID: 4582344822409924877, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
       propertyPath: image
@@ -431,7 +491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7825203126919568871, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
       propertyPath: m_Colors.m_PressedColor.a
-      value: 0.23529412
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 7825203126919568871, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
       propertyPath: m_Colors.m_DisabledColor.a
@@ -457,6 +517,34 @@ PrefabInstance:
       propertyPath: m_Colors.m_HighlightedColor.a
       value: 0.23529412
       objectReference: {fileID: 0}
+    - target: {fileID: 7825203126919568871, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825203126919568871, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825203126919568871, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1824769718}
+    - target: {fileID: 7825203126919568871, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825203126919568871, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnSelect
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825203126919568871, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SFX.ButtonSFX, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825203126919568871, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7952119633918532719, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 451
@@ -472,6 +560,9 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7952011473594834383, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
     - {fileID: 7621461348768997318, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+    - {fileID: 8295068856478591246, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+    - {fileID: 2526152511854421083, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+    - {fileID: 8815227793578879048, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
 --- !u!114 &73489712 stripped
 MonoBehaviour:
@@ -3669,6 +3760,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1824769718 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7270506988835147169, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+  m_PrefabInstance: {fileID: 73489711}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd02b7ce6414c9a95293316ac3ad6c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1828764472
