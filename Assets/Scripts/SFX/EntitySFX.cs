@@ -13,6 +13,13 @@ namespace SFX
 
         private HealthEntity _health;
         private AudioSource _audio;
+
+        private void Awake()
+        {
+            _health = GetComponent<HealthEntity>();
+            _audio = GetComponent<AudioSource>();
+        }
+
         private void OnEnable()
         {
             _health.OnThisHit += PlayHitSound;

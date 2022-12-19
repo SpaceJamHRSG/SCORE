@@ -4,19 +4,26 @@ using UnityEngine;
 
 namespace SFX
 {
-    [RequireComponent(typeof(Pickup), typeof(AudioSource))]
+    [RequireComponent(typeof(Pickup))]
     public class PickupSFX : MonoBehaviour
     {
         [SerializeField] private AudioClip pickupSound;
 
-        private void OnEnable()
+        private Pickup _pickup;
+
+        private void Awake()
         {
-            
+            _pickup = GetComponent<Pickup>();
         }
 
-        private void OnDisable()
+        private void Start()
         {
-            
+            _pickup.OnPickup += PlayPickupSound;
+        }
+
+        private void PlayPickupSound()
+        {
+            GameManager.Instance.Audio.PlayOneShot(pickupSound);
         }
     }
 }
