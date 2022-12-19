@@ -181,7 +181,7 @@ MonoBehaviour:
   _aimSmoothing: 20
   autoTargetEnemy: 0
   weaponDefinition: {fileID: 11400000, guid: c2f2347434237f147b6c04b0e81fd052, type: 2}
-  IsStartingWeapon: 1
+  IsStartingWeapon: 0
 --- !u!1 &7599684439502406146
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,4 +571,4 @@ MonoBehaviour:
   _aimSmoothing: 0
   autoTargetEnemy: 1
   weaponDefinition: {fileID: 11400000, guid: bcabf4772c6cc5245b5896eb47bcbcb2, type: 2}
-  IsStartingWeapon: 0
+  IsStartingWeapon: 1

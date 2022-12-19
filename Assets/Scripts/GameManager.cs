@@ -95,10 +95,16 @@ public class GameManager : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.Space))
         {
-            if(_paused)
+            if (!_paused)
+            {
                 Pause();
+                pauseScreen.gameObject.SetActive(true);
+            }
             else
+            {
                 Resume();
+                pauseScreen.gameObject.SetActive(false);
+            }
         }
 
         foreach (var w in activePlayer.Weapons)
@@ -133,7 +139,6 @@ public class GameManager : MonoBehaviour {
     {
         Time.timeScale = 0;
         rhythmManager.PauseAllLines();
-        pauseScreen.gameObject.SetActive(true);
         _paused = true;
     }
 
@@ -141,7 +146,6 @@ public class GameManager : MonoBehaviour {
     {
         Time.timeScale = 1;
         rhythmManager.ResumeAllLines();
-        pauseScreen.gameObject.SetActive(false);
         _paused = false;
     }
 
