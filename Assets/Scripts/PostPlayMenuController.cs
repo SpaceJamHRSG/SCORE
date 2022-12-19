@@ -8,8 +8,8 @@ using LootLocker.Requests;
 
 public class PostPlayMenuController : MonoBehaviour {
 
-    private int leaderboardID = 9808; // stage
-    //private int leaderboardID = 9833; // live
+    //private int leaderboardID = 9808; // stage
+    private int leaderboardID = 9833; // live
     int scoreCount = 10;
 
     [SerializeField] private TMP_Text showScoreText;
@@ -47,6 +47,7 @@ public class PostPlayMenuController : MonoBehaviour {
         yield return new WaitWhile(() => done == false);
 
         // Get Scores
+        /*
         done = false;
         LootLockerSDKManager.GetScoreList(leaderboardID, 10, 0, (response) => {
             if (response.success) {
@@ -80,6 +81,7 @@ public class PostPlayMenuController : MonoBehaviour {
             }
         });
         yield return new WaitWhile(() => done == false);
+        */
 
         playerNameInputField.text = PlayerPrefs.GetString("PlayerID");
     }
