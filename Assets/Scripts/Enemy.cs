@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ using Entity;
 public abstract class Enemy : MonoBehaviour
 {
 
+    private const float DISPERSE_CHANCE = 0.1f;
+    
     [SerializeField] private float _baseMovementSpeed;
 
     public static bool IsActive;
@@ -27,6 +30,16 @@ public abstract class Enemy : MonoBehaviour
     protected float attackCooldown;
 
     protected Rigidbody2D _rigidbody;
+    private Vector2 _randomDisperseDirection;
+    private float AISeed;
+    private bool _disperseOnly;
+
+    protected virtual void Start()
+    {
+        _randomDisperseDirection = UnityEngine.Random.insideUnitCircle;
+        AISeed = UnityEngine.Random.value;
+        _disperseOnly = AISeed < DISPERSE_CHANCE;
+    }
 
     public void SetDirector(EnemyDirector ed) {
         enemyDirector = ed;
@@ -35,8 +48,17 @@ public abstract class Enemy : MonoBehaviour
     protected void Update() {
         if (!IsActive) return;
         attackCooldown += Time.deltaTime;
-        _rigidbody.velocity = (playerReference.transform.position - transform.position).normalized * movementSpeed *
-                              _baseMovementSpeed;
+        if (playerReference != null && !_disperseOnly)
+        {
+            _rigidbody.velocity = (playerReference.transform.position - transform.position).normalized * movementSpeed *
+                                  _baseMovementSpeed;
+        }
+        else
+        {
+            _rigidbody.velocity = (_randomDisperseDirection * movementSpeed *
+                                   _baseMovementSpeed * 1.1f);
+        }
+
         int a = 1;
     }
 
@@ -44,7 +66,7 @@ public abstract class Enemy : MonoBehaviour
         if (attackCooldown < (1 / attackRate) || !IsActive) return;
         
         // Damage player
-        if (collision.gameObject.Equals(playerReference.gameObject)) {
+        if (playerReference!= null && collision.gameObject.Equals(playerReference.gameObject)) {
             playerReference.GetComponent<Entity.HealthEntity>().TakeDamage((int)damage);
             attackCooldown = 0;
         }

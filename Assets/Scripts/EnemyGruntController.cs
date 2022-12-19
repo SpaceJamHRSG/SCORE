@@ -5,7 +5,8 @@ using Entity;
 
 public class EnemyGruntController : Enemy {
 
-    void Start() {
+    protected override void Start() {
+        base.Start();
 
         Debug.Assert(enemyDirector);
         playerReference = FindObjectOfType<PlayerManager>();
