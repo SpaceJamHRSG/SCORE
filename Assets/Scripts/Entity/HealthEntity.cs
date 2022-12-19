@@ -83,7 +83,7 @@ namespace Entity
 
         public void BeginDeathSequence()
         {
-            StartCoroutine(DeathRoutine(1.5f));
+            StartCoroutine(DeathRoutine(0.7f));
         }
 
         private IEnumerator DeathRoutine(float time)
