@@ -1805,6 +1805,7 @@ GameObject:
   - component: {fileID: 1813356334}
   - component: {fileID: 1813356336}
   - component: {fileID: 1813356335}
+  - component: {fileID: 1813356337}
   m_Layer: 5
   m_Name: Leaderboard
   m_TagString: Untagged
@@ -1872,6 +1873,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1813356333}
   m_CullTransparentMesh: 1
+--- !u!114 &1813356337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813356333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec60749c335812c42a1ff6df27b0b705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNames: {fileID: 589203045}
+  playerScores: {fileID: 1824598045}
 --- !u!1 &1824598043
 GameObject:
   m_ObjectHideFlags: 0
