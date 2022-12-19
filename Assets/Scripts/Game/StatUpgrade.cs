@@ -29,6 +29,9 @@ namespace Game
                 case StatType.HP:
                     player.MaxHealth *= 1 + (int)_val;
                     break;
+                case StatType.CritChance:
+                    player.CritChance = 1 - (1 - player.CritChance) * (1 - _val);
+                    break;
                 default:
                     throw new ArgumentException();
             }

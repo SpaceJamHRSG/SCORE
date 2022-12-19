@@ -4,7 +4,7 @@ namespace Game
 {
     public enum StatType
     {
-        Speed, BaseDamage, HP
+        Speed, BaseDamage, HP, CritChance
     }
 
     [CreateAssetMenu(fileName = "Player Stat", menuName = "Stat")]
