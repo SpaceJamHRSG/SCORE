@@ -6,8 +6,8 @@ using LootLocker.Requests;
 
 public class MainMenuLeaderboard : MonoBehaviour {
 
-    private int leaderboardID = 9808; // stage
-    //private int leaderboardID = 9833; // live
+    //private int leaderboardID = 9808; // stage
+    private int leaderboardID = 9833; // live
 
     public TextMeshProUGUI playerNames;
     public TextMeshProUGUI playerScores;
