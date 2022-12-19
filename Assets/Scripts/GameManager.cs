@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Start() {
+        //Time.timeScale = 1.0f;
+
         playerReference = Instantiate(playerPrefab, new Vector3(0,0,0), Quaternion.identity);
         activePlayer = playerReference.GetComponent<PlayerManager>();
         upgradeSystem.ActivePlayer = activePlayer;
