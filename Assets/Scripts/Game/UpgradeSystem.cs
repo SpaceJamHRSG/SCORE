@@ -47,7 +47,7 @@ namespace Game
             {
                 int statTypeID = _random.Next(0, _stats.Count);
                 Stat stat = _stats[statTypeID];
-                return new StatUpgrade(stat, stat.BaseUpgradeUnit + 0.1f * ((float)_random.NextDouble() * 2 - 1));
+                return new StatUpgrade(stat, stat.BaseUpgradeUnit + stat.BaseUpgradeUnit / 3 * ((float)_random.NextDouble() * 2 - 1));
             }
             
             if (upgradeTypeID < 2)

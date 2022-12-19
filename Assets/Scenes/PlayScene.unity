@@ -2747,6 +2747,7 @@ MonoBehaviour:
   _stats:
   - {fileID: 11400000, guid: ae16bc4495b49bd43b86e8d973e665c7, type: 2}
   - {fileID: 11400000, guid: f1aec2f69dfa65643b45abb3ccda9929, type: 2}
+  - {fileID: 11400000, guid: 4a22c4c28f59fc44fa983b7fbe99d00d, type: 2}
   UI: {fileID: 581893091}
 --- !u!4 &1293835628
 Transform:

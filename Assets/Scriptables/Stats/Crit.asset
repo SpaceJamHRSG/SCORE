@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1c99bcfa1134d7992647e68491609f2, type: 3}
-  m_Name: Damage
+  m_Name: Crit
   m_EditorClassIdentifier: 
-  Type: 1
-  MainText: Power up!!
-  FlavourText: Increases the damage of your bullets
-  Image: {fileID: 21300000, guid: 0ccc508108fa6ed4fa11b4a467d7f609, type: 3}
-  BaseUpgradeUnit: 0.3
+  Type: 3
+  MainText: Daedalus
+  FlavourText: Increases your critical hit rate
+  Image: {fileID: 21300000, guid: daf2ab606d4db0d4f9ecf4c02137d2a8, type: 3}
+  BaseUpgradeUnit: 0.1

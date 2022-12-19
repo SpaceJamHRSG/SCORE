@@ -26,7 +26,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameObject weaponDestroyFX;
 
     // Progress statistics
-    //private int baseCriticalChance = 10; // %
+    private float baseCriticalChance = 0.1f; // %
     //private int baseCriticalDamageBonus = 50; // %
     private float baseMovementSpeed = 5f;
     public float pickupRadius = 3f;
@@ -49,6 +49,12 @@ public class PlayerManager : MonoBehaviour
     {
         get => baseMovementSpeed;
         set => baseMovementSpeed = value;
+    }
+
+    public float CritChance
+    {
+        get => baseCriticalChance;
+        set => baseCriticalChance = value;
     }
     
     public float Damage
@@ -300,6 +306,7 @@ public class PlayerManager : MonoBehaviour
         MaxHealth = originalStats.MaxHealth;
         Damage = originalStats.BaseDamage;
         MoveSpeed = originalStats.BaseSpeed;
+        CritChance = originalStats.CritChance;
         Health = MaxHealth;
         Exp = 0;
         Level = 1;
