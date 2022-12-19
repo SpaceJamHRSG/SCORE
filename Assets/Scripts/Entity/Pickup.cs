@@ -8,6 +8,8 @@ namespace Entity
     [RequireComponent(typeof(PooledObject), typeof(Collider2D))]
     public class Pickup : MonoBehaviour
     {
+        public Action OnPickup;
+        
         [SerializeField] private int expValue;
         
         [SerializeField] private float attractTimeSeconds;
@@ -59,6 +61,7 @@ namespace Entity
         {
             ExpLevelEntity expLevelEntity = col.gameObject.GetComponent<ExpLevelEntity>();
             if (expLevelEntity == null) return;
+            OnPickup?.Invoke();
             Pooling.Instance.Despawn(_pooledObject);
             expLevelEntity.GainExperience(expValue);
         }
