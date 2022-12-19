@@ -56,6 +56,11 @@ namespace Music
             _audioSource.Play();
         }
 
+        public void UnPause()
+        {
+            _audioSource.UnPause();
+        }
+
         public void Stop()
         {
             _audioSource.Stop();

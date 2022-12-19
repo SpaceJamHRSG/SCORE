@@ -48,7 +48,7 @@ namespace Music
         public void FadeToMainAudio()
         {
             restAudio.PauseAllLines();
-            mainAudio.PlayAllLines();
+            mainAudio.UnpauseAllLines();
             _targetVolume[restAudio] = 0;
             _targetVolume[mainAudio] = 1;
         }
@@ -56,7 +56,7 @@ namespace Music
         public void FadeToRestAudio()
         {
             mainAudio.PauseAllLines();
-            restAudio.PlayAllLines();
+            restAudio.UnpauseAllLines();
             _targetVolume[mainAudio] = 0;
             _targetVolume[restAudio] = 1;
         }
@@ -69,8 +69,8 @@ namespace Music
 
         public void ResumeAllLines()
         {
-            mainAudio.PlayAllLines();
-            restAudio.PlayAllLines();
+            mainAudio.UnpauseAllLines();
+            restAudio.UnpauseAllLines();
         }
     }
 }

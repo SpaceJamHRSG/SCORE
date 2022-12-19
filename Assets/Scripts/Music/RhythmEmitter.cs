@@ -72,6 +72,15 @@ namespace Music
             }
         }
         
+        public void UnpauseAllLines()
+        {
+            foreach (var line in _rhythmLines)
+            {
+                line.UnPause();
+            }
+        }
+
+        
         public void StopAllLines()
         {
             foreach (var line in _rhythmLines)

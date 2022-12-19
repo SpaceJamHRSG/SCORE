@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Entity;
 using Game;
@@ -51,6 +52,8 @@ public class GameManager : MonoBehaviour {
     private bool _paused;
     private AudioSource _audio;
 
+    private bool isGameOver;
+
     public AudioSource Audio => _audio;
 
     private void Awake() {
@@ -60,6 +63,7 @@ public class GameManager : MonoBehaviour {
 
     private void Start() {
         //Time.timeScale = 1.0f;
+        isGameOver = false;
 
         playerReference = Instantiate(playerPrefab, new Vector3(0,0,0), Quaternion.identity);
         activePlayer = playerReference.GetComponent<PlayerManager>();
@@ -70,35 +74,58 @@ public class GameManager : MonoBehaviour {
         EnemyGruntController.IsActive = true;
         activePlayer.IsActive = true;
 
-        ExpLevelEntity.OnLevelUp += (i, e) =>
-        {
-            upgradeSystem.OpenUpgradeScreen(2);
-            rhythmManager.FadeToRestAudio();
-            EnemyGruntController.IsActive = false;
-            activePlayer.IsActive = false;
-            EnemyDirector.IsActive = false;
-        };
-
-        UpgradeSystem.OnClose += () =>
-        {
-            rhythmManager.FadeToMainAudio();
-            EnemyGruntController.IsActive = true;
-            activePlayer.IsActive = true;
-            EnemyDirector.IsActive = true;
-        };
+        
     }
 
+    private void OnEnable()
+    {
+        ExpLevelEntity.OnLevelUp += HandleLevelUp;
+        UpgradeSystem.OnClose += HandleUpgradesClose;
+    }
+
+    private void OnDisable()
+    {
+        ExpLevelEntity.OnLevelUp -= HandleLevelUp;
+        UpgradeSystem.OnClose -= HandleUpgradesClose;
+    }
+
+    private void HandleLevelUp(int i, ExpLevelEntity expLevelEntity)
+    {
+        Pause();
+        upgradeSystem.OpenUpgradeScreen(2);
+        rhythmManager.FadeToRestAudio();
+        EnemyGruntController.IsActive = false;
+        activePlayer.IsActive = false;
+        EnemyDirector.IsActive = false;
+    }
+
+    private void HandleUpgradesClose()
+    {
+        Resume();
+        rhythmManager.FadeToMainAudio();
+        EnemyGruntController.IsActive = true;
+        activePlayer.IsActive = true;
+        EnemyDirector.IsActive = true;
+    }
     private void Update() {
         survivalTime += Time.deltaTime;
         HUD.DisplayStats(activePlayer);
-        totalScore = (int) (survivalTime * 20) + gruntsDefeated * 50 + bossesDefeated * 500 + pointUpgrades * 5000;
+        if (!isGameOver) {
+            totalScore = (int)(survivalTime * 20) + gruntsDefeated * 50 + bossesDefeated * 500 + pointUpgrades * 5000;
+        }
 
-        if (Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space))
         {
-            if(_paused)
+            if (!_paused)
+            {
                 Pause();
+                pauseScreen.gameObject.SetActive(true);
+            }
             else
+            {
                 Resume();
+                pauseScreen.gameObject.SetActive(false);
+            }
         }
 
         foreach (var w in activePlayer.Weapons)
@@ -119,8 +146,9 @@ public class GameManager : MonoBehaviour {
         // Game over
         //Time.timeScale = 0.0f;
 
-        // TODO: leaderboard
-        gameOverScreen.SetActive(true);
+        //gameOverScreen.SetActive(true);
+        isGameOver = true;
+        SceneManager.LoadScene("PostPlayMenu", LoadSceneMode.Additive);
     }
 
     IEnumerator StartAfter(float t)
@@ -133,7 +161,6 @@ public class GameManager : MonoBehaviour {
     {
         Time.timeScale = 0;
         rhythmManager.PauseAllLines();
-        pauseScreen.gameObject.SetActive(true);
         _paused = true;
     }
 
@@ -141,7 +168,6 @@ public class GameManager : MonoBehaviour {
     {
         Time.timeScale = 1;
         rhythmManager.ResumeAllLines();
-        pauseScreen.gameObject.SetActive(false);
         _paused = false;
     }
 

@@ -61,6 +61,16 @@ public abstract class Enemy : MonoBehaviour
 
         int a = 1;
     }
+    
+    protected void OnCollisionEnter2D(Collision2D collision) {
+        if (attackCooldown < (1 / attackRate) || !IsActive) return;
+        
+        // Damage player
+        if (playerReference!= null && collision.gameObject.Equals(playerReference.gameObject)) {
+            playerReference.GetComponent<Entity.HealthEntity>().TakeDamage((int)damage);
+            attackCooldown = 0;
+        }
+    }
 
     protected void OnCollisionStay2D(Collision2D collision) {
         if (attackCooldown < (1 / attackRate) || !IsActive) return;
@@ -70,6 +80,5 @@ public abstract class Enemy : MonoBehaviour
             playerReference.GetComponent<Entity.HealthEntity>().TakeDamage((int)damage);
             attackCooldown = 0;
         }
-
     }
 }

@@ -5,25 +5,35 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using LootLocker.Requests;
 
-public class PostPlayerMenuController : MonoBehaviour {
+public class PostPlayMenuController : MonoBehaviour {
 
     public LootLockerLeaderboard leaderboard;
-    private int leaderboardID = 9808;
+    private int leaderboardID = 9833;
+
+    [SerializeField] private TMP_Text scoreText;
 
     void Start()  {
-        
+
     }
 
     void Update() {
     }
 
+
+
     public void SubmitAndReturn() {
         TMP_InputField inputField = FindObjectOfType<TMP_InputField>();
         if (inputField.text != "") PlayerPrefs.SetString("PlayerID", inputField.text);
-        StartCoroutine(LoginAndSubmitScoreRoutine());
+        StartCoroutine(SubmitAndReturnSequence());
     }
 
-    IEnumerator LoginAndSubmitScoreRoutine() {
+    IEnumerator SubmitAndReturnSequence() {
+
+        StartCoroutine(LoginRoutine());
+        yield return null; // TODO
+    }
+
+    IEnumerator LoginRoutine() {
 
         // Login
         bool done = false;
@@ -38,11 +48,14 @@ public class PostPlayerMenuController : MonoBehaviour {
             }
         });
         yield return new WaitWhile(() => done == false);
+    }
+
+    IEnumerator SubmitScoreRoutine() {
 
         // Submit score
-        done = false;
+        bool done = false;
         string playerID = PlayerPrefs.GetString("PlayerID");
-        LootLockerSDKManager.SubmitScore(playerID, GameManager.Instance.TotalScore, leaderboardID, (response) => {
+        LootLockerSDKManager.SubmitScore(playerID, GameManager.Instance.TotalScore, leaderboardID, (response) => { 
             if (response.success) {
                 Debug.Log("Score submitted");
                 done = true;
@@ -53,7 +66,6 @@ public class PostPlayerMenuController : MonoBehaviour {
         });
         yield return new WaitWhile(() => done == false);
 
-        LoadMainMenu();
     }
 
     public void LoadMainMenu() {
