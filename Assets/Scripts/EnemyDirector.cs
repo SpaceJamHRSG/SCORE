@@ -68,10 +68,10 @@ public class EnemyDirector : MonoBehaviour {
 
             if (spawnedEnemies.Count < maxEnemies && playerReference != null) {
 
-                Vector2 randomPoint = Random.insideUnitCircle * 25;
+                Vector2 randomPoint = Random.insideUnitCircle * 50;
                 Vector2 playerPoint = new Vector2(playerReference.transform.position.x, playerReference.transform.position.y);
-                while (Vector2.Distance(randomPoint,playerPoint) < 15) {
-                    randomPoint = Random.insideUnitCircle * 25;
+                while (Vector2.Distance(randomPoint,playerPoint) < 21) {
+                    randomPoint = Random.insideUnitCircle * 50;
                 }
                 Vector2 spawnPoint = new Vector2(playerPoint.x + randomPoint.x, playerPoint.y + randomPoint.y);
 
@@ -104,14 +104,14 @@ public class EnemyDirector : MonoBehaviour {
 
             if (spawnedEnemies.Count < maxEnemies) {
 
-                Vector2 randomPoint = Random.insideUnitCircle * 25;
+                Vector2 randomPoint = Random.insideUnitCircle * 60;
                 Vector2 playerPoint = new Vector2(playerReference.transform.position.x, playerReference.transform.position.y);
-                while (Vector2.Distance(randomPoint, playerPoint) < 15) {
-                    randomPoint = Random.insideUnitCircle * 25;
+                while (Vector2.Distance(randomPoint, playerPoint) < 25) {
+                    randomPoint = Random.insideUnitCircle * 60;
                 }
                 Vector2 spawnPoint = new Vector2(playerPoint.x + randomPoint.x, playerPoint.y + randomPoint.y);
 
-                GameObject newEnemy = Instantiate(bossPrefabs[Random.Range(0, gruntPrefabs.Length)], spawnPoint, Quaternion.identity);
+                GameObject newEnemy = Instantiate(bossPrefabs[Random.Range(0, bossPrefabs.Length)], spawnPoint, Quaternion.identity);
                 EnemyBossController controller = newEnemy.GetComponent<EnemyBossController>();
                 controller.MovementSpeed = enemyMovementSpeed / 3;
                 newEnemy.GetComponent<Entity.HealthEntity>().Allegiance = Allegiance.Enemy;

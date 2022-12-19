@@ -54,13 +54,15 @@ public class GameManager : MonoBehaviour {
 
     public AudioSource Audio => _audio;
 
+    public float OverallGameSpeed = 1.2f;
+
     private void Awake() {
         instance = this;
         _audio = GetComponent<AudioSource>();
     }
 
     private void Start() {
-        //Time.timeScale = 1.0f;
+        Time.timeScale = OverallGameSpeed;
 
         playerReference = Instantiate(playerPrefab, new Vector3(0,0,0), Quaternion.identity);
         activePlayer = playerReference.GetComponent<PlayerManager>();
@@ -160,7 +162,7 @@ public class GameManager : MonoBehaviour {
 
     public void Resume()
     {
-        Time.timeScale = 1;
+        Time.timeScale = OverallGameSpeed;
         rhythmManager.ResumeAllLines();
         _paused = false;
     }
