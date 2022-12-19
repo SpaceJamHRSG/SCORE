@@ -1050,7 +1050,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 11.75
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4853,6 +4853,22 @@ PrefabInstance:
     - target: {fileID: 7080391464122495357, guid: a805d02f7cd3f9e47b43241350da8f96, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -36.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218283573290663260, guid: a805d02f7cd3f9e47b43241350da8f96, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ad0f255e3003799479097320b8b194c1, type: 3}
+    - target: {fileID: 7218283573290663260, guid: a805d02f7cd3f9e47b43241350da8f96, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218283573290663260, guid: a805d02f7cd3f9e47b43241350da8f96, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218283573290663260, guid: a805d02f7cd3f9e47b43241350da8f96, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7725938193816540244, guid: a805d02f7cd3f9e47b43241350da8f96, type: 3}
       propertyPath: m_AnchoredPosition.x

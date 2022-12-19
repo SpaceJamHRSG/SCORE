@@ -99,7 +99,7 @@ namespace Projectiles
                     }
                 }
 
-                _target = closestFiveEnemies[autoTargetRank];
+                _target = closestFiveEnemies[autoTargetRank - 1];
                 if (_target == null)
                 {
                     transform.rotation = Quaternion.LookRotation(UnityEngine.Random.insideUnitCircle, Vector3.forward);
