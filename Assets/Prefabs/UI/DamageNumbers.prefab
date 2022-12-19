@@ -29,8 +29,8 @@ RectTransform:
   m_GameObject: {fileID: 2556879797063373202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sample text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 16f1904f09fdc20488909a5c8d22a2f6, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -171,7 +171,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 879358258289476344}
   m_maskType: 0
 --- !u!114 &800924440381593169
@@ -201,8 +201,8 @@ MonoBehaviour:
   textField: {fileID: 7816859540444998333}
   leftBound: 0
   rightBound: 100000
-  leftColor: {r: 0.8113208, g: 0.6073737, b: 0.5174084, a: 0}
-  rightColor: {r: 0.6698113, g: 0.07330014, b: 0.12008518, a: 0}
+  leftColor: {r: 1, g: 1, b: 1, a: 0}
+  rightColor: {r: 0.8773585, g: 0.60304743, b: 0.23589355, a: 0}
   leftScale: 12
   rightScale: 18
   leftDuration: 1.2

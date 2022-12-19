@@ -2568,6 +2568,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 240513225}
     m_Modifications:
+    - target: {fileID: 370475157738510107, guid: bd30c42b7a5cca646b37e29bc047866f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 370475157738510107, guid: bd30c42b7a5cca646b37e29bc047866f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3960394211618170918, guid: bd30c42b7a5cca646b37e29bc047866f, type: 3}
       propertyPath: m_Name
       value: EXP HUD
