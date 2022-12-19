@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 30
+  speed: 35
   angularVelocity: 200
   acceleration: -60
   clampAcceleration: 1
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 30
+  speed: 35
   angularVelocity: 200
   acceleration: -60
   clampAcceleration: 1
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 30
+  speed: 35
   angularVelocity: 200
   acceleration: -60
   clampAcceleration: 1
@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 30
+  speed: 35
   angularVelocity: 200
   acceleration: -60
   clampAcceleration: 1
@@ -418,7 +418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 30
+  speed: 35
   angularVelocity: 200
   acceleration: -60
   clampAcceleration: 1
@@ -492,7 +492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 30
+  speed: 35
   angularVelocity: 200
   acceleration: -60
   clampAcceleration: 1
@@ -566,7 +566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 30
+  speed: 35
   angularVelocity: 200
   acceleration: -60
   clampAcceleration: 1
@@ -640,7 +640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 30
+  speed: 35
   angularVelocity: 200
   acceleration: -60
   clampAcceleration: 1

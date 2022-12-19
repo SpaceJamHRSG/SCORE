@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 35
+  speed: 40
   angularVelocity: 360
   acceleration: -50
   clampAcceleration: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 35
+  speed: 40
   angularVelocity: 360
   acceleration: -50
   clampAcceleration: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 35
+  speed: 40
   angularVelocity: 360
   acceleration: -50
   clampAcceleration: 0
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 35
+  speed: 40
   angularVelocity: 360
   acceleration: -50
   clampAcceleration: 0
@@ -355,7 +355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 35
+  speed: 40
   angularVelocity: 360
   acceleration: -50
   clampAcceleration: 0
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 35
+  speed: 40
   angularVelocity: 360
   acceleration: -50
   clampAcceleration: 0
@@ -503,7 +503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 35
+  speed: 40
   angularVelocity: 360
   acceleration: -50
   clampAcceleration: 0
@@ -656,7 +656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 35
+  speed: 40
   angularVelocity: 360
   acceleration: -50
   clampAcceleration: 0
@@ -730,7 +730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 35
+  speed: 40
   angularVelocity: 360
   acceleration: -50
   clampAcceleration: 0
@@ -804,7 +804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 35
+  speed: 40
   angularVelocity: 360
   acceleration: -50
   clampAcceleration: 0
@@ -878,7 +878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 35
+  speed: 40
   angularVelocity: 360
   acceleration: -50
   clampAcceleration: 0
@@ -952,7 +952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 35
+  speed: 40
   angularVelocity: 360
   acceleration: -50
   clampAcceleration: 0
@@ -1026,7 +1026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 35
+  speed: 40
   angularVelocity: 360
   acceleration: -50
   clampAcceleration: 0
@@ -1100,7 +1100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 35
+  speed: 40
   angularVelocity: 360
   acceleration: -50
   clampAcceleration: 0
@@ -1174,7 +1174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 35
+  speed: 40
   angularVelocity: 360
   acceleration: -50
   clampAcceleration: 0
@@ -1248,7 +1248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 35
+  speed: 40
   angularVelocity: 360
   acceleration: -50
   clampAcceleration: 0

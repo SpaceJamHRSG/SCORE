@@ -33,11 +33,11 @@ namespace UI
             int drumLevel = player.GetWeaponLevelOf("drums");
             int rhythmLevel = player.GetWeaponLevelOf("rhythm");
 
-            levelTexts[0].text = leadLevel >= 3 ? "MAXED!" :
+            levelTexts[0].text = leadLevel >= 3 ? "MAXED!" : leadLevel == 0 ? "" :
                 $"LVL {leadLevel.ToString()}";
-            levelTexts[1].text = drumLevel >= 3 ? "MAXED!" :
+            levelTexts[1].text = drumLevel >= 3 ? "MAXED!" : drumLevel == 0 ? "" :
                 $"LVL {drumLevel.ToString()}";
-            levelTexts[2].text = rhythmLevel >= 3 ? "MAXED!" :
+            levelTexts[2].text = rhythmLevel >= 3 ? "MAXED!" : rhythmLevel == 0 ? "" :
                 $"LVL {rhythmLevel.ToString()}";
 
             weaponIcons[0].sprite = leadLevel > 0 ? availableWeaponSprites[0] : unavailableWeaponSprites[0];

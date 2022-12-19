@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 namespace SFX
 {
-    [RequireComponent(typeof(AudioSource))]
     public class ButtonSFX : MonoBehaviour, ISelectHandler, IPointerEnterHandler
     {
         private AudioSource _audio;
@@ -15,7 +14,9 @@ namespace SFX
 
         private void Awake()
         {
-            _audio = GetComponent<AudioSource>();
+            if (GameManager.Instance == null || GameManager.Instance.Audio == null)
+                _audio = GetComponent<AudioSource>();
+            else _audio = GameManager.Instance.Audio;
         }
 
         public void OnSelect(BaseEventData eventData)
