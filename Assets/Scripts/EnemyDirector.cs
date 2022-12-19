@@ -112,6 +112,8 @@ public class EnemyDirector : MonoBehaviour {
 
             if (spawnedEnemies.Count < maxEnemies) {
 
+                if (!playerReference) continue;
+
                 Vector2 randomPoint = Random.insideUnitCircle * 60;
                 Vector2 playerPoint = new Vector2(playerReference.transform.position.x, playerReference.transform.position.y);
                 while (Vector2.Distance(randomPoint, playerPoint) < 25 || OutsideBounds(randomPoint + playerPoint, minBounds, maxBounds)) {
