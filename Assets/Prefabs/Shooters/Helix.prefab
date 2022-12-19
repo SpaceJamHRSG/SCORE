@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 0f189b57e28019b4fa91da8c133f039e, type: 3}
-  speed: 50
+  speed: 40
   angularVelocity: 0
   acceleration: 0
   clampAcceleration: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 0f189b57e28019b4fa91da8c133f039e, type: 3}
-  speed: 50
+  speed: 40
   angularVelocity: 0
   acceleration: 0
   clampAcceleration: 0

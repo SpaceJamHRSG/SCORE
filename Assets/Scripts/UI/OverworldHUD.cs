@@ -29,13 +29,21 @@ namespace UI
             string scoreString = GameManager.Instance.TotalScore.ToString().PadLeft(8, '0');
             scoreDisplay.text = scoreString;
 
-            levelTexts[0].text = player.GetWeaponLevelOf("lead").ToString();
-            levelTexts[1].text = player.GetWeaponLevelOf("drums").ToString();
-            levelTexts[2].text = player.GetWeaponLevelOf("rhythm").ToString();
+            int leadLevel = player.GetWeaponLevelOf("lead");
+            int drumLevel = player.GetWeaponLevelOf("drums");
+            int rhythmLevel = player.GetWeaponLevelOf("rhythm");
 
-            weaponIcons[0].sprite = player.GetWeaponLevelOf("lead") > 0 ? availableWeaponSprites[0] : unavailableWeaponSprites[0];
-            weaponIcons[1].sprite = player.GetWeaponLevelOf("drums") > 0 ? availableWeaponSprites[1] : unavailableWeaponSprites[1];
-            weaponIcons[2].sprite = player.GetWeaponLevelOf("rhythm") > 0 ? availableWeaponSprites[2] : unavailableWeaponSprites[2];
+            levelTexts[0].text = leadLevel >= 3 ? "MAXED!" :
+                $"LVL {leadLevel.ToString()}";
+            levelTexts[1].text = drumLevel >= 3 ? "MAXED!" :
+                $"LVL {drumLevel.ToString()}";
+            levelTexts[2].text = rhythmLevel >= 3 ? "MAXED!" :
+                $"LVL {rhythmLevel.ToString()}";
+
+            weaponIcons[0].sprite = leadLevel > 0 ? availableWeaponSprites[0] : unavailableWeaponSprites[0];
+            weaponIcons[1].sprite = drumLevel > 0 ? availableWeaponSprites[1] : unavailableWeaponSprites[1];
+            weaponIcons[2].sprite = rhythmLevel > 0 ? availableWeaponSprites[2] : unavailableWeaponSprites[2];
+            
         }
     }
 }
