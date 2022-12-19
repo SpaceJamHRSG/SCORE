@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 7061d98936eb3624594c57783304b9e3
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Magical Mystery Tour
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e92a0294e2506ae45997c6c7e9bc3e45, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
