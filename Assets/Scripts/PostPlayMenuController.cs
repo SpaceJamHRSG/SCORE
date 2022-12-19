@@ -25,17 +25,21 @@ public class PostPlayMenuController : MonoBehaviour {
 
     }
 
+    void Update() {
+        showScoreText.text = GameManager.Instance.TotalScore.ToString();
+    }
+
     IEnumerator FetchHighscores() {
 
         // Login
         bool done = false;
         LootLockerSDKManager.StartGuestSession((response) => {
             if (response.success) {
-                Debug.Log("Logged in");
+                //Debug.Log("Logged in");
                 PlayerPrefs.SetString("PlayerID", response.player_id.ToString());
                 done = true;
             } else {
-                Debug.Log("Cound not start session");
+                //Debug.Log("Cound not start session");
                 done = true;
             }
         });
@@ -46,8 +50,8 @@ public class PostPlayMenuController : MonoBehaviour {
         LootLockerSDKManager.GetScoreList(leaderboardID, 10, 0, (response) => {
             if (response.success) {
 
-                string tempPlayerNames = "Names\n";
-                string tempPlayerScores = "Scores\n";
+                string tempPlayerNames = "Name\n";
+                string tempPlayerScores = "Score\n";
 
                 LootLockerLeaderboardMember[] members = response.items;
 
@@ -66,16 +70,17 @@ public class PostPlayMenuController : MonoBehaviour {
                 // Display scores
                 playerNames.text = tempPlayerNames;
                 playerScores.text = tempPlayerScores;
-                Debug.Log("names:" + tempPlayerNames);
-                Debug.Log("scores:" + tempPlayerScores);
+                //Debug.Log("names:" + tempPlayerNames);
+                //Debug.Log("scores:" + tempPlayerScores);
 
             } else {
-                Debug.Log("Failed" + response.Error);
+                //Debug.Log("Failed" + response.Error);
                 done = true;
             }
         });
         yield return new WaitWhile(() => done == false);
 
+        playerNameInputField.text = PlayerPrefs.GetString("PlayerID");
     }
 
     public void SubmitAndReturn() {
@@ -83,11 +88,14 @@ public class PostPlayMenuController : MonoBehaviour {
     }
     IEnumerator SubmitAndQuit() {
 
-        LootLockerSDKManager.SetPlayerName(playerNameInputField.text, (response) => {
+        string name = playerNameInputField.text;
+        name = name.Substring(0, 8); // char limit
+
+        LootLockerSDKManager.SetPlayerName(name, (response) => {
             if (response.success) {
-                Debug.Log("Name set");
+                //Debug.Log("Name set");
             } else {
-                Debug.Log("Failed name set" + response.Error);
+                //Debug.Log("Failed name set" + response.Error);
             }
         });
 
@@ -96,11 +104,11 @@ public class PostPlayMenuController : MonoBehaviour {
         string playerID = PlayerPrefs.GetString("PlayerID"); 
         LootLockerSDKManager.SubmitScore(playerID, GameManager.Instance.TotalScore, leaderboardID, (response) => {
             if (response.statusCode == 200) {
-                Debug.Log("Score submitted");
-                Debug.Log(playerID + ":" + GameManager.Instance.TotalScore);
+                //Debug.Log("Score submitted");
+                //Debug.Log(playerID + ":" + GameManager.Instance.TotalScore);
                 done = true;
             } else {
-                Debug.Log("Failed submit" + response.Error);
+                //Debug.Log("Failed submit" + response.Error);
                 done = true;
             }
         });
@@ -109,10 +117,11 @@ public class PostPlayMenuController : MonoBehaviour {
         LoadMainMenu();
     }
 
-    void Update() {
-        showScoreText.text = GameManager.Instance.TotalScore.ToString();
+    public void LoadMainMenu() {
+        SceneManager.LoadSceneAsync("MainMenu");
     }
 
+    /*
     IEnumerator LoginRoutine() {
 
         // Login
@@ -175,9 +184,6 @@ public class PostPlayMenuController : MonoBehaviour {
         });
         yield return new WaitWhile(() => done == false);
     }
+    */
     
-
-    public void LoadMainMenu() {
-        SceneManager.LoadSceneAsync("MainMenu");
-    }
 }
