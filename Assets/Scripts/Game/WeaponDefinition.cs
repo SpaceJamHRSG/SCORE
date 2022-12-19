@@ -59,6 +59,7 @@ namespace Game
 
         public LevelDefPair GetWeaponInfoLevel(int i)
         {
+            RepopulateDictionary();
             return _getWeaponOfLevel[i];
         }
     }
