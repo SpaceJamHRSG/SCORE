@@ -59,9 +59,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 50
-  angularVelocity: 180
-  acceleration: 0
+  speed: 35
+  angularVelocity: 360
+  acceleration: -50
+  clampAcceleration: 0
   angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
@@ -71,6 +72,8 @@ MonoBehaviour:
   baseDamageVariance: 0.2
   baseCritChance: 0.05
   baseCritStrength: 1.2
+  autoTarget: 0
+  autoTargetRank: 0
 --- !u!1 &911945887070838290
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,9 +133,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 50
-  angularVelocity: 180
-  acceleration: 0
+  speed: 35
+  angularVelocity: 360
+  acceleration: -50
+  clampAcceleration: 0
   angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
@@ -142,6 +146,8 @@ MonoBehaviour:
   baseDamageVariance: 0.2
   baseCritChance: 0.05
   baseCritStrength: 1.2
+  autoTarget: 0
+  autoTargetRank: 0
 --- !u!1 &1141717363369598358
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,9 +207,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 50
-  angularVelocity: 180
-  acceleration: 0
+  speed: 35
+  angularVelocity: 360
+  acceleration: -50
+  clampAcceleration: 0
   angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
@@ -213,6 +220,8 @@ MonoBehaviour:
   baseDamageVariance: 0.2
   baseCritChance: 0.05
   baseCritStrength: 1.2
+  autoTarget: 0
+  autoTargetRank: 0
 --- !u!1 &1218368414400207995
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,9 +281,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 50
-  angularVelocity: 180
-  acceleration: 0
+  speed: 35
+  angularVelocity: 360
+  acceleration: -50
+  clampAcceleration: 0
   angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
@@ -284,6 +294,8 @@ MonoBehaviour:
   baseDamageVariance: 0.2
   baseCritChance: 0.05
   baseCritStrength: 1.2
+  autoTarget: 0
+  autoTargetRank: 0
 --- !u!1 &2471810724698329699
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,9 +355,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 50
-  angularVelocity: 180
-  acceleration: 0
+  speed: 35
+  angularVelocity: 360
+  acceleration: -50
+  clampAcceleration: 0
   angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
@@ -355,6 +368,8 @@ MonoBehaviour:
   baseDamageVariance: 0.2
   baseCritChance: 0.05
   baseCritStrength: 1.2
+  autoTarget: 0
+  autoTargetRank: 0
 --- !u!1 &3717310383081827170
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,9 +429,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 50
-  angularVelocity: 180
-  acceleration: 0
+  speed: 35
+  angularVelocity: 360
+  acceleration: -50
+  clampAcceleration: 0
   angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
@@ -426,6 +442,8 @@ MonoBehaviour:
   baseDamageVariance: 0.2
   baseCritChance: 0.05
   baseCritStrength: 1.2
+  autoTarget: 0
+  autoTargetRank: 0
 --- !u!1 &4014100934042773800
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,9 +503,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 50
-  angularVelocity: 180
-  acceleration: 0
+  speed: 35
+  angularVelocity: 360
+  acceleration: -50
+  clampAcceleration: 0
   angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
@@ -497,6 +516,8 @@ MonoBehaviour:
   baseDamageVariance: 0.2
   baseCritChance: 0.05
   baseCritStrength: 1.2
+  autoTarget: 0
+  autoTargetRank: 0
 --- !u!1 &4648956649908129432
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,6 +588,14 @@ MonoBehaviour:
   - {fileID: 7387830141267236196}
   - {fileID: 4062247155314484825}
   - {fileID: 4946371377830193206}
+  - {fileID: 943168238153389716}
+  - {fileID: 145598533756075895}
+  - {fileID: 6810694235167093331}
+  - {fileID: 329234085250330116}
+  - {fileID: 1475662994890711610}
+  - {fileID: 1627695394746754801}
+  - {fileID: 5281219473615009022}
+  - {fileID: 7579571013010026097}
   allegiance: 0
 --- !u!1 &5107385687628196397
 GameObject:
@@ -627,9 +656,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 50
-  angularVelocity: 180
-  acceleration: 0
+  speed: 35
+  angularVelocity: 360
+  acceleration: -50
+  clampAcceleration: 0
   angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
@@ -639,6 +669,8 @@ MonoBehaviour:
   baseDamageVariance: 0.2
   baseCritChance: 0.05
   baseCritStrength: 1.2
+  autoTarget: 0
+  autoTargetRank: 0
 --- !u!1 &5422182326079881018
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,9 +730,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 50
-  angularVelocity: 180
-  acceleration: 0
+  speed: 35
+  angularVelocity: 360
+  acceleration: -50
+  clampAcceleration: 0
   angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
@@ -710,6 +743,8 @@ MonoBehaviour:
   baseDamageVariance: 0.2
   baseCritChance: 0.05
   baseCritStrength: 1.2
+  autoTarget: 0
+  autoTargetRank: 0
 --- !u!1 &5531154505226943185
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,9 +804,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 50
-  angularVelocity: 180
-  acceleration: 0
+  speed: 35
+  angularVelocity: 360
+  acceleration: -50
+  clampAcceleration: 0
   angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
@@ -781,6 +817,8 @@ MonoBehaviour:
   baseDamageVariance: 0.2
   baseCritChance: 0.05
   baseCritStrength: 1.2
+  autoTarget: 0
+  autoTargetRank: 0
 --- !u!1 &5570637065201839143
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,9 +878,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 50
-  angularVelocity: 180
-  acceleration: 0
+  speed: 35
+  angularVelocity: 360
+  acceleration: -50
+  clampAcceleration: 0
   angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
@@ -852,6 +891,8 @@ MonoBehaviour:
   baseDamageVariance: 0.2
   baseCritChance: 0.05
   baseCritStrength: 1.2
+  autoTarget: 0
+  autoTargetRank: 0
 --- !u!1 &5737771929118409798
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,9 +952,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 50
-  angularVelocity: 180
-  acceleration: 0
+  speed: 35
+  angularVelocity: 360
+  acceleration: -50
+  clampAcceleration: 0
   angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
@@ -923,6 +965,8 @@ MonoBehaviour:
   baseDamageVariance: 0.2
   baseCritChance: 0.05
   baseCritStrength: 1.2
+  autoTarget: 0
+  autoTargetRank: 0
 --- !u!1 &6423236499378399619
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,9 +1026,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 50
-  angularVelocity: 180
-  acceleration: 0
+  speed: 35
+  angularVelocity: 360
+  acceleration: -50
+  clampAcceleration: 0
   angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
@@ -994,6 +1039,8 @@ MonoBehaviour:
   baseDamageVariance: 0.2
   baseCritChance: 0.05
   baseCritStrength: 1.2
+  autoTarget: 0
+  autoTargetRank: 0
 --- !u!1 &7415499349965849973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,9 +1100,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 50
-  angularVelocity: 180
-  acceleration: 0
+  speed: 35
+  angularVelocity: 360
+  acceleration: -50
+  clampAcceleration: 0
   angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
@@ -1065,6 +1113,8 @@ MonoBehaviour:
   baseDamageVariance: 0.2
   baseCritChance: 0.05
   baseCritStrength: 1.2
+  autoTarget: 0
+  autoTargetRank: 0
 --- !u!1 &8324529338877250105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,9 +1174,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 50
-  angularVelocity: 180
-  acceleration: 0
+  speed: 35
+  angularVelocity: 360
+  acceleration: -50
+  clampAcceleration: 0
   angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
@@ -1136,6 +1187,8 @@ MonoBehaviour:
   baseDamageVariance: 0.2
   baseCritChance: 0.05
   baseCritStrength: 1.2
+  autoTarget: 0
+  autoTargetRank: 0
 --- !u!1 &8627522961477792321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,9 +1248,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7637695405800607507, guid: 25ba56196f8efb84f87f7a86d5c86bca, type: 3}
-  speed: 50
-  angularVelocity: 180
-  acceleration: 0
+  speed: 35
+  angularVelocity: 360
+  acceleration: -50
+  clampAcceleration: 0
   angularAcceleration: -90
   enablePendulumMotion: 0
   magnitude: 0
@@ -1207,3 +1261,5 @@ MonoBehaviour:
   baseDamageVariance: 0.2
   baseCritChance: 0.05
   baseCritStrength: 1.2
+  autoTarget: 0
+  autoTargetRank: 0

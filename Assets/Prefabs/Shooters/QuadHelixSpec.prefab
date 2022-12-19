@@ -1,5 +1,79 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &881920570051713771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2591998463330281331}
+  - component: {fileID: 8412977942278285100}
+  - component: {fileID: 4479114280421845373}
+  m_Layer: 0
+  m_Name: 2 (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2591998463330281331
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881920570051713771}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0.34, y: -0.49, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1016126597774833428}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!114 &8412977942278285100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881920570051713771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b6cb857fd34469bf5c93b27e3e19e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  line: rhythm
+--- !u!114 &4479114280421845373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881920570051713771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b97ffa06f2c74ff79122b88b26ee38ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 7637695405800607507, guid: 0f189b57e28019b4fa91da8c133f039e, type: 3}
+  speed: 50
+  angularVelocity: 0
+  acceleration: 0
+  clampAcceleration: 0
+  angularAcceleration: 0
+  enablePendulumMotion: 0
+  magnitude: 80
+  swingSpeed: 20
+  phase: 0.5
+  maxBaseDamage: 100
+  baseDamageVariance: 0.3
+  baseCritChance: 0.1
+  baseCritStrength: 1.2
+  autoTarget: 0
+  autoTargetRank: 0
 --- !u!1 &4648956649908129432
 GameObject:
   m_ObjectHideFlags: 0
@@ -35,6 +109,7 @@ Transform:
   - {fileID: 3395357601112958533}
   - {fileID: 3493788056877532503}
   - {fileID: 3907601890351788617}
+  - {fileID: 2591998463330281331}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -121,10 +196,11 @@ MonoBehaviour:
   speed: 30
   angularVelocity: 0
   acceleration: 0
+  clampAcceleration: 0
   angularAcceleration: 0
   enablePendulumMotion: 1
-  magnitude: 80
-  swingSpeed: 15
+  magnitude: 15
+  swingSpeed: 18
   phase: 0.5
   maxBaseDamage: 70
   baseDamageVariance: 0.3
@@ -194,10 +270,11 @@ MonoBehaviour:
   speed: 30
   angularVelocity: 0
   acceleration: 0
+  clampAcceleration: 0
   angularAcceleration: 0
   enablePendulumMotion: 1
-  magnitude: 80
-  swingSpeed: 15
+  magnitude: 15
+  swingSpeed: 18
   phase: -0.5
   maxBaseDamage: 70
   baseDamageVariance: 0.3
@@ -267,10 +344,11 @@ MonoBehaviour:
   speed: 50
   angularVelocity: 0
   acceleration: 0
+  clampAcceleration: 0
   angularAcceleration: 0
   enablePendulumMotion: 0
-  magnitude: 150
-  swingSpeed: 15
+  magnitude: 80
+  swingSpeed: 20
   phase: 0.5
   maxBaseDamage: 100
   baseDamageVariance: 0.3
@@ -340,9 +418,10 @@ MonoBehaviour:
   speed: 40
   angularVelocity: 0
   acceleration: 0
+  clampAcceleration: 0
   angularAcceleration: 0
   enablePendulumMotion: 1
-  magnitude: 150
+  magnitude: 50
   swingSpeed: 15
   phase: 0.5
   maxBaseDamage: 70
@@ -413,9 +492,10 @@ MonoBehaviour:
   speed: 40
   angularVelocity: 0
   acceleration: 0
+  clampAcceleration: 0
   angularAcceleration: 0
   enablePendulumMotion: 1
-  magnitude: 150
+  magnitude: 50
   swingSpeed: 15
   phase: -0.5
   maxBaseDamage: 70
@@ -486,10 +566,11 @@ MonoBehaviour:
   speed: 50
   angularVelocity: 0
   acceleration: 0
+  clampAcceleration: 0
   angularAcceleration: 0
   enablePendulumMotion: 0
-  magnitude: 150
-  swingSpeed: 15
+  magnitude: 80
+  swingSpeed: 20
   phase: -0.5
   maxBaseDamage: 100
   baseDamageVariance: 0.3

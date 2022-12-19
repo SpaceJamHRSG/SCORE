@@ -48,7 +48,7 @@ MonoBehaviour:
   _aimSmoothing: 0
   autoTargetEnemy: 0
   weaponDefinition: {fileID: 11400000, guid: 8d7166e17fa475340ad99d8a26cdd6eb, type: 2}
-  IsStartingWeapon: 1
+  IsStartingWeapon: 0
 --- !u!1 &670168666589181994
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +181,7 @@ MonoBehaviour:
   _aimSmoothing: 20
   autoTargetEnemy: 0
   weaponDefinition: {fileID: 11400000, guid: c2f2347434237f147b6c04b0e81fd052, type: 2}
-  IsStartingWeapon: 0
+  IsStartingWeapon: 1
 --- !u!1 &7599684439502406146
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +275,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04000002, y: -1.0696967}
+  m_Offset: {x: 0.04, y: -0.58}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -286,7 +286,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.24, y: 1.3732916}
+  m_Size: {x: 1.24, y: 2.16}
   m_EdgeRadius: 0
 --- !u!114 &6610159333140096527
 MonoBehaviour:

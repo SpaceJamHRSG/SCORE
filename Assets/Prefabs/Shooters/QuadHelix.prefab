@@ -117,10 +117,11 @@ MonoBehaviour:
   speed: 30
   angularVelocity: 0
   acceleration: 0
+  clampAcceleration: 0
   angularAcceleration: 0
   enablePendulumMotion: 1
-  magnitude: 80
-  swingSpeed: 15
+  magnitude: 20
+  swingSpeed: 18
   phase: 0.5
   maxBaseDamage: 70
   baseDamageVariance: 0.3
@@ -190,10 +191,11 @@ MonoBehaviour:
   speed: 30
   angularVelocity: 0
   acceleration: 0
+  clampAcceleration: 0
   angularAcceleration: 0
   enablePendulumMotion: 1
-  magnitude: 80
-  swingSpeed: 15
+  magnitude: 20
+  swingSpeed: 18
   phase: -0.5
   maxBaseDamage: 70
   baseDamageVariance: 0.3
@@ -263,9 +265,10 @@ MonoBehaviour:
   speed: 40
   angularVelocity: 0
   acceleration: 0
+  clampAcceleration: 0
   angularAcceleration: 0
   enablePendulumMotion: 1
-  magnitude: 150
+  magnitude: 50
   swingSpeed: 15
   phase: 0.5
   maxBaseDamage: 70
@@ -336,9 +339,10 @@ MonoBehaviour:
   speed: 40
   angularVelocity: 0
   acceleration: 0
+  clampAcceleration: 0
   angularAcceleration: 0
   enablePendulumMotion: 1
-  magnitude: 150
+  magnitude: 50
   swingSpeed: 15
   phase: -0.5
   maxBaseDamage: 70
