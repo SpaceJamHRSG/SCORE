@@ -45,7 +45,6 @@ namespace UI
             gameObject.SetActive(false);
             enabled = false;
             upgradeSystem.InvokeClose();
-            GameManager.Instance.Resume();
         }
 
         public void Refresh()

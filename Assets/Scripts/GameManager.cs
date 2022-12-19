@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Entity;
 using Game;
@@ -70,25 +71,39 @@ public class GameManager : MonoBehaviour {
         EnemyGruntController.IsActive = true;
         activePlayer.IsActive = true;
 
-        ExpLevelEntity.OnLevelUp += (i, e) =>
-        {
-            Pause();
-            upgradeSystem.OpenUpgradeScreen(2);
-            rhythmManager.FadeToRestAudio();
-            EnemyGruntController.IsActive = false;
-            activePlayer.IsActive = false;
-            EnemyDirector.IsActive = false;
-        };
-
-        UpgradeSystem.OnClose += () =>
-        {
-            rhythmManager.FadeToMainAudio();
-            EnemyGruntController.IsActive = true;
-            activePlayer.IsActive = true;
-            EnemyDirector.IsActive = true;
-        };
+        
     }
 
+    private void OnEnable()
+    {
+        ExpLevelEntity.OnLevelUp += HandleLevelUp;
+        UpgradeSystem.OnClose += HandleUpgradesClose;
+    }
+
+    private void OnDisable()
+    {
+        ExpLevelEntity.OnLevelUp -= HandleLevelUp;
+        UpgradeSystem.OnClose -= HandleUpgradesClose;
+    }
+
+    private void HandleLevelUp(int i, ExpLevelEntity expLevelEntity)
+    {
+        Pause();
+        upgradeSystem.OpenUpgradeScreen(2);
+        rhythmManager.FadeToRestAudio();
+        EnemyGruntController.IsActive = false;
+        activePlayer.IsActive = false;
+        EnemyDirector.IsActive = false;
+    }
+
+    private void HandleUpgradesClose()
+    {
+        Resume();
+        rhythmManager.FadeToMainAudio();
+        EnemyGruntController.IsActive = true;
+        activePlayer.IsActive = true;
+        EnemyDirector.IsActive = true;
+    }
     private void Update() {
         survivalTime += Time.deltaTime;
         HUD.DisplayStats(activePlayer);
