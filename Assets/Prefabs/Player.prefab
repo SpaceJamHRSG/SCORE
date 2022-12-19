@@ -242,7 +242,7 @@ MonoBehaviour:
   playerName: default
   originalStats: {fileID: 11400000, guid: 4f127a7b7c19e5c4b9faffd0c0bbe795, type: 2}
   weaponDestroyFX: {fileID: 394111855277035034, guid: 6b45e36af796e3b45bbc78276a63c34a, type: 3}
-  pickupRadius: 3
+  pickupRadius: 4
   InvulnerabilitySeconds: 2
   weapons: []
   explosionDamage: 99999
