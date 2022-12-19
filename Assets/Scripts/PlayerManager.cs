@@ -116,7 +116,9 @@ public class PlayerManager : MonoBehaviour
     }
 
     private void OnDeath(int dmg, HealthEntity entity, GameObject impactParticles) {
-        if (entity.gameObject.Equals(this.gameObject)) {
+        if (entity.gameObject.Equals(this.gameObject))
+        {
+            _collider.enabled = false;
             rigidbody.simulated = false;
             GameManager.Instance.EndGame();
         }

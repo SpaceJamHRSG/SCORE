@@ -11,11 +11,13 @@ namespace UI
         [SerializeField] private TextMeshProUGUI expTextField;
         [SerializeField] private TextMeshProUGUI levelTextField;
         [SerializeField] private BarUI expBar;
+        [SerializeField] private RectTransform inverseExpBar;
         [SerializeField] private List<TextMeshProUGUI> levelTexts;
 
         [SerializeField] private List<Image> weaponIcons;
         [SerializeField] private List<Sprite> availableWeaponSprites;
         [SerializeField] private List<Sprite> unavailableWeaponSprites;
+        
         public void DisplayStats(PlayerManager player)
         {
             expTextField.text = $"{player.Exp} / {player.ExpToNext}";

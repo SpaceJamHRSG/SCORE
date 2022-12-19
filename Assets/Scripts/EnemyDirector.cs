@@ -65,7 +65,7 @@ public class EnemyDirector : MonoBehaviour {
             
             yield return new WaitForSeconds(1 / gruntSpawnRate);
 
-            if (spawnedEnemies.Count < maxEnemies) {
+            if (spawnedEnemies.Count < maxEnemies && playerReference != null) {
 
                 Vector2 randomPoint = Random.insideUnitCircle * 25;
                 Vector2 playerPoint = new Vector2(playerReference.transform.position.x, playerReference.transform.position.y);

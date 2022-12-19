@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour {
 
     public void EndGame() {
         // Game over
-        Time.timeScale = 0.0f;
+        //Time.timeScale = 0.0f;
 
         // TODO: leaderboard
         gameOverScreen.SetActive(true);

@@ -17,6 +17,7 @@ public class CameraController : MonoBehaviour {
     private Vector3 velocity = Vector3.zero;
 
     private Camera _camera;
+    private Vector3 _playerPos;
 
     private void Awake()
     {
@@ -30,9 +31,10 @@ public class CameraController : MonoBehaviour {
     void FixedUpdate()
     {
         var secondTargetPosition = _camera.ScreenToWorldPoint(Input.mousePosition);
-        
+
+        if (target != null) _playerPos = target.position;
         Vector3 cameraPosition = transform.position;
-        Vector3 targetPosition = Vector3.Lerp(target.position, secondTargetPosition, targetInterp);
+        Vector3 targetPosition = Vector3.Lerp(_playerPos, secondTargetPosition, targetInterp);
 
         // Calculate the new position of the camera based on the target's position
         cameraPosition = Vector3.SmoothDamp(cameraPosition, targetPosition, ref velocity, smoothTime);
