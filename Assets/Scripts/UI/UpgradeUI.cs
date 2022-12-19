@@ -26,7 +26,7 @@ namespace UI
 
             healthRestoreSlot.OnPress += HandleSelection;
 
-            int x = upgradeSystem.ActivePlayer.Level - 1;
+            int x = upgradeSystem.ActivePlayer.Level;
             int disp = x switch
             {
                 2 => 0,
