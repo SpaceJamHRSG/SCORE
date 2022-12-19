@@ -30,6 +30,9 @@ public class EnemyDirector : MonoBehaviour {
     [SerializeField] private float enemyMovementSpeed = 0.03f;
     [SerializeField] private int enemyMoveSpeedIncreaseInterval = 60; // seconds
 
+    [SerializeField] private Vector2 minBounds;
+    [SerializeField] private Vector2 maxBounds;
+
     private PlayerManager playerReference;
     private List<GameObject> spawnedEnemies = new List<GameObject>();
     public List<GameObject> SpawnedEnemies => spawnedEnemies;
@@ -55,6 +58,11 @@ public class EnemyDirector : MonoBehaviour {
         StartCoroutine("EnemyMoveSpeedIncreaseTimer");
     }
 
+    private bool OutsideBounds(Vector2 pt, Vector2 minB, Vector2 maxB)
+    {
+        return pt.x < minB.x || pt.x > maxB.x || pt.y < minB.y || pt.y > maxB.y;
+    }
+
     IEnumerator GruntSpawner() {
         while(true) {
             if (playerReference == null) playerReference = FindObjectOfType<PlayerManager>();
@@ -70,7 +78,7 @@ public class EnemyDirector : MonoBehaviour {
 
                 Vector2 randomPoint = Random.insideUnitCircle * 50;
                 Vector2 playerPoint = new Vector2(playerReference.transform.position.x, playerReference.transform.position.y);
-                while (Vector2.Distance(randomPoint,playerPoint) < 21) {
+                while (Vector2.Distance(randomPoint,playerPoint) < 21 || OutsideBounds(randomPoint + playerPoint, minBounds, maxBounds)) {
                     randomPoint = Random.insideUnitCircle * 50;
                 }
                 Vector2 spawnPoint = new Vector2(playerPoint.x + randomPoint.x, playerPoint.y + randomPoint.y);
@@ -106,7 +114,7 @@ public class EnemyDirector : MonoBehaviour {
 
                 Vector2 randomPoint = Random.insideUnitCircle * 60;
                 Vector2 playerPoint = new Vector2(playerReference.transform.position.x, playerReference.transform.position.y);
-                while (Vector2.Distance(randomPoint, playerPoint) < 25) {
+                while (Vector2.Distance(randomPoint, playerPoint) < 25 || OutsideBounds(randomPoint + playerPoint, minBounds, maxBounds)) {
                     randomPoint = Random.insideUnitCircle * 60;
                 }
                 Vector2 spawnPoint = new Vector2(playerPoint.x + randomPoint.x, playerPoint.y + randomPoint.y);
