@@ -47,13 +47,11 @@ namespace Game
             switch (_type.Type)
             {
                 case StatType.Speed:
-                    return $"Increases your speed by {Math.Round(_val * 100)}%";
+                    return $"SPEED +{Math.Round(_val * 100)}%";
                 case StatType.BaseDamage:
-                    return $"Increases your damage by {Math.Round(_val * 100)}%";
-                case StatType.HP:
-                    return $"Increases your HP by {Math.Round(_val * 100)}%";
+                    return $"DAMAGE +{Math.Round(_val * 100)}%";
                 case StatType.CritChance:
-                    return $"Increases your crit rate by {Math.Round(_val * 100)}%";
+                    return $"LUCK +{Math.Round(_val * 100)}%";
                 default:
                     throw new ArgumentException();
             }

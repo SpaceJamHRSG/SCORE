@@ -36,8 +36,9 @@ public class PlayerManager : MonoBehaviour
 
     public List<Weapon> Weapons => weapons;
     public float InvulnerabilitySeconds;
-    private bool _isInvulnerable;
     private float _invulnTimer;
+
+    public bool IsInvulnerable => _invulnTimer > 0;
 
     public int MaxHealth
     {
