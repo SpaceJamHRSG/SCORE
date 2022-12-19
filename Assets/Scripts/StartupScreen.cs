@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class StartupScreen : MonoBehaviour {
 
-    public TMP_Text text; // Text to fade
+    public Image fadingImage;
     public float fadeDuration;
     private float currentTime;
     private bool isKeyPressed;
@@ -14,7 +15,7 @@ public class StartupScreen : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         isKeyPressed = false;
-        Debug.Assert(text);
+        Debug.Assert(fadingImage);
     }
 
     // Update is called once per frame
@@ -26,7 +27,7 @@ public class StartupScreen : MonoBehaviour {
         }
 
         if (isKeyPressed) {
-            FadeOutText();
+            FadeOutImage();
             Invoke("ChangeScene", fadeDuration);
         }
     }
@@ -35,10 +36,21 @@ public class StartupScreen : MonoBehaviour {
         SceneManager.LoadScene("MainMenu");
     }
 
+    void FadeOutImage() {
+        float alpha = 1 - (currentTime / fadeDuration);
+        fadingImage.color = new Color(fadingImage.color.r, fadingImage.color.g, fadingImage.color.b, alpha);
+    }
+
+    /*
+    using TMPro;
+
+    public TMP_Text text; // Text to fade
     void FadeOutText() {
         // Calculate the alpha
         float alpha = 1 - (currentTime / fadeDuration);
         text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
 
     }
+
+    */
 }
