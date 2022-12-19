@@ -27,6 +27,7 @@ public class PostPlayMenuController : MonoBehaviour {
 
     void Update() {
         showScoreText.text = GameManager.Instance.TotalScore.ToString();
+        playerNameInputField.characterLimit = 8;
     }
 
     IEnumerator FetchHighscores() {
@@ -89,15 +90,22 @@ public class PostPlayMenuController : MonoBehaviour {
     IEnumerator SubmitAndQuit() {
 
         string name = playerNameInputField.text;
-        name = name.Substring(0, 8); // char limit
 
-        LootLockerSDKManager.SetPlayerName(name, (response) => {
-            if (response.success) {
-                //Debug.Log("Name set");
-            } else {
-                //Debug.Log("Failed name set" + response.Error);
-            }
-        });
+        int maxLength = 8;
+        if (name.Length > maxLength) 
+            name = name.Substring(0, maxLength);
+
+        if (name != PlayerPrefs.GetString("PlayerID")) {
+            // Change name
+
+            LootLockerSDKManager.SetPlayerName(name, (response) => {
+                if (response.success) {
+                    //Debug.Log("Name set");
+                } else {
+                    //Debug.Log("Failed name set" + response.Error);
+                }
+            });
+        }
 
         // Submit score
         bool done = false;
