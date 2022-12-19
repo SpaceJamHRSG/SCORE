@@ -161,8 +161,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -294.77878, y: -1.9110107}
-  m_SizeDelta: {x: -661.8337, y: -104.1066}
+  m_AnchoredPosition: {x: -262.4441, y: -1.9110107}
+  m_SizeDelta: {x: -597.1643, y: -104.1066}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &18987088
 MonoBehaviour:
@@ -382,8 +382,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showScoreText: {fileID: 2145479104}
-  playerNames: {fileID: 0}
-  playerScores: {fileID: 0}
+  playerNames: {fileID: 1768896132}
+  playerScores: {fileID: 792798985}
+  playerNameInputField: {fileID: 822453747}
 --- !u!1 &168744637
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &168744638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -914,8 +915,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 74.541, y: 180.56}
-  m_SizeDelta: {x: 149.08, y: 134.78}
+  m_AnchoredPosition: {x: 90.709, y: 162.08}
+  m_SizeDelta: {x: 181.42, y: 171.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &792798985
 MonoBehaviour:
@@ -1361,9 +1362,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 76807199}
-        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
-        m_MethodName: LoadMainMenu
+      - m_Target: {fileID: 76807201}
+        m_TargetAssemblyTypeName: PostPlayMenuController, Assembly-CSharp
+        m_MethodName: SubmitAndReturn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2007,8 +2008,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -69.254, y: 180.55566}
-  m_SizeDelta: {x: 138.51, y: 134.7787}
+  m_AnchoredPosition: {x: -90.708, y: 162.0787}
+  m_SizeDelta: {x: 181.42, y: 171.7326}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1768896132
 MonoBehaviour:
