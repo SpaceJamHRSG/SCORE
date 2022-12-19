@@ -109,11 +109,12 @@ public class PlayerManager : MonoBehaviour
     private void OnTakeHit(int dmg, bool crit, HealthEntity entity, GameObject impactParticles)
     {
         if (_invulnTimer > 0) return;
-        _invulnTimer = InvulnerabilitySeconds;
+        
         if (entity.gameObject.Equals(this.gameObject))
         {
             if (dmg <= 0) return;
-
+            
+            _invulnTimer = InvulnerabilitySeconds;
             if (WeaponCount() > 1)
             {
                 LoseRandomWeapon();

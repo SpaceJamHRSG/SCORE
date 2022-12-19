@@ -113,12 +113,13 @@ MonoBehaviour:
   speed: 50
   angularVelocity: 0
   acceleration: 0
+  clampAcceleration: 0
   angularAcceleration: 0
   enablePendulumMotion: 1
   magnitude: 25
   swingSpeed: 18
   phase: 0.5
-  maxBaseDamage: 50
+  maxBaseDamage: 40
   baseDamageVariance: 0.3
   baseCritChance: 0.1
   baseCritStrength: 1.2
@@ -186,12 +187,13 @@ MonoBehaviour:
   speed: 50
   angularVelocity: 0
   acceleration: 0
+  clampAcceleration: 0
   angularAcceleration: 0
   enablePendulumMotion: 1
   magnitude: 25
   swingSpeed: 18
   phase: -0.5
-  maxBaseDamage: 50
+  maxBaseDamage: 40
   baseDamageVariance: 0.3
   baseCritChance: 0.1
   baseCritStrength: 1.2

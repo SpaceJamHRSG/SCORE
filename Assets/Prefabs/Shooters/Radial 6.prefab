@@ -68,7 +68,7 @@ MonoBehaviour:
   magnitude: 0
   swingSpeed: 0
   phase: 0
-  maxBaseDamage: 25
+  maxBaseDamage: 35
   baseDamageVariance: 0.3
   baseCritChance: 0.05
   baseCritStrength: 1
@@ -142,7 +142,7 @@ MonoBehaviour:
   magnitude: 0
   swingSpeed: 0
   phase: 0
-  maxBaseDamage: 25
+  maxBaseDamage: 35
   baseDamageVariance: 0.3
   baseCritChance: 0.05
   baseCritStrength: 1
@@ -275,7 +275,7 @@ MonoBehaviour:
   magnitude: 0
   swingSpeed: 0
   phase: 0
-  maxBaseDamage: 25
+  maxBaseDamage: 35
   baseDamageVariance: 0.3
   baseCritChance: 0.05
   baseCritStrength: 1
@@ -349,7 +349,7 @@ MonoBehaviour:
   magnitude: 0
   swingSpeed: 0
   phase: 0
-  maxBaseDamage: 25
+  maxBaseDamage: 35
   baseDamageVariance: 0.3
   baseCritChance: 0.05
   baseCritStrength: 1
@@ -423,7 +423,7 @@ MonoBehaviour:
   magnitude: 0
   swingSpeed: 0
   phase: 0
-  maxBaseDamage: 25
+  maxBaseDamage: 35
   baseDamageVariance: 0.3
   baseCritChance: 0.05
   baseCritStrength: 1
@@ -497,7 +497,7 @@ MonoBehaviour:
   magnitude: 0
   swingSpeed: 0
   phase: 0
-  maxBaseDamage: 25
+  maxBaseDamage: 35
   baseDamageVariance: 0.3
   baseCritChance: 0.05
   baseCritStrength: 1
