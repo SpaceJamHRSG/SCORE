@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour {
     private void Update() {
         survivalTime += Time.deltaTime;
         HUD.DisplayStats(activePlayer);
-        totalScore = (int) survivalTime * 10 + gruntsDefeated * 5 + bossesDefeated * 50 + pointUpgrades * 500;
+        totalScore = (int) (survivalTime * 20) + gruntsDefeated * 50 + bossesDefeated * 500 + pointUpgrades * 5000;
 
         foreach (var w in activePlayer.Weapons)
         {

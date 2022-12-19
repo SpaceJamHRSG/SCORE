@@ -272,8 +272,10 @@ MonoBehaviour:
   _spriteSheetMovement:
   - {fileID: -2072043000, guid: 4034e534f823a31469211f13b7a06194, type: 3}
   - {fileID: -1209293585, guid: 4034e534f823a31469211f13b7a06194, type: 3}
-  _spriteSheetIdle: []
-  _animationSpeedSeconds: 0
+  _spriteSheetIdle:
+  - {fileID: -2072043000, guid: 4034e534f823a31469211f13b7a06194, type: 3}
+  - {fileID: -1209293585, guid: 4034e534f823a31469211f13b7a06194, type: 3}
+  _animationSpeedSeconds: 0.3797
   _mouseFallBack: 0
 --- !u!114 &-2677596603153886133
 MonoBehaviour:

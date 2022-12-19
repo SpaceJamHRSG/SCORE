@@ -13,6 +13,7 @@ namespace UI
         [SerializeField] private BarUI expBar;
         [SerializeField] private RectTransform inverseExpBar;
         [SerializeField] private List<TextMeshProUGUI> levelTexts;
+        [SerializeField] private TextMeshProUGUI scoreDisplay;
 
         [SerializeField] private List<Image> weaponIcons;
         [SerializeField] private List<Sprite> availableWeaponSprites;
@@ -24,6 +25,9 @@ namespace UI
             levelTextField.text = player.Level.ToString();
             
             expBar.DisplayAt((float)player.Exp/player.ExpToNext);
+
+            string scoreString = GameManager.Instance.TotalScore.ToString().PadLeft(8, '0');
+            scoreDisplay.text = scoreString;
 
             levelTexts[0].text = player.GetWeaponLevelOf("lead").ToString();
             levelTexts[1].text = player.GetWeaponLevelOf("drums").ToString();

@@ -36,7 +36,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Start()
     {
-        _randomDisperseDirection = UnityEngine.Random.insideUnitCircle;
+        _randomDisperseDirection = UnityEngine.Random.insideUnitCircle.normalized;
         AISeed = UnityEngine.Random.value;
         _disperseOnly = AISeed < DISPERSE_CHANCE;
     }
