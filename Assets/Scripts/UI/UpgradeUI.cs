@@ -50,6 +50,11 @@ namespace UI
             healthRestoreSlot.OnPress -= HandleSelection;
         }
 
+        private void Update()
+        {
+            Refresh(); // game jam code
+        }
+
         private void HandleSelection(UpgradeSlotUI usui)
         {
             upgradeSystem.ApplyUpgrade(usui.Upgrade, upgradeSystem.ActivePlayer);

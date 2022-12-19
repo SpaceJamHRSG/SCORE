@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour {
     {
         ExpLevelEntity.OnLevelUp += HandleLevelUp;
         UpgradeSystem.OnClose += HandleUpgradesClose;
+        _canPause = true;
     }
 
     private void OnDisable()
