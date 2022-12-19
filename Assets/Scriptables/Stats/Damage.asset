@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Damage
   m_EditorClassIdentifier: 
   Type: 1
-  MainText: Power up!!
-  FlavourText: Increases the damage of your bullets
-  Image: {fileID: 21300000, guid: 0ccc508108fa6ed4fa11b4a467d7f609, type: 3}
+  MainText: AMP UP!
+  FlavourText: DMG UP!
+  Image: {fileID: 21300000, guid: 4570cdcb2cb1ec744bc3858c70a1ece6, type: 3}
   BaseUpgradeUnit: 0.3

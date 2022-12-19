@@ -35,7 +35,7 @@ namespace UI
                 gameObject.SetActive(false);
                 return;
             }
-            mainText.text = _upgrade.GetUpgradeName();
+            if(mainText != null) mainText.text = _upgrade.GetUpgradeName();
             if(flavourText != null) flavourText.text = _upgrade.GetFlavourText();
             if(image != null) image.sprite = _upgrade.GetImage();
         }

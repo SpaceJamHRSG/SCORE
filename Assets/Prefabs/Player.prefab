@@ -181,7 +181,7 @@ MonoBehaviour:
   _aimSmoothing: 20
   autoTargetEnemy: 0
   weaponDefinition: {fileID: 11400000, guid: c2f2347434237f147b6c04b0e81fd052, type: 2}
-  IsStartingWeapon: 0
+  IsStartingWeapon: 1
 --- !u!1 &7599684439502406146
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 8528479728360161099}
   - component: {fileID: 1736030625737681340}
   - component: {fileID: 1896804787180526809}
+  - component: {fileID: 3695363778878015100}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -242,7 +243,7 @@ MonoBehaviour:
   originalStats: {fileID: 11400000, guid: 4f127a7b7c19e5c4b9faffd0c0bbe795, type: 2}
   weaponDestroyFX: {fileID: 394111855277035034, guid: 6b45e36af796e3b45bbc78276a63c34a, type: 3}
   pickupRadius: 3
-  InvulnerabilitySeconds: 0
+  InvulnerabilitySeconds: 2
   weapons: []
   explosionDamage: 99999
 --- !u!50 &7599684439502406148
@@ -521,8 +522,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5632e17b3914dc5953dfe9c471698af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathSound: {fileID: 8300000, guid: a8a8c2748d3afc34bb980f488a01c139, type: 3}
-  onHitSound: {fileID: 8300000, guid: 7ae603d2308472543b36276c53924fe2, type: 3}
+  deathSound: {fileID: 8300000, guid: 056b795954f4e104e88073d085629e94, type: 3}
+  onHitSound: {fileID: 8300000, guid: 4de23132d66c30b43b3c8354de0e1a6d, type: 3}
+--- !u!114 &3695363778878015100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7599684439502406146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e444a4323244b328944e805907ead48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flashPeriod: 0.3
+  _spriteToFlash: {fileID: 7811494438816792457}
 --- !u!1 &8912623122034432462
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,4 +586,4 @@ MonoBehaviour:
   _aimSmoothing: 0
   autoTargetEnemy: 1
   weaponDefinition: {fileID: 11400000, guid: bcabf4772c6cc5245b5896eb47bcbcb2, type: 2}
-  IsStartingWeapon: 1
+  IsStartingWeapon: 0
