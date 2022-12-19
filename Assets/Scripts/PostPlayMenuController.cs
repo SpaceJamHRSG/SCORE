@@ -8,8 +8,8 @@ using LootLocker.Requests;
 
 public class PostPlayMenuController : MonoBehaviour {
 
-    //private int leaderboardID = 9808; // stage
-    private int leaderboardID = 9833; // live
+    private int leaderboardID = 9808; // stage
+    //private int leaderboardID = 9833; // live
     int scoreCount = 10;
 
     [SerializeField] private TMP_Text showScoreText;
