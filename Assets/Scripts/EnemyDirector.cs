@@ -10,7 +10,7 @@ public class EnemyDirector : MonoBehaviour {
     private static EnemyDirector instance;
     public static EnemyDirector Instance {
         get {
-            if (instance == null) Debug.LogError("GameManager missing.");
+            if (instance == null) Debug.LogError("EnemyDirector missing.");
             return instance;
         }
     }

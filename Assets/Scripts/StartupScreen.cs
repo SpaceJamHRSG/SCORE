@@ -11,10 +11,12 @@ public class StartupScreen : MonoBehaviour {
     public float fadeDuration;
     private float currentTime;
     private bool isKeyPressed;
+    private bool isChanging;
 
     // Start is called before the first frame update
     void Start() {
         isKeyPressed = false;
+        isChanging = false;
         Debug.Assert(fadingImage);
     }
 
@@ -24,11 +26,15 @@ public class StartupScreen : MonoBehaviour {
 
         if (Input.anyKeyDown) {
             isKeyPressed = true;
+            currentTime = 0;
         }
 
         if (isKeyPressed) {
             FadeOutImage();
-            Invoke("ChangeScene", fadeDuration);
+            if (!isChanging) {
+                Invoke("ChangeScene", fadeDuration);
+                isChanging = true;
+            }
         }
     }
 
@@ -38,6 +44,7 @@ public class StartupScreen : MonoBehaviour {
 
     void FadeOutImage() {
         float alpha = 1 - (currentTime / fadeDuration);
+        print(alpha);
         fadingImage.color = new Color(fadingImage.color.r, fadingImage.color.g, fadingImage.color.b, alpha);
     }
 
