@@ -513,8 +513,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SUBMIT & RETURN
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 16f1904f09fdc20488909a5c8d22a2f6, type: 2}
-  m_sharedMaterial: {fileID: 6221865335473044257, guid: 16f1904f09fdc20488909a5c8d22a2f6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bece642698a50294b90f3abf6754ccdb, type: 2}
+  m_sharedMaterial: {fileID: -6370198302105046325, guid: bece642698a50294b90f3abf6754ccdb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -915,8 +915,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 90.709, y: 162.08}
-  m_SizeDelta: {x: 181.42, y: 171.74}
+  m_AnchoredPosition: {x: 78.1817, y: 196.25}
+  m_SizeDelta: {x: 156.3654, y: 37.409}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &792798985
 MonoBehaviour:
@@ -938,7 +938,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'scores
+  m_text: 'Score
 
     -
 
@@ -973,14 +973,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1060,7 +1060,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 299.52026, y: -156}
+  m_AnchoredPosition: {x: 299.52026, y: -121.0943}
   m_SizeDelta: {x: 271.41, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &822453747
@@ -1237,7 +1237,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0009765625, y: 4}
+  m_AnchoredPosition: {x: 0.0009765625, y: 0}
   m_SizeDelta: {x: -0.0020142, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &894189236
@@ -1315,7 +1315,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 299.51968, y: -231.9057}
+  m_AnchoredPosition: {x: 299.51968, y: -197}
   m_SizeDelta: {x: 271.4082, y: 74.5772}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &966988290
@@ -1659,7 +1659,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 2
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1738,7 +1738,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 299.48328, y: -34}
+  m_AnchoredPosition: {x: 299.48328, y: 41}
   m_SizeDelta: {x: 263.1613, y: 30.011}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1312936180
@@ -1763,8 +1763,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Your score
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 16f1904f09fdc20488909a5c8d22a2f6, type: 2}
-  m_sharedMaterial: {fileID: 6221865335473044257, guid: 16f1904f09fdc20488909a5c8d22a2f6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bece642698a50294b90f3abf6754ccdb, type: 2}
+  m_sharedMaterial: {fileID: -6370198302105046325, guid: bece642698a50294b90f3abf6754ccdb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1873,8 +1873,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36, y: 264}
-  m_SizeDelta: {x: 199.2822, y: 30.011}
+  m_AnchoredPosition: {x: -9.341, y: 255.5}
+  m_SizeDelta: {x: 246.6003, y: 30.011}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1449090573
 MonoBehaviour:
@@ -1896,10 +1896,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TOP PLAYERS
+  m_text: LEADERBOARD
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 16f1904f09fdc20488909a5c8d22a2f6, type: 2}
-  m_sharedMaterial: {fileID: 6221865335473044257, guid: 16f1904f09fdc20488909a5c8d22a2f6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bece642698a50294b90f3abf6754ccdb, type: 2}
+  m_sharedMaterial: {fileID: -6370198302105046325, guid: bece642698a50294b90f3abf6754ccdb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2008,8 +2008,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -90.708, y: 162.0787}
-  m_SizeDelta: {x: 181.42, y: 171.7326}
+  m_AnchoredPosition: {x: -90.519035, y: 196.25183}
+  m_SizeDelta: {x: 181.04, y: 37.4115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1768896132
 MonoBehaviour:
@@ -2031,7 +2031,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'names
+  m_text: 'Name
 
     -
 
@@ -2066,13 +2066,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -2151,7 +2151,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 299.48, y: -84}
+  m_AnchoredPosition: {x: 299.48, y: -9}
   m_SizeDelta: {x: 263.16, y: 51.4841}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2145479104
