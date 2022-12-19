@@ -113,6 +113,7 @@ MonoBehaviour:
   speed: 25
   angularVelocity: 0
   acceleration: 0
+  clampAcceleration: 0
   angularAcceleration: 0
   enablePendulumMotion: 0
   magnitude: 0
@@ -120,7 +121,7 @@ MonoBehaviour:
   phase: 0
   maxBaseDamage: 55
   baseDamageVariance: 0.2
-  baseCritChance: 0.2
+  baseCritChance: 0.1
   baseCritStrength: 1
   autoTarget: 1
   autoTargetRank: 2
@@ -186,6 +187,7 @@ MonoBehaviour:
   speed: 25
   angularVelocity: 0
   acceleration: 0
+  clampAcceleration: 0
   angularAcceleration: 0
   enablePendulumMotion: 0
   magnitude: 0
@@ -193,7 +195,7 @@ MonoBehaviour:
   phase: 0
   maxBaseDamage: 60
   baseDamageVariance: 0.2
-  baseCritChance: 0.2
+  baseCritChance: 0.1
   baseCritStrength: 1
   autoTarget: 1
   autoTargetRank: 1

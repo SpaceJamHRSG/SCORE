@@ -70,7 +70,7 @@ MonoBehaviour:
   phase: 0.5
   maxBaseDamage: 100
   baseDamageVariance: 0.3
-  baseCritChance: 0.1
+  baseCritChance: 0.05
   baseCritStrength: 1.2
   autoTarget: 0
   autoTargetRank: 0
@@ -204,7 +204,7 @@ MonoBehaviour:
   phase: 0.5
   maxBaseDamage: 80
   baseDamageVariance: 0.3
-  baseCritChance: 0.1
+  baseCritChance: 0.05
   baseCritStrength: 1.2
   autoTarget: 0
   autoTargetRank: 0
@@ -278,7 +278,7 @@ MonoBehaviour:
   phase: -0.5
   maxBaseDamage: 80
   baseDamageVariance: 0.3
-  baseCritChance: 0.1
+  baseCritChance: 0.05
   baseCritStrength: 1.2
   autoTarget: 0
   autoTargetRank: 0
@@ -352,7 +352,7 @@ MonoBehaviour:
   phase: 0.5
   maxBaseDamage: 100
   baseDamageVariance: 0.3
-  baseCritChance: 0.1
+  baseCritChance: 0.05
   baseCritStrength: 1.2
   autoTarget: 0
   autoTargetRank: 0
@@ -426,7 +426,7 @@ MonoBehaviour:
   phase: 0.5
   maxBaseDamage: 70
   baseDamageVariance: 0.3
-  baseCritChance: 0.1
+  baseCritChance: 0.05
   baseCritStrength: 1.2
   autoTarget: 0
   autoTargetRank: 0
@@ -500,7 +500,7 @@ MonoBehaviour:
   phase: -0.5
   maxBaseDamage: 70
   baseDamageVariance: 0.3
-  baseCritChance: 0.1
+  baseCritChance: 0.05
   baseCritStrength: 1.2
   autoTarget: 0
   autoTargetRank: 0
@@ -574,7 +574,7 @@ MonoBehaviour:
   phase: -0.5
   maxBaseDamage: 100
   baseDamageVariance: 0.3
-  baseCritChance: 0.1
+  baseCritChance: 0.05
   baseCritStrength: 1.2
   autoTarget: 0
   autoTargetRank: 0

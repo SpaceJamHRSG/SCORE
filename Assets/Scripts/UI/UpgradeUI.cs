@@ -16,6 +16,7 @@ namespace UI
         [SerializeField] private UpgradeSlotUI healthRestoreSlot;
 
         [SerializeField] private TooltipUI tooltip;
+        [SerializeField] private AudioClip popupClip;
 
         private void OnEnable()
         {
@@ -34,6 +35,8 @@ namespace UI
                 _ => Random.Range(2, 102)
             };
             tooltip.Display(disp);
+            
+            GameManager.Instance.Audio.PlayOneShot(popupClip);
         }
 
         private void OnDisable()

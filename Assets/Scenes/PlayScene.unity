@@ -258,6 +258,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 73489714}
     - target: {fileID: 3352391267808990676, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
+      propertyPath: popupClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 36d96ce6e33f7654a8d4014ac7035ccc, type: 3}
+    - target: {fileID: 3352391267808990676, guid: 156f9123bc1c9c741b6737e5b545b26d, type: 3}
       propertyPath: upgradeSystem
       value: 
       objectReference: {fileID: 1293835627}
@@ -4242,7 +4246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineTag: main
-  audio: {fileID: 8300000, guid: 2eb2c179b69a56b4facd055343c7882d, type: 3}
+  audio: {fileID: 8300000, guid: 36d96ce6e33f7654a8d4014ac7035ccc, type: 3}
   script: {fileID: 0}
   scriptField: BPM90 W2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 --- !u!82 &2092919312
