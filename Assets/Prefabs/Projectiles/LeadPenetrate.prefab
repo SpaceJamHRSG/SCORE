@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -527429212797823271}
   - component: {fileID: 811689640772730038}
   - component: {fileID: 7637695405800607507}
+  - component: {fileID: 1111236694746498509}
   m_Layer: 0
   m_Name: LeadPenetrate
   m_TagString: Untagged
@@ -87,6 +88,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Penetrate: 1
   impactParticles: {fileID: 7003774458252292295, guid: aeaf9188311c43e419af76fa3ece47f8, type: 3}
+--- !u!114 &1111236694746498509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8578026336686936173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b73e1ef48e42f99ad349f1f8b0da28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 7584728197255661258}
+  startDespawnAfter: 0.1
+  despawnDuration: 0.5
 --- !u!1 &8657666224186204285
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Security.Cryptography;
 using Core;
 using Entity;
 using UnityEngine;
@@ -16,6 +19,7 @@ namespace Projectiles
         private float _speed;
         private float _angularAcceleration;
         private float _angularVelocity;
+        private bool _clampAcceleration;
 
         private Func<float, float> SpeedFunction;
         private Func<float, float> AngularFunction;
@@ -29,6 +33,8 @@ namespace Projectiles
         private float _startingRotation;
         public Allegiance Allegiance { get; set; }
         public bool IsCritical { get; set; }
+
+        public float Speed => _speed;
 
         public bool Penetrate;
         [SerializeField] private GameObject impactParticles;
@@ -49,6 +55,7 @@ namespace Projectiles
             if (SpeedFunction == null)
             {
                 _speed += _acceleration * Time.deltaTime;
+                if (_clampAcceleration) _speed = Mathf.Max(_speed, 0);
             }
             else
             {
@@ -75,12 +82,13 @@ namespace Projectiles
             }
         }
 
-        public void SetParams(float speed, float acceleration = 0, float angular = 0, float angularAcceleration = 0)
+        public void SetParams(float speed, float acceleration = 0, float angular = 0, float angularAcceleration = 0, bool clampAcceleration = true)
         {
             _speed = speed;
             _acceleration = acceleration;
             _angularVelocity = angular;
             _angularAcceleration = angularAcceleration;
+            _clampAcceleration = clampAcceleration;
         }
 
         public void SetStartingRotation(float sr)
@@ -98,7 +106,7 @@ namespace Projectiles
             if (other.Allegiance == this.Allegiance) return;
             other.TakeDamage(Math.Max(damage, 1), IsCritical, impactParticles);
             if(!Penetrate)
-                Pooling.Instance.Despawn(_pooledObject);
+                Despawn();
         }
 
         public void SetSpeedOverTime(Func<float, float> speedFunction)
@@ -114,6 +122,11 @@ namespace Projectiles
         public void SetDamage(int d)
         {
             damage = d;
+        }
+
+        public void Despawn()
+        {
+            Pooling.Instance.Despawn(_pooledObject);
         }
     }
 }

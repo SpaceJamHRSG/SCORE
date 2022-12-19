@@ -19,6 +19,7 @@ namespace Projectiles
         [SerializeField] private float speed;
         [SerializeField] private float angularVelocity;
         [SerializeField] private float acceleration;
+        [SerializeField] private bool clampAcceleration;
         [SerializeField] private float angularAcceleration;
         [Space] [SerializeField] private bool enablePendulumMotion;
         [SerializeField] private float magnitude;
@@ -112,7 +113,7 @@ namespace Projectiles
 
             Projectile proj = Pooling.Instance.Spawn<Projectile>(projectilePrefab.gameObject, transform.position, transform.rotation);
             proj.SetStartingRotation(transform.rotation.eulerAngles.z);
-            proj.SetParams(speed, acceleration, angularVelocity, angularAcceleration);
+            proj.SetParams(speed, acceleration, angularVelocity, angularAcceleration, clampAcceleration);
             if (enablePendulumMotion)
             {
                 proj.SetAngularOverTime(t => MotionUtil.Pendulum(t, magnitude, swingSpeed, phase));
