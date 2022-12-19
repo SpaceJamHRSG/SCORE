@@ -49,9 +49,13 @@ public class GameManager : MonoBehaviour {
     private PlayerManager activePlayer;
 
     private bool _paused;
+    private AudioSource _audio;
+
+    public AudioSource Audio => _audio;
 
     private void Awake() {
         instance = this;
+        _audio = GetComponent<AudioSource>();
     }
 
     private void Start() {
