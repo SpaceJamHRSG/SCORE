@@ -37,6 +37,7 @@ namespace UI
             tooltip.Display(disp);
             
             GameManager.Instance.Audio.PlayOneShot(popupClip);
+            GameManager.Instance.DisablePausing();
         }
 
         private void OnDisable()
@@ -60,6 +61,7 @@ namespace UI
             gameObject.SetActive(false);
             enabled = false;
             upgradeSystem.InvokeClose();
+            GameManager.Instance.EnablePausing();
         }
 
         public void Refresh()

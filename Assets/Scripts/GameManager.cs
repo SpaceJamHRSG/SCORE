@@ -118,12 +118,13 @@ public class GameManager : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space))
         {
-            if (!_paused)
+            
+            if (!_paused && _canPause)
             {
                 Pause();
                 pauseScreen.gameObject.SetActive(true);
             }
-            else
+            else if (_canPause)
             {
                 Resume();
                 pauseScreen.gameObject.SetActive(false);
@@ -144,6 +145,12 @@ public class GameManager : MonoBehaviour {
         
     }
 
+    public void GoToMenu()
+    {
+        isGameOver = true;
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
+    }
+    
     public void EndGame() {
         // Game over
         //Time.timeScale = 0.0f;
@@ -173,4 +180,7 @@ public class GameManager : MonoBehaviour {
         _paused = false;
     }
 
+    private bool _canPause;
+    public void EnablePausing() => _canPause = true;
+    public void DisablePausing() => _canPause = false;
 }
