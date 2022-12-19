@@ -26,7 +26,7 @@ public class StartupScreen : MonoBehaviour {
 
         if (Input.anyKeyDown) {
             isKeyPressed = true;
-            currentTime = 0;
+            if (!isChanging) currentTime = 0;
         }
 
         if (isKeyPressed) {
@@ -44,7 +44,6 @@ public class StartupScreen : MonoBehaviour {
 
     void FadeOutImage() {
         float alpha = 1 - (currentTime / fadeDuration);
-        print(alpha);
         fadingImage.color = new Color(fadingImage.color.r, fadingImage.color.g, fadingImage.color.b, alpha);
     }
 
