@@ -15,12 +15,16 @@ namespace Entity
         [SerializeField] private float attractTimeSeconds;
         [SerializeField] private AnimationCurve attractionSpeedCurve;
         [SerializeField] private float attractionSpeedMax;
+        [SerializeField] private float lifetime;
         private Func<float, float> _speedFunction;
         private Transform _attractTo;
         private float _firstAttractTime;
         private float _currentSpeed;
 
         private bool _attracted;
+        private float _spawnTime;
+
+        public bool AboutToDespawn => Time.time - _spawnTime > lifetime * 0.8f;
 
         private PooledObject _pooledObject;
 
@@ -40,6 +44,7 @@ namespace Entity
             _attractTo = null;
             _attracted = false;
             _currentSpeed = 0;
+            _spawnTime = Time.time;
         }
 
         public void AttractTo(Transform p)
@@ -52,6 +57,7 @@ namespace Entity
 
         private void Update()
         {
+            if(Time.time - _spawnTime > lifetime && _attractTo == null) Pooling.Instance.Despawn(_pooledObject);
             if (_attractTo == null) return;
             _currentSpeed = _speedFunction(Time.time - _firstAttractTime);
             transform.position = Vector3.MoveTowards(transform.position, _attractTo.position, _currentSpeed * attractionSpeedMax * Time.deltaTime);

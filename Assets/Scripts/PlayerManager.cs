@@ -92,6 +92,7 @@ public class PlayerManager : MonoBehaviour
 
     // Player inventory
     [SerializeField] private List<Weapon> weapons = new List<Weapon>();
+    [SerializeField] private AnimationCurve levelToPickupRadius;
 
     private Rigidbody2D rigidbody;
     private BoxCollider2D _collider;
@@ -171,6 +172,7 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         _invulnTimer -= Time.deltaTime;
+        pickupRadius = levelToPickupRadius.Evaluate(_expLevelEntity.Level);
         
         if (!IsActive)
         {

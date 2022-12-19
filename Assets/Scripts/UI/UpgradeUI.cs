@@ -4,6 +4,7 @@ using Game;
 using TMPro;
 using UnityEngine;
 using UnityEngine.XR;
+using Random = UnityEngine.Random;
 
 namespace UI
 {
@@ -14,6 +15,8 @@ namespace UI
         [SerializeField] private TextMeshProUGUI levelTextField;
         [SerializeField] private UpgradeSlotUI healthRestoreSlot;
 
+        [SerializeField] private TooltipUI tooltip;
+
         private void OnEnable()
         {
             foreach (var s in upgradeSlots)
@@ -22,6 +25,15 @@ namespace UI
             }
 
             healthRestoreSlot.OnPress += HandleSelection;
+
+            int x = upgradeSystem.ActivePlayer.Level - 1;
+            int disp = x switch
+            {
+                2 => 0,
+                3 => 1,
+                _ => Random.Range(2, 102)
+            };
+            tooltip.Display(disp);
         }
 
         private void OnDisable()
