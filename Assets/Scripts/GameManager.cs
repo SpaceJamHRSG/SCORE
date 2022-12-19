@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour {
     private bool _paused;
     private AudioSource _audio;
 
+    private bool isGameOver;
+
     public AudioSource Audio => _audio;
 
     public float OverallGameSpeed = 1.2f;
@@ -63,6 +65,7 @@ public class GameManager : MonoBehaviour {
 
     private void Start() {
         Time.timeScale = OverallGameSpeed;
+        isGameOver = false;
 
         playerReference = Instantiate(playerPrefab, new Vector3(0,0,0), Quaternion.identity);
         activePlayer = playerReference.GetComponent<PlayerManager>();
@@ -109,7 +112,9 @@ public class GameManager : MonoBehaviour {
     private void Update() {
         survivalTime += Time.deltaTime;
         HUD.DisplayStats(activePlayer);
-        totalScore = (int) (survivalTime * 20) + gruntsDefeated * 50 + bossesDefeated * 500 + pointUpgrades * 5000;
+        if (!isGameOver) {
+            totalScore = (int)(survivalTime * 20) + gruntsDefeated * 50 + bossesDefeated * 500 + pointUpgrades * 5000;
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space))
         {
@@ -143,8 +148,9 @@ public class GameManager : MonoBehaviour {
         // Game over
         //Time.timeScale = 0.0f;
 
-        // TODO: leaderboard
-        gameOverScreen.SetActive(true);
+        //gameOverScreen.SetActive(true);
+        isGameOver = true;
+        SceneManager.LoadScene("PostPlayMenu", LoadSceneMode.Additive);
     }
 
     IEnumerator StartAfter(float t)
