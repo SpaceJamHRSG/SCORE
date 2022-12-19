@@ -60,5 +60,17 @@ namespace Music
             _targetVolume[mainAudio] = 0;
             _targetVolume[restAudio] = 1;
         }
+
+        public void PauseAllLines()
+        {
+            mainAudio.PauseAllLines();
+            restAudio.PauseAllLines();
+        }
+
+        public void ResumeAllLines()
+        {
+            mainAudio.PlayAllLines();
+            restAudio.PlayAllLines();
+        }
     }
 }

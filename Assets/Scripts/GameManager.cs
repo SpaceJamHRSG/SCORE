@@ -43,9 +43,12 @@ public class GameManager : MonoBehaviour {
     public RhythmManager rhythmManager;
     public GameObject gameOverScreen;
     public OverworldHUD HUD;
+    public Transform pauseScreen;
 
     private GameObject playerReference;
     private PlayerManager activePlayer;
+
+    private bool _paused;
 
     private void Awake() {
         instance = this;
@@ -86,6 +89,14 @@ public class GameManager : MonoBehaviour {
         HUD.DisplayStats(activePlayer);
         totalScore = (int) (survivalTime * 20) + gruntsDefeated * 50 + bossesDefeated * 500 + pointUpgrades * 5000;
 
+        if (Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.Space))
+        {
+            if(_paused)
+                Pause();
+            else
+                Resume();
+        }
+
         foreach (var w in activePlayer.Weapons)
         {
             if (w.HasThisWeapon)
@@ -112,6 +123,22 @@ public class GameManager : MonoBehaviour {
     {
         yield return new WaitForSeconds(t);
         rhythmManager.StartMainAudio();
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        rhythmManager.PauseAllLines();
+        pauseScreen.gameObject.SetActive(true);
+        _paused = true;
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1;
+        rhythmManager.ResumeAllLines();
+        pauseScreen.gameObject.SetActive(false);
+        _paused = false;
     }
 
 }
