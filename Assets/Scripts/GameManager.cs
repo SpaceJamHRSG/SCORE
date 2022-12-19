@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour {
 
         ExpLevelEntity.OnLevelUp += (i, e) =>
         {
+            Pause();
             upgradeSystem.OpenUpgradeScreen(2);
             rhythmManager.FadeToRestAudio();
             EnemyGruntController.IsActive = false;
@@ -93,7 +94,7 @@ public class GameManager : MonoBehaviour {
         HUD.DisplayStats(activePlayer);
         totalScore = (int) (survivalTime * 20) + gruntsDefeated * 50 + bossesDefeated * 500 + pointUpgrades * 5000;
 
-        if (Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space))
         {
             if (!_paused)
             {

@@ -52,7 +52,8 @@ namespace Game
                     return $"Increases your damage by {Math.Round(_val * 100)}%";
                 case StatType.HP:
                     return $"Increases your HP by {Math.Round(_val * 100)}%";
-                    break;
+                case StatType.CritChance:
+                    return $"Increases your crit rate by {Math.Round(_val * 100)}%";
                 default:
                     throw new ArgumentException();
             }
