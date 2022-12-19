@@ -202,7 +202,7 @@ MonoBehaviour:
   magnitude: 15
   swingSpeed: 18
   phase: 0.5
-  maxBaseDamage: 70
+  maxBaseDamage: 80
   baseDamageVariance: 0.3
   baseCritChance: 0.1
   baseCritStrength: 1.2
@@ -276,7 +276,7 @@ MonoBehaviour:
   magnitude: 15
   swingSpeed: 18
   phase: -0.5
-  maxBaseDamage: 70
+  maxBaseDamage: 80
   baseDamageVariance: 0.3
   baseCritChance: 0.1
   baseCritStrength: 1.2

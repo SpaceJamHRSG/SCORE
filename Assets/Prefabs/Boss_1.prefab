@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: -4780028898567870559}
   - component: {fileID: 8449070697340768488}
   - component: {fileID: -3341372661796139107}
+  - component: {fileID: 43939832709945850}
   m_Layer: 0
   m_Name: Boss_1
   m_TagString: Untagged
@@ -115,7 +116,7 @@ Transform:
   m_GameObject: {fileID: 7599684439502406146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3056577217726738822}
@@ -254,6 +255,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hitPrefabDefault: {fileID: 0}
+--- !u!114 &43939832709945850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7599684439502406146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28dbec0cef3b479da02e2e1118794914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprite: {fileID: 2626295084119411362}
+  _spriteSheetMovement:
+  - {fileID: -2072043000, guid: 4034e534f823a31469211f13b7a06194, type: 3}
+  - {fileID: -1209293585, guid: 4034e534f823a31469211f13b7a06194, type: 3}
+  _spriteSheetIdle: []
+  _animationSpeedSeconds: 0
+  _mouseFallBack: 0
 --- !u!1 &8767450634701996306
 GameObject:
   m_ObjectHideFlags: 0

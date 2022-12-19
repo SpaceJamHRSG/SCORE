@@ -93,6 +93,12 @@ public class EnemyDirector : MonoBehaviour {
             }
 
             yield return new WaitForSeconds(bossSpawnInterval);
+            
+            if (!IsActive)
+            {
+                yield return null;
+                continue;
+            }
 
             if (spawnedEnemies.Count < maxEnemies) {
 

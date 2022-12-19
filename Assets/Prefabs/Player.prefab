@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
-  god: 0
+  god: 1
   allegiance: 0
   damageNumberUI: {fileID: 0}
 --- !u!114 &4357353951405691304
