@@ -14,19 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineName: lead
   weaponLevels:
-  - projectile: {fileID: 7637695405800607507, guid: 0f189b57e28019b4fa91da8c133f039e, type: 3}
+  - projectile: {fileID: 7637695405800607507, guid: b5943120d9f02b3428e4b8089dae33c1, type: 3}
     level: 1
     shooter: {fileID: 5094349859902338873, guid: 2d85dc80e287b0c459c28da83a3bbdc0, type: 3}
     upgradeName: NEW WEAPON
     upgradeDescription: LEAD!
     image: {fileID: 21300000, guid: 628432639bc3a0a40a583ada84118769, type: 3}
-  - projectile: {fileID: 7637695405800607507, guid: 0f189b57e28019b4fa91da8c133f039e, type: 3}
+  - projectile: {fileID: 7637695405800607507, guid: b5943120d9f02b3428e4b8089dae33c1, type: 3}
     level: 2
     shooter: {fileID: 5094349859902338873, guid: 8c10ec05d0d349d44a4478275ab1370b, type: 3}
     upgradeName: UPGRADE
     upgradeDescription: BETTER LEAD!
     image: {fileID: 21300000, guid: 628432639bc3a0a40a583ada84118769, type: 3}
-  - projectile: {fileID: 7637695405800607507, guid: 0f189b57e28019b4fa91da8c133f039e, type: 3}
+  - projectile: {fileID: 7637695405800607507, guid: b5943120d9f02b3428e4b8089dae33c1, type: 3}
     level: 3
     shooter: {fileID: 5094349859902338873, guid: 607e848d050b4054bad5296b0244e981, type: 3}
     upgradeName: MASTERY

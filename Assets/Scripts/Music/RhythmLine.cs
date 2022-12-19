@@ -43,6 +43,7 @@ namespace Music
         {
             //DebugParser();
             //ParseOnSpacePressed();
+            //SkipOnQPressed();
             if (_parsed)
             {
                 CheckInstructions();
@@ -143,7 +144,14 @@ namespace Music
                 }
             }
         }
-        
+
+        private void SkipOnQPressed()
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                _audioSource.time = 180;
+            }
+        }
         private void ParseOnSpacePressed()
         {
             if (Input.GetKeyDown(KeyCode.Space))

@@ -14,19 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineName: drums
   weaponLevels:
-  - projectile: {fileID: 7637695405800607507, guid: b5943120d9f02b3428e4b8089dae33c1, type: 3}
+  - projectile: {fileID: 7637695405800607507, guid: 9a21487f577ad894791a356521a4e63f, type: 3}
     level: 1
     shooter: {fileID: 5094349859902338873, guid: 7f9e8f7d6638cfe419c3956a2dff3344, type: 3}
     upgradeName: NEW WEAPON
     upgradeDescription: DRUMS!
     image: {fileID: 21300000, guid: 31da9b638fecbf5438a9c0faa93853e2, type: 3}
-  - projectile: {fileID: 7637695405800607507, guid: b5943120d9f02b3428e4b8089dae33c1, type: 3}
+  - projectile: {fileID: 7637695405800607507, guid: 9a21487f577ad894791a356521a4e63f, type: 3}
     level: 2
     shooter: {fileID: 5094349859902338873, guid: e7771bf5f3d5c0d40827e488201f5043, type: 3}
     upgradeName: UPGRADE
     upgradeDescription: BETTER DRUMS!
     image: {fileID: 21300000, guid: 31da9b638fecbf5438a9c0faa93853e2, type: 3}
-  - projectile: {fileID: 7637695405800607507, guid: b5943120d9f02b3428e4b8089dae33c1, type: 3}
+  - projectile: {fileID: 7637695405800607507, guid: 9a21487f577ad894791a356521a4e63f, type: 3}
     level: 3
     shooter: {fileID: 5094349859902338873, guid: ed464cbeaefd58e43bac2d903d70c1e9, type: 3}
     upgradeName: MASTERY

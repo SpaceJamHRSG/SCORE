@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -527429212797823271}
   - component: {fileID: 811689640772730038}
   - component: {fileID: 7637695405800607507}
+  - component: {fileID: 14577444198263305}
   m_Layer: 0
   m_Name: Drums
   m_TagString: Untagged
@@ -59,7 +60,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.47, y: 4.96}
   m_EdgeRadius: 0
 --- !u!114 &811689640772730038
 MonoBehaviour:
@@ -87,6 +88,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Penetrate: 1
   impactParticles: {fileID: 7003774458252292295, guid: aeaf9188311c43e419af76fa3ece47f8, type: 3}
+--- !u!114 &14577444198263305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8578026336686936173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b73e1ef48e42f99ad349f1f8b0da28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 7584728197255661258}
+  startDespawnAfter: 0.1
+  despawnDuration: 0.5
 --- !u!1 &8657666224186204285
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,8 +176,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.24065505, g: 0.29604658, b: 0.6132076, a: 1}
+  m_Sprite: {fileID: 21300000, guid: fb19f85355d41594cb493c32395f51e4, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
