@@ -35,6 +35,9 @@ public class PlayerManager : MonoBehaviour
     private System.Random random;
 
     public List<Weapon> Weapons => weapons;
+    public float InvulnerabilitySeconds;
+    private bool _isInvulnerable;
+    private float _invulnTimer;
 
     public int MaxHealth
     {
@@ -98,6 +101,8 @@ public class PlayerManager : MonoBehaviour
     
     private void OnTakeHit(int dmg, bool crit, HealthEntity entity, GameObject impactParticles)
     {
+        if (_invulnTimer > 0) return;
+        _invulnTimer = InvulnerabilitySeconds;
         if (entity.gameObject.Equals(this.gameObject))
         {
             if (dmg <= 0) return;
@@ -157,6 +162,8 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
+        _invulnTimer -= Time.deltaTime;
+        
         if (!IsActive)
         {
             rigidbody.velocity = Vector2.zero;
@@ -192,6 +199,7 @@ public class PlayerManager : MonoBehaviour
         return false;
     }
 
+    [SerializeField] private int explosionDamage = 99999;
     private void LoseRandomWeapon()
     {
         int recurse = 0;
@@ -204,9 +212,21 @@ public class PlayerManager : MonoBehaviour
             toLose = weapons[oneToThree];
             recurse++;
         }
-
+        
         Instantiate(weaponDestroyFX, transform.position, transform.rotation);
+        RadialExplosion();
         toLose.RemoveWeapon();
+    }
+
+    private void RadialExplosion()
+    {
+        Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, 20);
+        foreach (var h in hit)
+        {
+            HealthEntity he = h.gameObject.GetComponent<HealthEntity>();
+            if (he == null || he.Allegiance == _healthEntity.Allegiance) continue;
+            he.TakeDamage(explosionDamage, true, null);
+        }
     }
 
     public void GrantWeaponLevel(WeaponDefinition wep, int lvl)

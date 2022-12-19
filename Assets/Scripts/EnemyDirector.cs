@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Entity;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -76,6 +77,7 @@ public class EnemyDirector : MonoBehaviour {
 
                 GameObject newEnemy = Instantiate(gruntPrefabs[Random.Range(0, gruntPrefabs.Length)], spawnPoint, Quaternion.identity);
                 EnemyGruntController controller = newEnemy.GetComponent<EnemyGruntController>();
+                newEnemy.GetComponent<Entity.HealthEntity>().Allegiance = Allegiance.Enemy;
                 controller.MovementSpeed = enemyMovementSpeed;
                 controller.SetDirector(this);
                 spawnedEnemies.Add(newEnemy);
@@ -112,6 +114,7 @@ public class EnemyDirector : MonoBehaviour {
                 GameObject newEnemy = Instantiate(bossPrefabs[Random.Range(0, gruntPrefabs.Length)], spawnPoint, Quaternion.identity);
                 EnemyBossController controller = newEnemy.GetComponent<EnemyBossController>();
                 controller.MovementSpeed = enemyMovementSpeed / 3;
+                newEnemy.GetComponent<Entity.HealthEntity>().Allegiance = Allegiance.Enemy;
                 controller.SetDirector(this);
                 spawnedEnemies.Add(newEnemy);
             }

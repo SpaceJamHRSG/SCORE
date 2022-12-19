@@ -18,13 +18,18 @@ namespace Entity
 
         [SerializeField] private int maxHealth;
         [SerializeField] private bool god;
-        
+
         public bool Invulnerable { get; set; }
         private int _health;
 
         [SerializeField] private Allegiance allegiance;
         [Space] [SerializeField] private DamageNumberUI damageNumberUI;
-        public Allegiance Allegiance => allegiance;
+
+        public Allegiance Allegiance
+        {
+            get => allegiance;
+            set => allegiance = value;
+        }
         public DamageNumberUI DamageNumberUI => damageNumberUI;
         private bool _isDead;
 
